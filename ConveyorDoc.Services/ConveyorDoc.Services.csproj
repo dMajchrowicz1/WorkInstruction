@@ -1,0 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Dapper" Version="2.0.151" />
+    <PackageReference Include="Slapper.AutoMapper" Version="2.0.5" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ConveyorDoc.Business\ConveyorDoc.Business\ConveyorDoc.Business.csproj" />
+    <ProjectReference Include="..\ConveyorDoc.Core\ConveyorDoc.Core.csproj" />
+  </ItemGroup>
+
+</Project>

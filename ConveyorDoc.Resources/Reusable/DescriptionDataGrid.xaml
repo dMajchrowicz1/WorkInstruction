@@ -1,0 +1,155 @@
+﻿<UserControl x:Class="ConveyorDoc.Resources.Reusable.DescriptionDataGrid"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:properties="clr-namespace:ConveyorDoc.Resources.Properties;assembly=ConveyorDoc.Resources"
+             xmlns:local="clr-namespace:ConveyorDoc.Resources.Reusable"
+             xmlns:ui="http://schemas.modernwpf.com/2019">
+          
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="80" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="40" />
+        </Grid.RowDefinitions>
+
+        <!--#region Filters-->
+        <ui:SimpleStackPanel
+            Margin="{DynamicResource SmallMargin}"
+            VerticalAlignment="Bottom"
+            Orientation="Horizontal"
+            Spacing="5">
+
+
+            <ComboBox
+                Width="247"
+                ui:ControlHelper.CornerRadius="{DynamicResource SmallCornerRadius}"
+                ui:ControlHelper.Header="{x:Static properties:Resources.ModuleType}"
+                IsEditable="True"
+                ItemsSource="{Binding Filters.ModuleTypes}"
+                Text="{Binding Filter.ModuleType, UpdateSourceTrigger=PropertyChanged}" />
+
+            <ComboBox
+                x:Name="MachineFilter"
+                Width="130"
+                ui:ControlHelper.CornerRadius="{DynamicResource SmallCornerRadius}"
+                ui:ControlHelper.Header="{x:Static properties:Resources.Machine}"
+                IsEditable="True"
+                ItemsSource="{Binding Filters.Machines}"
+                Text="{Binding Filter.Machine, UpdateSourceTrigger=PropertyChanged}" />
+
+            <ComboBox
+                Width="130"
+                Height="55"
+                VerticalAlignment="Top"
+                IsEditable="True"
+                ui:ControlHelper.CornerRadius="{DynamicResource SmallCornerRadius}"
+                ui:ControlHelper.Header="{x:Static properties:Resources.Size}"
+                ItemsSource="{Binding Filters.Sizes}"
+                Text="{Binding Filter.Size, UpdateSourceTrigger=PropertyChanged}" />
+
+            <TextBox
+                Width="130"
+                Height="55"
+                VerticalAlignment="Top"
+                ui:ControlHelper.CornerRadius="{DynamicResource SmallCornerRadius}"
+                ui:ControlHelper.Header="{x:Static properties:Resources.Operation}"
+                Text="{Binding Filter.OperationNumber, UpdateSourceTrigger=PropertyChanged}" />
+        </ui:SimpleStackPanel>
+        <!--#endregion-->
+
+        <!--  DataGrid  -->
+        <DataGrid
+            x:Name="_DataGrid"
+            Grid.Row="1"
+            Margin="{DynamicResource SmallLeftRightMargin}"
+            AllowDrop="False"
+            AlternatingRowBackground="{DynamicResource DataGridAccentLowBrush}"
+            AutoGenerateColumns="False"
+            Background="Transparent"
+            BorderBrush="{DynamicResource SystemControlBackgroundChromeMediumBrush}"
+            RowDetailsVisibilityMode="{Binding  DataContext.ShowDetails, Converter={StaticResource BoolToRowDetails}}"
+            BorderThickness="1"
+            CanUserAddRows="False"
+            CanUserReorderColumns="False"
+            EnableColumnVirtualization="True"
+            EnableRowVirtualization="True"
+            FlowDirection="LeftToRight"
+            HeadersVisibility="Column"
+            ItemsSource="{Binding ViewModelBase.DescriptionCollection}"
+            RowHeight="25"
+            SelectionMode="Single"
+            SelectionUnit="FullRow"
+            SelectedItem="{Binding ViewModelBase.SelectedDescription}">
+
+            <DataGrid.Resources>
+                <ui:BindingProxy  x:Key="DataGridProxy" Value="{Binding ElementName=_DataGrid}" />
+            </DataGrid.Resources>
+
+            <DataGrid.Columns>
+                <DataGridTextColumn
+                    Width="250"
+                    Header="{x:Static properties:Resources.ModuleType}"
+                    Binding="{Binding ModuleType}" />
+                <DataGridTextColumn
+                    Width="130"
+                    Header="{x:Static properties:Resources.Machine}"
+                    Binding="{Binding Machine}" />
+                <DataGridTextColumn
+                    Width="130"
+                    Binding="{Binding Size}"
+                    Header="{x:Static properties:Resources.Size}" />
+                <DataGridTextColumn
+                    Width="130"
+                    Binding="{Binding OperationNumber}"
+                    Header="{x:Static properties:Resources.Operation}"/>
+            </DataGrid.Columns>
+            <DataGrid.RowStyle>
+                <Style TargetType="{x:Type DataGridRow}">
+                    <Setter Property="Visibility" Value="{Binding Visibility}"/>
+                    <Setter Property="ContextMenu">
+                        <Setter.Value>
+                            <ContextMenu>
+                                <MenuItem
+                                    Command="{Binding Source={StaticResource DataGridProxy}, Path=Data.CloseRowDetailsCommand}"
+                                    CommandParameter="{Binding Source={StaticResource _DataGrid}, Path=Data}"
+                                    Header="{x:Static properties:Resources.Hide}">
+                                    <MenuItem.Icon>
+                                        <ui:FontIcon Glyph="&#xED1A;" />
+                                    </MenuItem.Icon>
+                                </MenuItem>
+                            </ContextMenu>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </DataGrid.RowStyle>
+            <DataGrid.RowDetailsTemplate>
+                <DataTemplate>
+                    <ui:SimpleStackPanel Orientation="Vertical" Margin="{DynamicResource SmallMargin}">
+                        <TextBox
+                            Margin="{DynamicResource SmallMargin}"
+                            ui:ControlHelper.CornerRadius="{DynamicResource SmallCornerRadius}"
+                            ui:ControlHelper.Header="{x:Static properties:Resources.Description}"
+                            AcceptsReturn="True"
+                            AcceptsTab="True"
+                            Text="{Binding Text, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                            TextWrapping="Wrap" />
+                    </ui:SimpleStackPanel>
+
+                </DataTemplate>
+            </DataGrid.RowDetailsTemplate>
+        </DataGrid>
+
+
+        <!--  Info bar  -->
+        <TextBlock
+            Grid.Row="2"
+            Margin="{DynamicResource SmallMargin}"
+            Style="{DynamicResource BaseTextBlockStyle}"
+            Text="{Binding ViewModelBase.DescriptionCollection.Count, StringFormat=Total Records:{0}}" />
+
+
+    </Grid>
+</UserControl>

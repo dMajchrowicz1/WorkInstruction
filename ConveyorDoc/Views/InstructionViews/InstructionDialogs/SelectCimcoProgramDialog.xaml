@@ -1,0 +1,29 @@
+﻿<UserControl
+    x:Class="ConveyorDoc.Views.InstructionViews.SelectCimcoProgramDialog"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:custom="clr-namespace:ConveyorDoc.Resources.Custom;assembly=ConveyorDoc.Resources"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
+    xmlns:local="clr-namespace:ConveyorDoc.Views.InstructionViews"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:prism="http://prismlibrary.com/"
+    xmlns:resx="clr-namespace:ConveyorDoc.Resources.Properties;assembly=ConveyorDoc.Resources"
+    xmlns:ui="http://schemas.modernwpf.com/2019"
+    x:Name="_AddByCimcoDialog"
+    prism:ViewModelLocator.AutoWireViewModel="True">
+
+
+    <ui:ListView ItemsSource="{Binding ModulePrograms}" 
+                 SelectionMode="Multiple" 
+                 ItemContainerStyle="{StaticResource ItemContainerStyle}">
+        <ui:ListView.ItemTemplate>
+            <DataTemplate>
+                <custom:ToggleSwitchCustom Content="{Binding ProgramNumber}" 
+                              Style="{StaticResource ToogleSwitch}" 
+                              IsChecked="{Binding IsSelected}"
+                              Icon="pack://application:,,,/ConveyorDoc;component/Assets/NcProgram/app_nc_process_doc_large.png"/>
+            </DataTemplate>
+        </ui:ListView.ItemTemplate>
+    </ui:ListView>
+</UserControl>

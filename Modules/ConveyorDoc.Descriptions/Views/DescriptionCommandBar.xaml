@@ -1,0 +1,46 @@
+﻿<ui:CommandBar
+    x:Class="ConveyorDoc.Descriptions.Views.DescriptionCommandBar"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:ConveyorDoc.Descriptions.Views"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:properties="clr-namespace:ConveyorDoc.Resources.Properties;assembly=ConveyorDoc.Resources"
+    xmlns:ui="http://schemas.modernwpf.com/2019"
+    xmlns:filter="clr-namespace:ConveyorDoc.Descriptions.Views.Dialogs"
+    xmlns:prism="http://prismlibrary.com/"
+    HorizontalAlignment="Left"
+    Background="Transparent"
+    prism:ViewModelLocator.AutoWireViewModel="True">
+
+    <ui:AppBarButton
+        Command="{Binding Commands.AddDescriptionCommand}"
+        Icon="Add"
+        Label="{x:Static properties:Resources.Add}"/>
+    <ui:AppBarButton 
+        Command="{Binding Commands.DeleteDescriptionCommand}"
+        CommandParameter="{Binding ViewModelBase.SelectedDescription}"
+        IsEnabled="{Binding ViewModelBase.SelectedDescription, Converter={StaticResource NullToBool}}"
+        Icon="Remove" 
+        Label="{x:Static properties:Resources.Remove}"/>
+    <ui:AppBarButton 
+        Command="{Binding Commands.UpdateDescriptionCommand}"
+        CommandParameter="{Binding ViewModelBase.SelectedDescription}"
+        IsEnabled="{Binding ViewModelBase.SelectedDescription, Converter={StaticResource NullToBool}}"
+        Icon="Save" 
+        Label="{x:Static properties:Resources.Save}"/>
+    <ui:AppBarButton 
+        Command="{Binding Commands.RefreshListCommand}"
+        Icon="Refresh" 
+        Label="{x:Static properties:Resources.Reload}"/>
+    <ui:AppBarButton 
+        Icon="Filter" 
+        Label="{x:Static properties:Resources.Filters}">
+        <ui:AppBarButton.Flyout>
+            <ui:Flyout Placement="Bottom">
+                <local:DescriptionFilters/>
+            </ui:Flyout>
+        </ui:AppBarButton.Flyout>
+    </ui:AppBarButton>
+</ui:CommandBar>
+

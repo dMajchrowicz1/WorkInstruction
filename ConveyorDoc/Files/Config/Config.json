@@ -1,0 +1,14 @@
+{
+  "General": {
+    "WindowsWidth": 1200,
+    "WindowsHeight": 800,
+    "AppColor": "#FF0066FF",
+    "ThemeName": 0,
+    "Language": "pl-PL"
+  },
+  "DirectoriesSettings": {
+    "DrawingTemplatesDir": "",
+    "FixturesWorkspaceDir": ""
+  },
+  "InstructionSettings": { "GenerateDetailedTools": false }
+}

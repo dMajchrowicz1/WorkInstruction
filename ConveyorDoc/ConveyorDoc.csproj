@@ -1,0 +1,242 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows10.0.18362.0</TargetFramework>
+    <UseWPF>true</UseWPF>
+	<PlatformTarget>x86</PlatformTarget>
+	<UseWindowsForms>true</UseWindowsForms>
+    <ApplicationIcon>Assets\appLogo96.ico</ApplicationIcon>
+    <NeutralLanguage>en-GB</NeutralLanguage>
+	<SatelliteResourceLanguages>en</SatelliteResourceLanguages>
+	<SatelliteResourceLanguages>pl</SatelliteResourceLanguages>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Remove="Properties\**" />
+    <EmbeddedResource Remove="Properties\**" />
+    <None Remove="Properties\**" />
+    <Page Remove="Properties\**" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="Assets\appLogo96.png" />
+    <None Remove="Assets\ConveyorModule.png" />
+    <None Remove="Assets\Fixtures\pipeline_drawing_large.png" />
+    <None Remove="Assets\icons-warning-100.png" />
+    <None Remove="Assets\Message\icons8-about-48.png" />
+    <None Remove="Assets\Message\icons8-cancel-48.png" />
+    <None Remove="Assets\Message\icons8-medium-risk-48.png" />
+    <None Remove="Assets\Message\icons8-ok-48.png" />
+    <None Remove="Assets\NcProgram\app_nc_process_doc_large.png" />
+    <None Remove="Assets\Tools\nc_probe.png" />
+    <None Remove="Assets\Tools\nc_tool_backspot_20.png" />
+    <None Remove="Assets\Tools\nc_tool_ballmill_20.png" />
+    <None Remove="Assets\Tools\nc_tool_boringbar_20.png" />
+    <None Remove="Assets\Tools\nc_tool_boring_20.png" />
+    <None Remove="Assets\Tools\nc_tool_bullmill_20.png" />
+    <None Remove="Assets\Tools\nc_tool_centerdrill_20.png" />
+    <None Remove="Assets\Tools\nc_tool_chamfer_20.png" />
+    <None Remove="Assets\Tools\nc_tool_corner_round_20.png" />
+    <None Remove="Assets\Tools\nc_tool_csink_20.png" />
+    <None Remove="Assets\Tools\nc_tool_drilling_20.png" />
+    <None Remove="Assets\Tools\nc_tool_drill_20.png" />
+    <None Remove="Assets\Tools\nc_tool_endmill_20.png" />
+    <None Remove="Assets\Tools\nc_tool_groove_20.png" />
+    <None Remove="Assets\Tools\nc_tool_keycutter_20.png" />
+    <None Remove="Assets\Tools\nc_tool_lollipop_20.png" />
+    <None Remove="Assets\Tools\nc_tool_milling_20.png" />
+    <None Remove="Assets\Tools\nc_tool_plungemill_20.png" />
+    <None Remove="Assets\Tools\nc_tool_reamer_20.png" />
+    <None Remove="Assets\Tools\nc_tool_sidecutter_20.png" />
+    <None Remove="Assets\Tools\nc_tool_spotdrill_20.png" />
+    <None Remove="Assets\Tools\nc_tool_taper_20.png" />
+    <None Remove="Assets\Tools\nc_tool_taper_ball_20.png" />
+    <None Remove="Assets\Tools\nc_tool_tap_20.png" />
+    <None Remove="Assets\Tools\nc_tool_threadmill_20.png" />
+    <None Remove="Assets\Tools\nc_tool_turngroove_20.png" />
+    <None Remove="Assets\Tools\nc_tool_turn_20.png" />
+    <None Remove="Assets\Tools\nc_tool_wedmcontour_20.png" />
+    <None Remove="Assets\TreeView\icons8-microsoft-word-2019-48.png" />
+    <None Remove="Assets\TreeView\icons8-new-document-48.png" />
+    <None Remove="Assets\TreeView\icons8-pdf-48.png" />
+    <None Remove="Assets\TreeView\icons8-services-48.png" />
+    <None Remove="Assets\TreeView\icons8-tools-48.png" />
+    <None Remove="Assets\TreeView\icons8-variable-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Assets\appLogo96.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\App.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="DocumentFormat.OpenXml" Version="2.20.0" />
+    <PackageReference Include="MahApps.Metro" Version="2.4.10" />
+    <PackageReference Include="ModernWpfUI" Version="0.9.6" />
+    <PackageReference Include="ModernWpfUI.MahApps" Version="0.9.5" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="Prism.Unity" Version="8.1.97" />
+    <PackageReference Include="Prism.Validation" Version="1.3.0" />
+    <PackageReference Include="System.Data.SqlClient" Version="4.8.5" />
+    <PackageReference Include="ToastNotifications" Version="2.5.1" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\appLogo96.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\ConveyorModule.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\Fixtures\pipeline_drawing_large.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\icons-warning-100.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\Message\icons8-about-48.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\Message\icons8-cancel-48.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\Message\icons8-medium-risk-48.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\Message\icons8-ok-48.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\NcProgram\app_nc_process_doc_large.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\Tools\nc_probe.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\Tools\nc_tool_backspot_20.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\Tools\nc_tool_ballmill_20.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\Tools\nc_tool_boringbar_20.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\Tools\nc_tool_boring_20.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\Tools\nc_tool_bullmill_20.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\Tools\nc_tool_centerdrill_20.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\Tools\nc_tool_chamfer_20.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\Tools\nc_tool_corner_round_20.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\Tools\nc_tool_csink_20.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\Tools\nc_tool_drilling_20.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\Tools\nc_tool_drill_20.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\Tools\nc_tool_endmill_20.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\Tools\nc_tool_groove_20.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\Tools\nc_tool_keycutter_20.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\Tools\nc_tool_lollipop_20.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\Tools\nc_tool_milling_20.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\Tools\nc_tool_plungemill_20.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\Tools\nc_tool_reamer_20.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\Tools\nc_tool_sidecutter_20.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\Tools\nc_tool_spotdrill_20.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\Tools\nc_tool_taper_20.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\Tools\nc_tool_taper_ball_20.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\Tools\nc_tool_tap_20.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\Tools\nc_tool_threadmill_20.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\Tools\nc_tool_turngroove_20.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\Tools\nc_tool_turn_20.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\Tools\nc_tool_wedmcontour_20.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\TreeView\icons8-microsoft-word-2019-48.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\TreeView\icons8-new-document-48.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\TreeView\icons8-pdf-48.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\TreeView\icons8-services-48.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\TreeView\icons8-tools-48.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\TreeView\icons8-variable-48.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ConveyorDoc.Business\ConveyorDoc.Business\ConveyorDoc.Business.csproj" />
+    <ProjectReference Include="..\ConveyorDoc.Core\ConveyorDoc.Core.csproj" />
+    <ProjectReference Include="..\ConveyorDoc.Resources\ConveyorDoc.Resources.csproj" />
+    <ProjectReference Include="..\ConveyorDoc.Services\ConveyorDoc.Services.csproj" />
+    <ProjectReference Include="..\Modules\ConveyorDoc.Descriptions\ConveyorDoc.Descriptions.csproj" />
+    <ProjectReference Include="..\Modules\ConveyorDoc.Fixtures\ConveyorDoc.Fixtures.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Update="Files\Config\Config.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Files\Templates\OpenXML\DetailedToolHeaderTableRow.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Files\Templates\OpenXML\FixtureHeaderTableRow.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Files\Templates\OpenXML\StandardToolHeaderTableRow.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Files\Templates\OpenXML\Template.dotx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Files\Templates\Other\DescriptionTemplate.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+</Project>

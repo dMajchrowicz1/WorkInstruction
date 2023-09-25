@@ -1,0 +1,165 @@
+﻿<UserControl
+    x:Class="ConveyorDoc.Views.Reusable.ToolDataGrid"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
+    xmlns:Converters="clr-namespace:ConveyorDoc.Converters"
+    xmlns:local="clr-namespace:ConveyorDoc.Views.Reusable"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:prism="http://prismlibrary.com/"
+    xmlns:ui="http://schemas.modernwpf.com/2019"
+    xmlns:resx="clr-namespace:ConveyorDoc.Resources.Properties;assembly=ConveyorDoc.Resources"
+    x:Name="_ToolDataGrid"
+    d:DesignHeight="450"
+    d:DesignWidth="750"
+    mc:Ignorable="d">
+
+
+    <UserControl.Resources>
+        <Converters:ToolTypeToImageConverter x:Key="ToolTypeToImage"/>
+    </UserControl.Resources>
+
+
+
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="80" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="40" />
+        </Grid.RowDefinitions>
+
+
+        <!--  Filter Row  -->
+        <ui:SimpleStackPanel
+            Margin="{DynamicResource SmallMargin}"
+            Orientation="Horizontal"
+            VerticalAlignment="Bottom"
+            Spacing="5">
+            <ComboBox
+                x:Name="TypeFilter"
+                Width="120"
+                ui:ControlHelper.CornerRadius="{DynamicResource SmallCornerRadius}"
+                ui:ControlHelper.Header="{x:Static resx:Resources.Type}"
+                IsEditable="True"
+                ItemsSource="{Binding Types}"
+                Text="{Binding Filter.Type, UpdateSourceTrigger=PropertyChanged}" />
+
+            <ComboBox
+                x:Name="OffsetFilter"
+                Width="100"
+                Height="55"
+                VerticalAlignment="Top"
+                IsEditable="True"
+                ui:ControlHelper.CornerRadius="{DynamicResource SmallCornerRadius}"
+                ui:ControlHelper.Header="{x:Static resx:Resources.Offset}"
+                ItemsSource="{Binding Offsets}"
+                Text="{Binding Filter.Offset, UpdateSourceTrigger=PropertyChanged}" />
+
+            <ComboBox
+                x:Name="MachineFilter"
+                Width="100"
+                ui:ControlHelper.CornerRadius="{DynamicResource SmallCornerRadius}"
+                ui:ControlHelper.Header="{x:Static resx:Resources.Machine}"
+                IsEditable="True"
+                ItemsSource="{Binding Machines}"
+                Text="{Binding Filter.Machine, UpdateSourceTrigger=PropertyChanged}" />
+        </ui:SimpleStackPanel>
+
+
+        <!--  DataGrid  -->
+        <DataGrid
+            x:Name="ToolsGridView"
+            Grid.Row="1"
+            Margin="{DynamicResource SmallLeftRightMargin}"
+            AllowDrop="False"
+            Height="400"
+            AlternatingRowBackground="{DynamicResource SystemControlBackgroundChromeBlackLowBrush}"
+            AutoGenerateColumns="False"
+            Background="Transparent"
+            BorderBrush="{DynamicResource SystemControlBackgroundChromeMediumBrush}"
+            BorderThickness="1"
+            CanUserAddRows="False"
+            CanUserReorderColumns="False"
+            EnableColumnVirtualization="True"
+            EnableRowVirtualization="True"
+            FlowDirection="LeftToRight"
+            HeadersVisibility="Column"
+            ItemsSource="{Binding Collection}"
+            SelectionMode="Single"
+            SelectionUnit="FullRow">
+
+
+            <DataGrid.Columns>
+                <DataGridCheckBoxColumn
+                    Width="60"
+                    Header="{x:Static resx:Resources.Select}"
+                    Binding="{Binding IsSelected}"
+                    IsReadOnly="False"/>
+
+                <DataGridTemplateColumn Header="{x:Static resx:Resources.PDF}" Width="50">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Command="{Binding ElementName=_ToolDataGrid, Path=DataContext.ReusableCommands.OpenPDFCommand}"
+                                    CommandParameter="{Binding PDF}"
+                                    Background="Transparent" HorizontalAlignment="Stretch">
+                                <Button.Content>
+                                    <Image Source="/Assets/Fixtures/pipeline_drawing_large.png" Width="20"/>
+                                </Button.Content>
+                            </Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+                <DataGridTemplateColumn Width="50" Header="{x:Static resx:Resources.Type}">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Image Width="20" Source="{Binding Type, Converter={StaticResource ToolTypeToImage}}" ToolTip="{Binding Type}"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTextColumn
+                    Width="70"
+                    Binding="{Binding Position}"
+                    Header="{x:Static resx:Resources.Position}"
+                    IsReadOnly="True"/>
+                <DataGridTextColumn
+                    Width="60"
+                    Binding="{Binding Offset}"
+                    Header="{x:Static resx:Resources.Offset}"
+                    IsReadOnly="True"/>
+                <DataGridTextColumn
+                    Width="75"
+                    Binding="{Binding Machine}"
+                    Header="{x:Static resx:Resources.Machine}"
+                    IsReadOnly="True"/>
+                <DataGridTextColumn
+                    Width="*"
+                    Binding="{Binding Name}"
+                    Header="{x:Static resx:Resources.Name}"
+                    IsReadOnly="True"/>
+            </DataGrid.Columns>
+
+
+
+            <DataGrid.RowStyle>
+                <Style TargetType="{x:Type DataGridRow}">
+                    <Setter Property="Visibility" Value="{Binding Visibility}"/>
+                    <Setter Property="Background" Value="{DynamicResource DataGridAccentLowBrush}"/>
+                </Style>
+            </DataGrid.RowStyle>
+        </DataGrid>
+
+
+        <!--  Info bar  -->
+        <TextBlock
+            Grid.Row="2"
+            Margin="{DynamicResource SmallMargin}"
+            Style="{DynamicResource BaseTextBlockStyle}"
+            Text="{Binding Collection.Count, StringFormat=Total Records:{0}}" />
+    </Grid>
+
+
+
+</UserControl>

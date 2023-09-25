@@ -1,0 +1,35 @@
+﻿<UserControl
+    x:Class="ConveyorDoc.Descriptions.Views.Dialogs.RemoveDoubleCheckDialog"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:ConveyorDoc.Descriptions.Views.Dialogs"
+    xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
+    xmlns:properties="clr-namespace:ConveyorDoc.Resources.Properties;assembly=ConveyorDoc.Resources"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:prism="http://prismlibrary.com/"
+    xmlns:ui="http://schemas.modernwpf.com/2019"
+    prism:ViewModelLocator.AutoWireViewModel="True">
+
+
+
+    <ui:SimpleStackPanel Orientation="Horizontal" Spacing="10">
+
+        <mah:Badged
+            BadgeFontSize="15"
+            Margin="15"
+            Style="{StaticResource BadgeWarningIcon}"
+            BadgePlacementMode="Left">
+
+
+
+        </mah:Badged>
+        <TextBlock
+            Grid.Column="1"
+            Style="{StaticResource BaseTextBlockStyle}"
+            Text="{x:Static properties:Resources.AreYouSureYouWantRemoveThisItem}"
+            VerticalAlignment="Center"
+            TextWrapping="Wrap" />
+    </ui:SimpleStackPanel>
+    
+</UserControl>

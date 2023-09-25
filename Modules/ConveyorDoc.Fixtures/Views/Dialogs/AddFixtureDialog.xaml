@@ -1,0 +1,78 @@
+﻿<UserControl x:Class="ConveyorDoc.Fixtures.Views.Dialogs.AddFixtureDialog"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:resuable="clr-namespace:ConveyorDoc.Fixtures.Views.Reusable"
+             xmlns:local="clr-namespace:ConveyorDoc.Fixtures.Views.Dialogs"
+             xmlns:ui="http://schemas.modernwpf.com/2019"
+             xmlns:properties="clr-namespace:ConveyorDoc.Resources.Properties;assembly=ConveyorDoc.Resources"
+             xmlns:prism="http://prismlibrary.com/"
+             prism:ViewModelLocator.AutoWireViewModel="True"
+             x:Name="_AddFixture">
+
+
+    <ui:SimpleStackPanel
+            Margin="{DynamicResource MediumMargin}"
+            Orientation="Vertical"
+            Spacing="10">
+
+
+        <TextBox
+                Width="{DynamicResource MediumWidth}"
+                HorizontalAlignment="Left"
+                ui:ControlHelper.Header="{x:Static properties:Resources.FixtureNumber}"
+                Text="{Binding Fixture.ItemNumber}" />
+
+        <ComboBox
+                Width="{DynamicResource MediumWidth}"
+                HorizontalAlignment="Left"
+                ui:ControlHelper.Header="{x:Static properties:Resources.Type}"
+                ItemsSource="{Binding ViewModelBase.Types}"
+                Text="{Binding Fixture.ItemType}"
+                IsEditable="True"/>
+        <ComboBox
+                Width="{DynamicResource MediumWidth}"
+                HorizontalAlignment="Left"
+                ui:ControlHelper.Header="{x:Static properties:Resources.Size}"
+                ItemsSource="{Binding ViewModelBase.Sizes}"
+                Text="{Binding Fixture.Size}"
+                IsEditable="True"/>
+        <ComboBox
+                Width="{DynamicResource MediumWidth}"
+                HorizontalAlignment="Left"
+                ui:ControlHelper.Header="{x:Static properties:Resources.Machine}"
+                ItemsSource="{Binding ViewModelBase.Machines}"
+                Text="{Binding Fixture.Machine}"
+                IsEditable="True"/>
+
+        <TextBox
+                Width="{DynamicResource MediumWidth}"
+                Height="100"
+                HorizontalAlignment="Left"
+                ui:ControlHelper.Header="{x:Static properties:Resources.Details}"
+                AcceptsReturn="True"
+                AcceptsTab="True"
+                Text="{Binding Fixture.Details}"
+                TextWrapping="Wrap" />
+        <StackPanel Orientation="Horizontal">
+            <TextBox
+                    x:Name="tbPDF"
+                    Width="580"
+                    HorizontalAlignment="Left"
+                    ui:ControlHelper.Header="PDF"
+                    Text="{Binding Fixture.PDF, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+
+
+            <Button
+                    Margin="{DynamicResource SmallLeftRightMargin}"
+                    VerticalAlignment="Bottom"
+                    Command="{Binding SearchCommand.FolderBrowseCommand}"
+                    CommandParameter="{Binding Fixture}"
+                    Content="{x:Static properties:Resources.Search}"
+                    Style="{DynamicResource AccentButtonStyle}" />
+
+        </StackPanel>
+    </ui:SimpleStackPanel>
+
+</UserControl>

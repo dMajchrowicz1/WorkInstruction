@@ -1,0 +1,59 @@
+﻿<UserControl x:Class="ConveyorDoc.Descriptions.Views.DescriptionFilters"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:ui="http://schemas.modernwpf.com/2019"
+             xmlns:properties="clr-namespace:ConveyorDoc.Resources.Properties;assembly=ConveyorDoc.Resources"
+             xmlns:local="clr-namespace:ConveyorDoc.Descriptions.Views"
+             xmlns:prism="http://prismlibrary.com/"
+             prism:ViewModelLocator.AutoWireViewModel="True">
+    <!--#region Filters-->
+    <ui:SimpleStackPanel
+            Margin="{DynamicResource SmallMargin}"
+            Orientation="Vertical"
+            Spacing="5">
+
+        <TextBlock
+            HorizontalAlignment="Center"
+            Style="{DynamicResource BaseTextBlockStyle}"
+            Text="Filters" />
+
+
+        <ComboBox
+                Width="247"
+                ui:ControlHelper.CornerRadius="{DynamicResource SmallCornerRadius}"
+                ui:ControlHelper.Header="{x:Static properties:Resources.ModuleType}"
+                IsEditable="True"
+                ItemsSource="{Binding ViewModelBase.ModuleTypes}"
+                Text="{Binding Filter.ModuleType, UpdateSourceTrigger=PropertyChanged}" />
+
+        <ComboBox
+                x:Name="MachineFilter"
+                Width="130"
+                ui:ControlHelper.CornerRadius="{DynamicResource SmallCornerRadius}"
+                ui:ControlHelper.Header="{x:Static properties:Resources.Machine}"
+                IsEditable="True"
+                ItemsSource="{Binding ViewModelBase.Machines}"
+                Text="{Binding Filter.Machine, UpdateSourceTrigger=PropertyChanged}" />
+
+        <ComboBox
+                Width="130"
+                Height="55"
+                VerticalAlignment="Top"
+                IsEditable="True"
+                ui:ControlHelper.CornerRadius="{DynamicResource SmallCornerRadius}"
+                ui:ControlHelper.Header="{x:Static properties:Resources.Size}"
+                ItemsSource="{Binding ViewModelBase.Sizes}"
+                Text="{Binding Filter.Size, UpdateSourceTrigger=PropertyChanged}" />
+
+        <TextBox
+                Width="130"
+                Height="55"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                ui:ControlHelper.CornerRadius="{DynamicResource SmallCornerRadius}"
+                ui:ControlHelper.Header="{x:Static properties:Resources.Operation}"
+                Text="{Binding Filter.OperationNumber, UpdateSourceTrigger=PropertyChanged}" />
+    </ui:SimpleStackPanel>
+</UserControl>

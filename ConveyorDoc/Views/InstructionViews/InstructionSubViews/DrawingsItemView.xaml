@@ -1,0 +1,141 @@
+﻿<UserControl
+    x:Class="ConveyorDoc.Views.InstructionViews.InstructionSubViews.DrawingsItemView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:helper="clr-namespace:ConveyorDoc.Helper"
+    xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
+    xmlns:local="clr-namespace:ConveyorDoc.Views.InstructionViews.InstructionSubViews"
+    xmlns:prism="http://prismlibrary.com/"
+    xmlns:properties="clr-namespace:ConveyorDoc.Resources.Properties;assembly=ConveyorDoc.Resources"
+    xmlns:ui="http://schemas.modernwpf.com/2019"
+    prism:ViewModelLocator.AutoWireViewModel="True"
+    x:Name="_DrawingItemView">
+
+
+    <UserControl.Resources>
+        <helper:BindingProxy Data="{Binding}" x:Key="ViewModel"/>
+    </UserControl.Resources>
+
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="100" />
+        </Grid.ColumnDefinitions>
+
+
+        <ui:ListView
+            x:Name="ContentListView"
+            Margin="{DynamicResource MediumMargin}"
+            AllowDrop="False"
+            FlowDirection="LeftToRight"
+            IsItemClickEnabled="True"
+            ItemContainerStyle="{StaticResource ItemContainerStyle}"
+            ItemsSource="{Binding SelectedWord.Drawings}"
+            SelectionMode="Single">
+
+            <ui:ListView.ItemTemplate>
+                <DataTemplate>
+
+                    <ui:DropDownButton x:Name="DropDownDrawing" Style="{StaticResource DropDownButtonStyle}" 
+                                       MinWidth="400" 
+                                       HorizontalContentAlignment="Left">
+                      
+                        
+                        <ui:DropDownButton.Content>
+                            <DockPanel Height="Auto" HorizontalAlignment="Left">
+                                <Image Width="20" Source="/Assets/TreeView/icons8-pdf-48.png"/>
+                                <TextBlock Text="{Binding PlotName, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
+                            </DockPanel>
+                        </ui:DropDownButton.Content>
+
+                        <ui:DropDownButton.Flyout>
+                            <ui:Flyout Placement="Bottom" x:Name="DrawingVariables" Opening="DrawingVariables_Opening">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="50" />
+                                        <RowDefinition Height="300" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                    </Grid.RowDefinitions>
+
+
+                                    <TextBlock Style="{StaticResource BaseTextBlockStyle}">
+                                        <Run Text="{x:Static properties:Resources.DrawingVariables}" />
+                                    </TextBlock>
+
+
+                                    <ui:ScrollViewerEx Grid.Row="1" CanContentScroll="True" >
+                                        <ItemsControl Grid.Row="1" ItemsSource="{Binding Variables, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                                            <ItemsControl.ItemTemplate>
+                                                <DataTemplate>
+                                                    <TextBox
+                                                        Width="300"
+                                                        Margin="{DynamicResource SmallMargin}"
+                                                        HorizontalAlignment="Left"
+                                                        ui:ControlHelper.CornerRadius="{DynamicResource SmallCornerRadius}"
+                                                        ui:ControlHelper.Header="{Binding Name}"
+                                                        Text="{Binding Value}" />
+                                                </DataTemplate>
+                                            </ItemsControl.ItemTemplate>
+                                        </ItemsControl>
+                                    </ui:ScrollViewerEx>
+
+
+
+
+                                    <Separator Grid.Row="2" Height="4" />
+
+
+                                    <ui:SimpleStackPanel
+                                        Grid.Row="3"
+                                        Margin="{DynamicResource SmallMargin}"     
+                                        Orientation="Horizontal"
+                                        Spacing="{DynamicResource SmallSpacing}">
+
+                                        <ui:AppBarButton
+                                            HorizontalAlignment="Center"
+                                            Command="{Binding  Source={StaticResource ViewModel}, Path=Data.RemoveItemCommand}"
+                                            CommandParameter="{Binding}"
+                                            Icon="Remove"
+                                            Label="{x:Static properties:Resources.Remove}"
+                                            Click="AppBarButton_Click"/>
+
+                                        <ui:AppBarButton
+                                            HorizontalAlignment="Center"
+                                            Command="{Binding Source={StaticResource ViewModel}, Path=Data.PdfPreviewCommand}"
+                                            CommandParameter="{Binding}"
+                                            Icon="Find"
+                                            Label="{x:Static properties:Resources.Preview}" />
+                                    </ui:SimpleStackPanel>
+                                </Grid>
+                            </ui:Flyout>
+                        </ui:DropDownButton.Flyout>
+                    </ui:DropDownButton>
+                </DataTemplate>
+            </ui:ListView.ItemTemplate>
+
+        </ui:ListView>
+
+
+
+        <!--  ContentToolBar  -->
+
+        <ui:SimpleStackPanel
+            Grid.Column="1"
+            Margin="{DynamicResource SmallMargin}"
+            Spacing="{DynamicResource SmallSpacing}">
+
+            <ui:AppBarButton
+                HorizontalAlignment="Center"
+                Command="{Binding FilePickerCommand}"
+                Icon="Add"
+                Label="{x:Static properties:Resources.Add}" />
+
+        </ui:SimpleStackPanel>
+
+
+
+    </Grid>
+</UserControl>

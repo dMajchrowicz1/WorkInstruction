@@ -1,0 +1,91 @@
+﻿<UserControl
+    x:Class="ConveyorDoc.Views.InstructionViews.InstructionSubViews.FixturesItemView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:converter="clr-namespace:ConveyorDoc.Converters"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:properties="clr-namespace:ConveyorDoc.Resources.Properties;assembly=ConveyorDoc.Resources"
+    xmlns:local="clr-namespace:ConveyorDoc.Views.InstructionViews.InstructionSubViews"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:ui="http://schemas.modernwpf.com/2019"
+    xmlns:prism="http://prismlibrary.com/"
+    prism:ViewModelLocator.AutoWireViewModel="True">
+   
+    
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="100"/>
+        </Grid.ColumnDefinitions>
+        
+        
+        <!--ContentList-->
+        <ui:GridView x:Name="FixtureGridView"
+                     AllowDrop="False"
+                     FlowDirection="LeftToRight"
+                     SelectionMode="Single"
+                     Margin="{DynamicResource MediumMargin}"
+                     ItemsSource="{Binding SelectedWord.Fixtures}">
+
+            <ui:GridView.ItemTemplate>
+                <DataTemplate>
+                    <Border Style="{DynamicResource SubContentBorder}">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="40"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+
+
+                            <DockPanel>
+                                <Image Source="/Assets/TreeView/icons8-services-48.png" Margin="{DynamicResource SmallMargin}"/>
+
+                                <TextBlock Text="{Binding ItemNumber}" Style="{DynamicResource BodyStrongTextBlockStyle}" VerticalAlignment="Center"/>
+                            </DockPanel>
+
+                            <TextBox Grid.Row="1"
+                                     Text="{Binding Details}"
+                                     Margin="{DynamicResource SmallMargin}"
+                                     ui:ControlHelper.Header="Details:"
+                                     Width="200"
+                                     Grid.ColumnSpan="2"
+                                     TextWrapping="Wrap"
+                                     Height="100"
+                                     AcceptsReturn="True"
+                                     ui:ControlHelper.CornerRadius="{DynamicResource SmallCornerRadius}"/>
+
+
+                        </Grid>
+                        
+                    </Border>
+                </DataTemplate>
+            </ui:GridView.ItemTemplate>
+            
+        </ui:GridView>
+        
+        
+        <!--ContentToolBar-->
+        <ui:SimpleStackPanel Grid.Column="1"
+                             Margin="{DynamicResource SmallMargin}"
+                             Spacing="{DynamicResource SmallSpacing}">
+
+            <ui:AppBarButton Icon="Add" Label="{x:Static properties:Resources.Add}" 
+                             HorizontalAlignment="Center"
+                             Command="{Binding AddItemCommand}"/>
+            <ui:AppBarButton Icon="Remove" Label="{x:Static properties:Resources.Remove}" 
+                             HorizontalAlignment="Center"
+                             Command="{Binding RemoveItemCommand}"
+                             CommandParameter="{Binding ElementName=FixtureGridView, Path=SelectedItem}"
+                             IsEnabled="{Binding ElementName=FixtureGridView, Path=SelectedItem ,Converter={StaticResource NullToBool}}"/>
+            <ui:AppBarButton Icon="OpenFile" Label="{x:Static properties:Resources.OpenPDF}"
+                             HorizontalAlignment="Center"
+                             Command="{Binding AppCommands.OpenPDFCommand}"
+                             CommandParameter="{Binding ElementName=FixtureGridView, Path=SelectedItem.PDF}"
+                             IsEnabled="{Binding ElementName=FixtureGridView, Path=SelectedItem ,Converter={StaticResource NullToBool}}"/>
+
+        </ui:SimpleStackPanel>
+        
+        
+        
+    </Grid>
+</UserControl>

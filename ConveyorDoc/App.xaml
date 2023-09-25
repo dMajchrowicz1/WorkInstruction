@@ -1,0 +1,40 @@
+﻿<prism:PrismApplication
+    x:Class="ConveyorDoc.App"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:core="clr-namespace:System;assembly=mscorlib"
+    xmlns:local="clr-namespace:ConveyorDoc"
+    xmlns:prism="http://prismlibrary.com/"
+    xmlns:resources="ConveyorDoc.Resources"
+    xmlns:ui="http://schemas.modernwpf.com/2019">
+
+    <Application.Resources>
+        <ResourceDictionary>
+            <core:Double x:Key="ContentDialogMaxWidth">750</core:Double>
+            <ResourceDictionary.MergedDictionaries>
+                <!--  App Extra Style  -->
+                <ResourceDictionary Source="pack://application:,,,/ConveyorDoc.Resources;component/Theme/Style.xaml" />
+                <ResourceDictionary Source="/Views/ToastStyle.xaml" />
+
+
+                <!--  Moder UI Resources  -->
+                <ui:ThemeResources>
+                    <ui:ThemeResources.ThemeDictionaries>
+                        <ResourceDictionary x:Key="Light">
+                            <ResourceDictionary.MergedDictionaries>
+                                <!--  ModernWPF theme resources  -->
+                                <ResourceDictionary Source="/ModernWpf;component/ThemeResources/Light.xaml" />
+                            </ResourceDictionary.MergedDictionaries>
+                        </ResourceDictionary>
+                        <ResourceDictionary x:Key="Dark">
+                            <ResourceDictionary.MergedDictionaries>
+                                <ResourceDictionary Source="/ModernWpf;component/ThemeResources/Dark.xaml" />
+                            </ResourceDictionary.MergedDictionaries>
+                        </ResourceDictionary>
+                    </ui:ThemeResources.ThemeDictionaries>
+                </ui:ThemeResources>
+                <ui:XamlControlsResources />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Application.Resources>
+</prism:PrismApplication>

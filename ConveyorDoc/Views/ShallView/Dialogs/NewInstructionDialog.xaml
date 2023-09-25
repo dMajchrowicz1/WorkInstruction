@@ -1,0 +1,20 @@
+﻿<UserControl
+    x:Class="ConveyorDoc.Views.Dialogs.NewInstructionDialog"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:prism="http://prismlibrary.com/"
+    xmlns:reusable="clr-namespace:ConveyorDoc.Views.Reusable"
+    xmlns:properties="clr-namespace:ConveyorDoc.Resources.Properties;assembly=ConveyorDoc.Resources"
+    xmlns:ui="http://schemas.modernwpf.com/2019"
+    x:Name="_InstructionDialog"
+    Width="300"
+    prism:ViewModelLocator.AutoWireViewModel="True"
+    Background="Transparent"
+    BorderThickness="2">
+
+    <reusable:InstructionContent DataContext="{Binding ElementName=_InstructionDialog , Path=DataContext}"/>
+
+</UserControl>

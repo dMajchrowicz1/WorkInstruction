@@ -1,0 +1,137 @@
+﻿<w:tr w:rsidR="001F5CD2" w:rsidRPr="001F5CD2" w14:paraId="6D308AEC" w14:textId="77777777" w:rsidTr="002E7A10" xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main" xmlns:w14="http://schemas.microsoft.com/office/word/2010/wordml">
+	<w:trPr>
+		<w:trHeight w:val="553"/>
+	</w:trPr>
+	<w:tc>
+		<w:tcPr>
+			<w:tcW w:w="778" w:type="dxa"/>
+			<w:vAlign w:val="center"/>
+		</w:tcPr>
+		<w:p w14:paraId="22A51E33" w14:textId="77777777" w:rsidR="001F5CD2" w:rsidRPr="001F5CD2" w:rsidRDefault="001F5CD2" w:rsidP="001F5CD2">
+			<w:pPr>
+				<w:pStyle w:val="Dane"/>
+				<w:rPr>
+					<w:b/>
+					<w:bCs/>
+				</w:rPr>
+			</w:pPr>
+			<w:r w:rsidRPr="001F5CD2">
+				<w:rPr>
+					<w:b/>
+					<w:bCs/>
+				</w:rPr>
+				<w:t>Numer narzędzia</w:t>
+			</w:r>
+		</w:p>
+	</w:tc>
+	<w:tc>
+		<w:tcPr>
+			<w:tcW w:w="856" w:type="dxa"/>
+			<w:vAlign w:val="center"/>
+		</w:tcPr>
+		<w:p w14:paraId="33845442" w14:textId="77777777" w:rsidR="001F5CD2" w:rsidRPr="001F5CD2" w:rsidRDefault="001F5CD2" w:rsidP="001F5CD2">
+			<w:pPr>
+				<w:pStyle w:val="Dane"/>
+				<w:rPr>
+					<w:b/>
+					<w:bCs/>
+				</w:rPr>
+			</w:pPr>
+			<w:r w:rsidRPr="001F5CD2">
+				<w:rPr>
+					<w:b/>
+					<w:bCs/>
+				</w:rPr>
+				<w:t>Z</w:t>
+			</w:r>
+		</w:p>
+	</w:tc>
+	<w:tc>
+		<w:tcPr>
+			<w:tcW w:w="749" w:type="dxa"/>
+			<w:vAlign w:val="center"/>
+		</w:tcPr>
+		<w:p w14:paraId="76A1379F" w14:textId="77777777" w:rsidR="001F5CD2" w:rsidRPr="001F5CD2" w:rsidRDefault="001F5CD2" w:rsidP="001F5CD2">
+			<w:pPr>
+				<w:pStyle w:val="Dane"/>
+				<w:rPr>
+					<w:b/>
+					<w:bCs/>
+				</w:rPr>
+			</w:pPr>
+			<w:r w:rsidRPr="001F5CD2">
+				<w:rPr>
+					<w:b/>
+					<w:bCs/>
+				</w:rPr>
+				<w:t>X</w:t>
+			</w:r>
+		</w:p>
+	</w:tc>
+	<w:tc>
+		<w:tcPr>
+			<w:tcW w:w="1985" w:type="dxa"/>
+			<w:vAlign w:val="center"/>
+		</w:tcPr>
+		<w:p w14:paraId="21DFD230" w14:textId="77777777" w:rsidR="001F5CD2" w:rsidRPr="001F5CD2" w:rsidRDefault="001F5CD2" w:rsidP="001F5CD2">
+			<w:pPr>
+				<w:pStyle w:val="Dane"/>
+				<w:rPr>
+					<w:b/>
+					<w:bCs/>
+				</w:rPr>
+			</w:pPr>
+			<w:r>
+				<w:rPr>
+					<w:b/>
+					<w:bCs/>
+				</w:rPr>
+				<w:t>Typ</w:t>
+			</w:r>
+		</w:p>
+	</w:tc>
+	<w:tc>
+		<w:tcPr>
+			<w:tcW w:w="3012" w:type="dxa"/>
+			<w:vAlign w:val="center"/>
+		</w:tcPr>
+		<w:p w14:paraId="228F45FE" w14:textId="77777777" w:rsidR="001F5CD2" w:rsidRPr="001F5CD2" w:rsidRDefault="001F5CD2" w:rsidP="001F5CD2">
+			<w:pPr>
+				<w:pStyle w:val="Dane"/>
+				<w:rPr>
+					<w:b/>
+					<w:bCs/>
+				</w:rPr>
+			</w:pPr>
+			<w:r>
+				<w:rPr>
+					<w:b/>
+					<w:bCs/>
+				</w:rPr>
+				<w:t>Skrawalna</w:t>
+			</w:r>
+		</w:p>
+	</w:tc>
+	<w:tc>
+		<w:tcPr>
+			<w:tcW w:w="2516" w:type="dxa"/>
+			<w:vAlign w:val="center"/>
+		</w:tcPr>
+		<w:p w14:paraId="6D7CF0D8" w14:textId="77777777" w:rsidR="001F5CD2" w:rsidRPr="001F5CD2" w:rsidRDefault="001F5CD2" w:rsidP="001F5CD2">
+			<w:pPr>
+				<w:pStyle w:val="Dane"/>
+				<w:rPr>
+					<w:b/>
+					<w:bCs/>
+				</w:rPr>
+			</w:pPr>
+			<w:r>
+				<w:rPr>
+					<w:b/>
+					<w:bCs/>
+				</w:rPr>
+				<w:t>Nie skrawalna</w:t>
+			</w:r>
+		</w:p>
+	</w:tc>
+</w:tr> 

@@ -1,0 +1,76 @@
+﻿<UserControl
+    x:Class="ConveyorDoc.Views.Reusable.InstructionContent"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:ConveyorDoc.Views.Reusable"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:properties="clr-namespace:ConveyorDoc.Resources.Properties;assembly=ConveyorDoc.Resources"
+    xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
+    xmlns:ui="http://schemas.modernwpf.com/2019"
+    mc:Ignorable="d">
+
+    <UserControl.Resources>
+
+        <ui:FontIcon Glyph="&#xE787;" x:Key="CalendarIcon"/>
+
+    </UserControl.Resources>
+       
+    
+    <Grid>
+        <ui:SimpleStackPanel
+            Margin="{DynamicResource SmallTopBottomMargin}"
+            Orientation="Vertical"
+            Spacing="10">
+            <TextBox
+                ui:ControlHelper.Header="{x:Static properties:Resources.DecanterModule}"
+                ui:ValidationHelper.IsTemplateValidationAdornerSite="True"
+                Text="{Binding DialogInstruction.ModuleNumber}" />
+            <TextBox
+                Width="{DynamicResource MediumWidth}"
+                HorizontalAlignment="Left"
+                ui:ControlHelper.Header="{x:Static properties:Resources.DecanterSize}"
+                ui:ValidationHelper.IsTemplateValidationAdornerSite="True"
+                Text="{Binding DialogInstruction.ModuleSize}" />
+            <TextBox
+                Width="{DynamicResource MediumWidth}"
+                HorizontalAlignment="Left"
+                ui:ControlHelper.Header="{x:Static properties:Resources.ModuleRevision}"
+                ui:ValidationHelper.IsTemplateValidationAdornerSite="True"
+                Text="{Binding DialogInstruction.ModuleRev}" />
+            <ComboBox
+                ui:ControlHelper.Header="{x:Static properties:Resources.NewInstructionDialog_ModuleType}"
+                MinWidth="200"
+                ui:ValidationHelper.IsTemplateValidationAdornerSite="True"
+                ItemsSource="{Binding ModuleTypesContainer.ModuleTypes}"
+                SelectedItem="{Binding DialogInstruction.ModuleType}" />
+            <ComboBox
+                Width="{DynamicResource MediumWidth}"
+                ui:ControlHelper.Header="{x:Static properties:Resources.Material}"
+                ui:ValidationHelper.IsTemplateValidationAdornerSite="True"
+                IsEditable="True"
+                ItemsSource="{Binding MaterialContainer.Materials}"
+                SelectedItem="{Binding DialogInstruction.Material}" />
+            <TextBox
+                ui:ControlHelper.Header="{x:Static properties:Resources.Blank}"
+                ui:ValidationHelper.IsTemplateValidationAdornerSite="True"
+                Text="{Binding DialogInstruction.BlankNumber}" />
+
+
+            <mah:DateTimePicker 
+                SelectedDateTime="{Binding DialogInstruction.Date}" 
+                SelectedDateFormat="Short"               
+                ui:ControlHelper.Header="{x:Static properties:Resources.InstructionContent_Date}"
+                Height="50"
+                mah:DatePickerHelper.DropDownButtonContent="{StaticResource CalendarIcon}"
+                mah:TextBoxHelper.ButtonWidth="40" />
+
+
+            <TextBox
+                ui:ControlHelper.Header="{x:Static properties:Resources.Programmer}"
+                ui:ValidationHelper.IsTemplateValidationAdornerSite="True"
+                Text="{Binding DialogInstruction.ProgrammerName}" />
+        </ui:SimpleStackPanel>
+
+    </Grid>
+</UserControl>

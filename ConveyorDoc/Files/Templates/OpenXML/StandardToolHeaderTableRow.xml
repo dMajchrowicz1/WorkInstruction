@@ -1,0 +1,82 @@
+﻿<w:tr w:rsidR="002E7A10" w:rsidRPr="001F5CD2" w14:paraId="52A41CE9" w14:textId="77777777" w:rsidTr="002E7A10" xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main" xmlns:w14="http://schemas.microsoft.com/office/word/2010/wordml">
+	<w:trPr>
+		<w:trHeight w:val="553"/>
+	</w:trPr>
+	<w:tc>
+		<w:tcPr>
+			<w:tcW w:w="2383" w:type="dxa"/>
+			<w:gridSpan w:val="3"/>
+			<w:tcBorders>
+				<w:bottom w:val="single" w:sz="12" w:space="0" w:color="auto"/>
+			</w:tcBorders>
+			<w:vAlign w:val="center"/>
+		</w:tcPr>
+		<w:p w14:paraId="78776B3E" w14:textId="0CD9E3F7" w:rsidR="002E7A10" w:rsidRDefault="00033A9F" w:rsidP="001F5CD2">
+			<w:pPr>
+				<w:pStyle w:val="Dane"/>
+				<w:rPr>
+					<w:b/>
+					<w:bCs/>
+				</w:rPr>
+			</w:pPr>
+			<w:r>
+				<w:rPr>
+					<w:b/>
+					<w:bCs/>
+				</w:rPr>
+				<w:t>Numer narzędzia</w:t>
+			</w:r>
+		</w:p>
+	</w:tc>
+	<w:tc>
+		<w:tcPr>
+			<w:tcW w:w="1985" w:type="dxa"/>
+			<w:tcBorders>
+				<w:bottom w:val="single" w:sz="12" w:space="0" w:color="auto"/>
+			</w:tcBorders>
+			<w:vAlign w:val="center"/>
+		</w:tcPr>
+		<w:p w14:paraId="55812E62" w14:textId="00276E14" w:rsidR="002E7A10" w:rsidRDefault="00033A9F" w:rsidP="001F5CD2">
+			<w:pPr>
+				<w:pStyle w:val="Dane"/>
+				<w:rPr>
+					<w:b/>
+					<w:bCs/>
+				</w:rPr>
+			</w:pPr>
+			<w:r>
+				<w:rPr>
+					<w:b/>
+					<w:bCs/>
+				</w:rPr>
+				<w:t>Typ</w:t>
+			</w:r>
+		</w:p>
+	</w:tc>
+	<w:tc>
+		<w:tcPr>
+			<w:tcW w:w="5528" w:type="dxa"/>
+			<w:gridSpan w:val="2"/>
+			<w:tcBorders>
+				<w:bottom w:val="single" w:sz="12" w:space="0" w:color="auto"/>
+			</w:tcBorders>
+			<w:vAlign w:val="center"/>
+		</w:tcPr>
+		<w:p w14:paraId="185A1353" w14:textId="7FD89683" w:rsidR="002E7A10" w:rsidRDefault="00033A9F" w:rsidP="001F5CD2">
+			<w:pPr>
+				<w:pStyle w:val="Dane"/>
+				<w:rPr>
+					<w:b/>
+					<w:bCs/>
+				</w:rPr>
+			</w:pPr>
+			<w:r>
+				<w:rPr>
+					<w:b/>
+					<w:bCs/>
+				</w:rPr>
+				<w:t>Nazwa</w:t>
+			</w:r>
+		</w:p>
+	</w:tc>
+</w:tr>

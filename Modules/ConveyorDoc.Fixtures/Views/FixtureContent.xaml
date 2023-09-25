@@ -1,0 +1,40 @@
+﻿<UserControl
+    x:Class="ConveyorDoc.Fixtures.Views.FixtureContent"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
+    xmlns:local="clr-namespace:ConveyorDoc.Fixtures.Views"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:reusable="clr-namespace:ConveyorDoc.Fixtures.Views.Reusable"
+    xmlns:model="clr-namespace:ConveyorDoc.Fixtures.Model"
+    xmlns:prism="http://prismlibrary.com/"
+    xmlns:properties="clr-namespace:ConveyorDoc.Resources.Properties;assembly=ConveyorDoc.Resources"
+    xmlns:regions="clr-namespace:ConveyorDoc.Fixtures"
+    xmlns:ui="http://schemas.modernwpf.com/2019"
+    x:Name="_Fixtures">
+
+    <UserControl.Resources>
+
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/ConveyorDoc.Resources;component/Theme/Style.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+
+    <!--  ContentView  -->
+    <Border Style="{DynamicResource SubContentBorder}">
+
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <local:FixtureNavigator Grid.Column="0"/>
+
+            <local:FixtureDetails Grid.Column="1" Visibility="{Binding ViewModelBase.SelectedFixture, Converter={StaticResource NullToVisibility}}"/>
+        </Grid>
+    </Border>
+</UserControl>

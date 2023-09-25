@@ -1,0 +1,256 @@
+﻿<UserControl
+    x:Class="ConveyorDoc.Views.Settings.SettingsView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:Converter="clr-namespace:ConveyorDoc.Converters"
+    xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:prism="http://prismlibrary.com/"
+    xmlns:properties="clr-namespace:ConveyorDoc.Resources.Properties;assembly=ConveyorDoc.Resources"
+    xmlns:sc="clr-namespace:ConveyorDoc.Model.Settings"
+    xmlns:ui="http://schemas.modernwpf.com/2019"
+    x:Name="Settings"
+    prism:ViewModelLocator.AutoWireViewModel="True"
+    Style="{StaticResource UserControlTitleStyle}"
+    Tag="{Binding Source={x:Static properties:Resources.Settings}}">
+
+
+    <UserControl.Resources>
+        <Converter:AppThemeConverter x:Key="AppThemeConverter" />
+    </UserControl.Resources>
+
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+
+
+
+        <!--  Command bar  -->
+        <ui:CommandBar
+            Grid.Row="0"
+            HorizontalAlignment="Left"
+            Background="Transparent"
+            DefaultLabelPosition="Bottom"
+            IsOpen="True">
+
+            <ui:AppBarButton
+                Command="{Binding SaveSettingsCommand}"
+                Icon="Save"
+                Label="{x:Static properties:Resources.Save}" />
+            <ui:AppBarButton
+                Command="{Binding LoadSettingsCommand}"
+                Icon="Download"
+                Label="{x:Static properties:Resources.Load}" />
+        </ui:CommandBar>
+
+        <!--  Content  -->
+        <ScrollViewer Grid.Row="1" CanContentScroll="True">
+
+            
+            <ui:SimpleStackPanel Spacing="20">
+                <!--  Apperance Settings  -->
+                <ui:SimpleStackPanel Margin="{StaticResource MediumMargin}" Spacing="{StaticResource SmallSpacing}">
+                    
+                    <TextBlock Style="{StaticResource BaseTextBlockStyle}" Text="{x:Static properties:Resources.Appearance}" />
+
+                    <Border Style="{DynamicResource SubContentBorder}">
+                        <DockPanel
+                            Margin="{StaticResource SmallMargin}">
+                            <ui:FontIcon DockPanel.Dock="Left" Glyph="&#xE793;" Margin="{StaticResource SmallMargin}"/>
+                            <ui:SimpleStackPanel VerticalAlignment="Center" Orientation="Vertical">
+                                <TextBlock Style="{StaticResource BaseTextBlockStyle}" 
+                                           Text="{x:Static properties:Resources.SettingsView_AppTheme}" />
+                                <TextBlock Style="{StaticResource CaptionTextBlock}" 
+                                           Text="{x:Static properties:Resources.SettingsView_SelectWhichAppThemToDisplay}" />
+                            </ui:SimpleStackPanel>
+                            <ComboBox
+                                HorizontalAlignment="Right"
+                                SelectedItem="{Binding Source={x:Static ui:ThemeManager.Current}, Path=ApplicationTheme, Converter={StaticResource AppThemeConverter}}">
+
+                                <i:Interaction.Triggers>
+                                    <i:EventTrigger EventName="SelectionChanged">
+                                        <i:InvokeCommandAction Command="{Binding OnThemeChanged}" />
+                                    </i:EventTrigger>
+                                </i:Interaction.Triggers>
+
+                                <ComboBox.ItemsSource>
+                                    <sc:AppThemes/>
+                                </ComboBox.ItemsSource>
+
+                            </ComboBox>
+
+                        </DockPanel>
+                    </Border>
+
+                    <Border Style="{DynamicResource SubContentBorder}">
+                        <DockPanel
+                            Margin="{StaticResource SmallMargin}">
+                            <ui:FontIcon DockPanel.Dock="Left" Glyph="&#xE73F;" Margin="{StaticResource SmallMargin}"/>
+                            <ui:SimpleStackPanel DockPanel.Dock="Left" Orientation="Vertical">
+                                <TextBlock Style="{StaticResource BaseTextBlockStyle}" Text="{x:Static properties:Resources.SettingsView_WindowSize}" />
+                                <TextBlock Style="{StaticResource CaptionTextBlock}" Text="{x:Static properties:Resources.SettingsView_EnterValuesToChangeWindowSize}" />
+                            </ui:SimpleStackPanel>
+
+                            <Button
+                                    Width="60"
+                                    HorizontalAlignment="Right"
+                                    VerticalAlignment="Bottom"
+                                    Command="{Binding ChangeWindowSizeCommand}"
+                                    Style="{StaticResource AccentButtonStyle}"
+                                    DockPanel.Dock="Right">
+                                <Button.Content>
+                                    <ui:FontIcon Glyph="&#xE73E;"/>
+                                </Button.Content>
+                            </Button>
+                            <TextBox
+                                HorizontalAlignment="Right"
+                                Margin="{StaticResource SmallLeftRightMargin}"
+                                ui:ControlHelper.Header="{x:Static properties:Resources.Width}"
+                                Text="{Binding Settings.GeneralSettings.WindowsWidth}"
+                                DockPanel.Dock="Right"/>
+                            <TextBox
+                                Margin="{StaticResource SmallLeftRightMargin}"
+                                HorizontalAlignment="Right"
+                                ui:ControlHelper.Header="{x:Static properties:Resources.Height}"
+                                Text="{Binding Settings.GeneralSettings.WindowsHeight}"
+                                DockPanel.Dock="Right"/>
+
+                        </DockPanel>
+                    </Border>
+
+                    <Border Style="{DynamicResource SubContentBorder}">
+                        <DockPanel Margin="{StaticResource SmallMargin}">
+                            <ui:FontIcon
+                                DockPanel.Dock="Left"
+                                Margin="{StaticResource SmallMargin}"
+                                Glyph="&#xE88C;"/>
+                            <ui:SimpleStackPanel DockPanel.Dock="Left" Orientation="Vertical">
+                                <TextBlock Style="{StaticResource BaseTextBlockStyle}" Text="{x:Static properties:Resources.Language}" />
+                                <TextBlock Style="{StaticResource CaptionTextBlock}" Text="{x:Static properties:Resources.SelectLanguageAndRestartApp}" />
+                            </ui:SimpleStackPanel>
+                            <ComboBox
+                                DisplayMemberPath="DisplayName"
+                                HorizontalAlignment="Right"
+                                ItemsSource="{Binding Settings.GeneralSettings.Languages}"
+                                SelectedValue="{Binding Settings.GeneralSettings.Language}"
+                                SelectedValuePath="IetfLanguageTag"
+                                DockPanel.Dock="Right">
+
+                                <i:Interaction.Triggers>
+                                    <i:EventTrigger EventName="SelectionChanged">
+                                        <prism:InvokeCommandAction Command="{Binding ElementName=Settings, Path=DataContext.ChangeLanguageCommand}" 
+                                                                   CommandParameter="{Binding ElementName=Languages, Path=SelectedItem}" />
+                                    </i:EventTrigger>
+                                </i:Interaction.Triggers>
+                            </ComboBox>
+                        </DockPanel>
+                    </Border>
+
+                </ui:SimpleStackPanel>
+
+                <!--  Directories Settings  -->
+                <ui:SimpleStackPanel Margin="{StaticResource MediumMargin}" Spacing="{StaticResource SmallSpacing}">
+                    <TextBlock Style="{StaticResource BaseTextBlockStyle}" Text="{x:Static properties:Resources.Directories}" />
+
+                    <Border Style="{DynamicResource SubContentBorder}">
+                        <DockPanel
+                            Margin="{StaticResource SmallMargin}">
+                            <ui:FontIcon DockPanel.Dock="Left" Glyph="&#xE816;" Margin="{StaticResource SmallMargin}"/>
+                            <ui:SimpleStackPanel VerticalAlignment="Center" Orientation="Vertical">
+                                <TextBlock Style="{StaticResource BaseTextBlockStyle}" 
+                                           Text="{x:Static properties:Resources.FixturesWorkspace}" />
+                                <TextBlock Style="{StaticResource CaptionTextBlock}" 
+                                           Text="{x:Static properties:Resources.EnterFixturesWorkspaceDirectory}" />
+                            </ui:SimpleStackPanel>
+
+
+                            <Button
+                                    Width="60"
+                                    HorizontalAlignment="Right"
+                                    Command="{Binding ApplicationCommands.SearchCommand}"
+                                    CommandParameter="{Binding ElementName=_FixtureDataPath}"
+                                    Content="{x:Static properties:Resources.Search}"
+                                    Style="{StaticResource AccentButtonStyle}"
+                                    DockPanel.Dock="Right"/>
+
+                            <TextBox
+                                    x:Name="_FixtureDataPath"
+                                    Margin="{StaticResource SmallMargin}"
+                                    Text="{Binding Settings.DirectoriesSettings.FixturesWorkspaceDir}"
+                                    DockPanel.Dock="Right"/>
+
+                        </DockPanel>
+                    </Border>
+
+                    <Border Style="{DynamicResource SubContentBorder}">
+                        <DockPanel
+                            Margin="{StaticResource SmallMargin}">
+                            <ui:FontIcon DockPanel.Dock="Left" Glyph="&#xE816;" Margin="{StaticResource SmallMargin}" />
+                            <ui:SimpleStackPanel VerticalAlignment="Center" Orientation="Vertical">
+                                <TextBlock Style="{StaticResource BaseTextBlockStyle}" Text="{x:Static properties:Resources.DrawingTemplates}" />
+                                <TextBlock Style="{StaticResource CaptionTextBlock}" Text="{x:Static properties:Resources.EnterDrawingTemplatesDirecotry}" />
+                            </ui:SimpleStackPanel>
+
+
+                            <Button
+                                    Width="60"
+                                    Command="{Binding ApplicationCommands.SearchCommand}"
+                                    CommandParameter="{Binding ElementName =_DXFTemplatesPath}"
+                                    Content="{x:Static properties:Resources.Search}"
+                                    Style="{StaticResource AccentButtonStyle}"
+                                    DockPanel.Dock="Right"/>
+
+
+                            <TextBox
+                                    x:Name="_DXFTemplatesPath"
+                                    Text="{Binding Settings.DirectoriesSettings.DrawingTemplatesDir, 
+                                    UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                                    DockPanel.Dock="Right"
+                                    Margin="{StaticResource SmallMargin}"/>
+
+
+                        </DockPanel>
+                    </Border>
+
+
+                </ui:SimpleStackPanel>
+                
+                
+                <!--Instruction Settings-->
+                <ui:SimpleStackPanel Margin="{StaticResource MediumMargin}" Spacing="{StaticResource SmallSpacing}">
+                    <TextBlock Style="{StaticResource BaseTextBlockStyle}" Text="{x:Static properties:Resources.Instruction}" />
+
+                    <Border Style="{DynamicResource SubContentBorder}">
+                        <DockPanel Margin="{StaticResource SmallMargin}">
+                            <ui:FontIcon DockPanel.Dock="Left" Glyph="&#xE8A4;" Margin="{StaticResource SmallMargin}" />
+                            <ui:SimpleStackPanel VerticalAlignment="Center" Orientation="Vertical">
+                                <TextBlock Style="{StaticResource BaseTextBlockStyle}" Text="Detailed tools" />
+                                <TextBlock Style="{StaticResource CaptionTextBlock}" Text="Enable to generate detaild tool list" />
+                            </ui:SimpleStackPanel>
+                            <ui:ToggleSwitch 
+                                IsOn="{Binding Settings.InstructionSettings.GenerateDetailedTools}"
+                                             DockPanel.Dock="Right" HorizontalAlignment="Right" Width="80"/>
+                         
+                        </DockPanel>
+                    </Border>
+                </ui:SimpleStackPanel>
+
+            </ui:SimpleStackPanel>
+
+
+
+
+        </ScrollViewer>
+
+
+
+
+
+    </Grid>
+
+
+</UserControl>

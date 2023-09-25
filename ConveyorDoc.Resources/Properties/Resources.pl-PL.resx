@@ -1,0 +1,561 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Add" xml:space="preserve">
+    <value>Dodaj</value>
+  </data>
+  <data name="AddCimco" xml:space="preserve">
+    <value>Dodaj z Cimco</value>
+  </data>
+  <data name="ApplicationTheme" xml:space="preserve">
+    <value>Motyw aplikacji</value>
+  </data>
+  <data name="Apply" xml:space="preserve">
+    <value>Zastosuj</value>
+  </data>
+  <data name="AppName" xml:space="preserve">
+    <value>Work Instruction</value>
+  </data>
+  <data name="AppTaskErrorMultipleTask" xml:space="preserve">
+    <value>Nie można uruchomić tego samego zadania, gdy inne jest nadal uruchomione!!</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Anuluj</value>
+  </data>
+  <data name="Connect" xml:space="preserve">
+    <value>Połącz</value>
+  </data>
+  <data name="Connected" xml:space="preserve">
+    <value>Połączony</value>
+  </data>
+  <data name="ConnectedCimcoToolTip" xml:space="preserve">
+    <value>Baza danych Cimco jest podłączona!</value>
+  </data>
+  <data name="Conveyor" xml:space="preserve">
+    <value>Conveyor</value>
+  </data>
+  <data name="ConveyorDatabase" xml:space="preserve">
+    <value>Baza danych conveyor'a</value>
+  </data>
+  <data name="CuttingPart" xml:space="preserve">
+    <value>Część tnąca</value>
+  </data>
+  <data name="Dark" xml:space="preserve">
+    <value>Ciemny</value>
+  </data>
+  <data name="Database" xml:space="preserve">
+    <value>Baza danych</value>
+  </data>
+  <data name="DatabasePath" xml:space="preserve">
+    <value>Ścieżka do pliku bazy danych</value>
+  </data>
+  <data name="DecanterDatabase" xml:space="preserve">
+    <value>Baza danych Decanter</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Usuń</value>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value>Opis</value>
+  </data>
+  <data name="DescriptionDatabase" xml:space="preserve">
+    <value>Baza danych Opis</value>
+  </data>
+  <data name="Descriptions" xml:space="preserve">
+    <value>Opisy</value>
+  </data>
+  <data name="Directories" xml:space="preserve">
+    <value>Katalogi</value>
+  </data>
+  <data name="Disconnected" xml:space="preserve">
+    <value>Rozłączono</value>
+  </data>
+  <data name="DisconnectedCimcoToolTip" xml:space="preserve">
+    <value>Baza danych Cimco jest rozłączona!</value>
+  </data>
+  <data name="DXFTemplates" xml:space="preserve">
+    <value>Szablony</value>
+  </data>
+  <data name="en-US" xml:space="preserve">
+    <value>Angielski</value>
+  </data>
+  <data name="ErrorInstructionValidation" xml:space="preserve">
+    <value>Nie można utworzyć nowej instrukcji. Puste pola!</value>
+  </data>
+  <data name="Exit" xml:space="preserve">
+    <value>Zakończ</value>
+  </data>
+  <data name="Filters" xml:space="preserve">
+    <value>Filtry</value>
+  </data>
+  <data name="FixtureDatabase" xml:space="preserve">
+    <value>Baza danych osprzętu!</value>
+  </data>
+  <data name="Fixtures" xml:space="preserve">
+    <value>Oprzyrządowanie</value>
+  </data>
+  <data name="Generate" xml:space="preserve">
+    <value>Generuj</value>
+  </data>
+  <data name="Height" xml:space="preserve">
+    <value>Wysokość</value>
+  </data>
+  <data name="Instruction" xml:space="preserve">
+    <value>Instrukcje</value>
+  </data>
+  <data name="Language" xml:space="preserve">
+    <value>Język...</value>
+  </data>
+  <data name="Light" xml:space="preserve">
+    <value>Jasny</value>
+  </data>
+  <data name="Load" xml:space="preserve">
+    <value>Wczytaj</value>
+  </data>
+  <data name="LoadAll" xml:space="preserve">
+    <value>Załaduj wszystko</value>
+  </data>
+  <data name="Loading" xml:space="preserve">
+    <value>Trwa ładowanie</value>
+  </data>
+  <data name="LoadingPdfPreview" xml:space="preserve">
+    <value>Ładowanie podglądu rysunku!</value>
+  </data>
+  <data name="Login" xml:space="preserve">
+    <value>Logowanie</value>
+  </data>
+  <data name="Machine" xml:space="preserve">
+    <value>Maszyna</value>
+  </data>
+  <data name="ModuleType" xml:space="preserve">
+    <value>Typ modułu</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Nazwa</value>
+  </data>
+  <data name="New" xml:space="preserve">
+    <value>Nowy</value>
+  </data>
+  <data name="Offset" xml:space="preserve">
+    <value>Korekcja</value>
+  </data>
+  <data name="Open" xml:space="preserve">
+    <value>Otwórz</value>
+  </data>
+  <data name="OpenFileNcProgram" xml:space="preserve">
+    <value>Wybierz program nc!</value>
+  </data>
+  <data name="Operation" xml:space="preserve">
+    <value>Operacja</value>
+  </data>
+  <data name="Password" xml:space="preserve">
+    <value>Hasło</value>
+  </data>
+  <data name="PDF" xml:space="preserve">
+    <value>PDF</value>
+  </data>
+  <data name="Position" xml:space="preserve">
+    <value>Pozycja</value>
+  </data>
+  <data name="ReloadingTools" xml:space="preserve">
+    <value>Ładowanie narzędzi!</value>
+  </data>
+  <data name="Restore" xml:space="preserve">
+    <value>Przywróć</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>Zapisz</value>
+  </data>
+  <data name="Select" xml:space="preserve">
+    <value>Wybierz</value>
+  </data>
+  <data name="Settings" xml:space="preserve">
+    <value>Ustawienia</value>
+  </data>
+  <data name="Size" xml:space="preserve">
+    <value>Rozmiar</value>
+  </data>
+  <data name="TaskGenerating" xml:space="preserve">
+    <value>Generowanie instrukcji</value>
+  </data>
+  <data name="ToolList" xml:space="preserve">
+    <value>Lista narzędzi</value>
+  </data>
+  <data name="Tools" xml:space="preserve">
+    <value>Narzędzia</value>
+  </data>
+  <data name="Type" xml:space="preserve">
+    <value>Typ</value>
+  </data>
+  <data name="Variables" xml:space="preserve">
+    <value>Zmienne</value>
+  </data>
+  <data name="WarningDropNcProgram" xml:space="preserve">
+    <value>Utwórz lub otwórz instrukcję, aby dodać nowy program nc!</value>
+  </data>
+  <data name="WarningFileLoad" xml:space="preserve">
+    <value>Nieprawidłowy format pliku</value>
+  </data>
+  <data name="Width" xml:space="preserve">
+    <value>Szerokość</value>
+  </data>
+  <data name="WindowSize" xml:space="preserve">
+    <value>Rozmiar okna</value>
+  </data>
+  <data name="ChangeLanguageInfo" xml:space="preserve">
+    <value>Aby zmienić język, musisz ponownie uruchomić aplikację!</value>
+  </data>
+  <data name="FixtureFolder" xml:space="preserve">
+    <value>Dane oprzyrządowania</value>
+  </data>
+  <data name="ConnectingCimcoDatabase" xml:space="preserve">
+    <value>Podłączanie bazy danych Cimco!</value>
+  </data>
+  <data name="RestoringSettings" xml:space="preserve">
+    <value>Przywracanie ustawień...</value>
+  </data>
+  <data name="SavingSettings" xml:space="preserve">
+    <value>Zapisywanie ustawień</value>
+  </data>
+  <data name="DelegateGetAllError" xml:space="preserve">
+    <value>Delegat GetAll musi zostać zaimplementowany!</value>
+  </data>
+  <data name="ReloadDatabase" xml:space="preserve">
+    <value>Odśwież bazę danych</value>
+  </data>
+  <data name="SaveInstruction" xml:space="preserve">
+    <value>Zapisz instrukcję!</value>
+  </data>
+  <data name="DialogContentFrameworkElementError" xml:space="preserve">
+    <value>Treść okna dialogowego musi być elementem ramowym!</value>
+  </data>
+  <data name="Close" xml:space="preserve">
+    <value>Zamknij </value>
+  </data>
+  <data name="UnsavedChanges" xml:space="preserve">
+    <value>Niezapisane zmiany</value>
+  </data>
+  <data name="ProgressSave" xml:space="preserve">
+    <value>Czy chcesz zapisać bieżące postępy?</value>
+  </data>
+  <data name="DecanterModule" xml:space="preserve">
+    <value>Numer modułu</value>
+  </data>
+  <data name="DecanterSize" xml:space="preserve">
+    <value>Rozmiar modułu</value>
+  </data>
+  <data name="ModuleRevision" xml:space="preserve">
+    <value>Rewizja</value>
+  </data>
+  <data name="NewInstructionDialog_ModuleType" xml:space="preserve">
+    <value>Typ modułu</value>
+  </data>
+  <data name="Material" xml:space="preserve">
+    <value>Typ materiału</value>
+  </data>
+  <data name="Blank" xml:space="preserve">
+    <value>Rysunek przygotówki</value>
+  </data>
+  <data name="ProgramDate" xml:space="preserve">
+    <value>Data programu</value>
+  </data>
+  <data name="Programmer" xml:space="preserve">
+    <value>Programista</value>
+  </data>
+  <data name="Create" xml:space="preserve">
+    <value>Utwórz</value>
+  </data>
+  <data name="SaveInfo" xml:space="preserve">
+    <value>Utwórz lub otwórz instrukcję, aby ją zapisać!</value>
+  </data>
+  <data name="Drawings" xml:space="preserve">
+    <value>Rysunki</value>
+  </data>
+  <data name="Remove" xml:space="preserve">
+    <value>Usuń</value>
+  </data>
+  <data name="Preview" xml:space="preserve">
+    <value>Podgląd</value>
+  </data>
+  <data name="Data" xml:space="preserve">
+    <value>Dane</value>
+  </data>
+  <data name="WearProtection" xml:space="preserve">
+    <value>Powłoka</value>
+  </data>
+  <data name="ConveyorModule" xml:space="preserve">
+    <value>Moduł Conveyora</value>
+  </data>
+  <data name="OpenPDF" xml:space="preserve">
+    <value>Otwórz plik PDF</value>
+  </data>
+  <data name="Number" xml:space="preserve">
+    <value>Numer</value>
+  </data>
+  <data name="Line" xml:space="preserve">
+    <value>Linia</value>
+  </data>
+  <data name="TotalRecords" xml:space="preserve">
+    <value>Całkowita liczba rekordów</value>
+  </data>
+  <data name="MainAngel" xml:space="preserve">
+    <value>Kąt główny</value>
+  </data>
+  <data name="Pitch" xml:space="preserve">
+    <value>Skok</value>
+  </data>
+  <data name="Taper" xml:space="preserve">
+    <value>Stożek</value>
+  </data>
+  <data name="Angles" xml:space="preserve">
+    <value>Kąty</value>
+  </data>
+  <data name="ErrorUnSelectedWordFile" xml:space="preserve">
+    <value>Aby usunąć musisz zaznaczyć plik word!</value>
+  </data>
+  <data name="NumberConveyorModule" xml:space="preserve">
+    <value>Numer rys Conveyor Module</value>
+  </data>
+  <data name="SelectDescription" xml:space="preserve">
+    <value>Wybierz Opis</value>
+  </data>
+  <data name="SelectFixtures" xml:space="preserve">
+    <value>Wybierz Oprzyrządowanie</value>
+  </data>
+  <data name="SelectTools" xml:space="preserve">
+    <value>Wybierz Narzędzia</value>
+  </data>
+  <data name="SubAngel" xml:space="preserve">
+    <value>Pod Kąt</value>
+  </data>
+  <data name="Parts" xml:space="preserve">
+    <value>Części</value>
+  </data>
+  <data name="Reload" xml:space="preserve">
+    <value>Odśwież</value>
+  </data>
+  <data name="Values" xml:space="preserve">
+    <value>Wymiary</value>
+  </data>
+  <data name="GoToSettingsAndConnectToDatabase" xml:space="preserve">
+    <value>Przejdź do ustawień i połącz się z bazą danych</value>
+  </data>
+  <data name="ModuleNumber" xml:space="preserve">
+    <value>Numer modułu</value>
+  </data>
+  <data name="ProgramNumber" xml:space="preserve">
+    <value>Numer programu</value>
+  </data>
+  <data name="CimcoConnectionInfo" xml:space="preserve">
+    <value>Cimco jest już połączone!</value>
+  </data>
+  <data name="FixturesDatabase" xml:space="preserve">
+    <value>Oprzyrządowanie</value>
+  </data>
+  <data name="DatumDT" xml:space="preserve">
+    <value>Baza DT</value>
+  </data>
+  <data name="FlightPitch" xml:space="preserve">
+    <value>Skok flighta</value>
+  </data>
+  <data name="LenghtTL" xml:space="preserve">
+    <value>Długość</value>
+  </data>
+  <data name="InstructionData" xml:space="preserve">
+    <value>Dane</value>
+  </data>
+  <data name="Completed" xml:space="preserve">
+    <value>Zakończono</value>
+  </data>
+  <data name="LoadingConfigurationFile" xml:space="preserve">
+    <value>Ładowanie plików configuracyjnych</value>
+  </data>
+  <data name="MachineDiameter" xml:space="preserve">
+    <value>Średnica toczenia</value>
+  </data>
+  <data name="OutsideDiameter" xml:space="preserve">
+    <value>Średnica zewnętrzna</value>
+  </data>
+  <data name="OverallDiameter" xml:space="preserve">
+    <value>Średnica całkowita</value>
+  </data>
+  <data name="Search" xml:space="preserve">
+    <value>Szukaj</value>
+  </data>
+  <data name="SelectConfigurationFile" xml:space="preserve">
+    <value>Wybierz pilk configuracyjny</value>
+  </data>
+  <data name="SelectDXF" xml:space="preserve">
+    <value>Wybierz plik dxf</value>
+  </data>
+  <data name="SelectJustOneItem" xml:space="preserve">
+    <value>Wybierz tylko jeden plik</value>
+  </data>
+  <data name="LanguageChangeInfo" xml:space="preserve">
+    <value>Aby zmienić język: zapisz ustawienia i restartuj aplikacje</value>
+  </data>
+  <data name="Update" xml:space="preserve">
+    <value>Zaktualizuj</value>
+  </data>
+  <data name="DetailedTools" xml:space="preserve">
+    <value>Szczegóły narzędzi</value>
+  </data>
+  <data name="Hide" xml:space="preserve">
+    <value>Ukryj</value>
+  </data>
+  <data name="LargeEnd" xml:space="preserve">
+    <value>Duży koniec</value>
+  </data>
+  <data name="NoWearProtectionSelected" xml:space="preserve">
+    <value>Wybierz powłoke</value>
+  </data>
+  <data name="SelectCimcoProgram" xml:space="preserve">
+    <value>Wybierz program z cimco</value>
+  </data>
+  <data name="SelectFixtureDrawing" xml:space="preserve">
+    <value>Wybierz rysunek oprzyrzadowania</value>
+  </data>
+  <data name="SmallEnd" xml:space="preserve">
+    <value>Mały koniec</value>
+  </data>
+  <data name="AddingItem" xml:space="preserve">
+    <value>Dodawanie </value>
+  </data>
+  <data name="DescriptionCannotEmpty" xml:space="preserve">
+    <value>Opis nie może być pusty!</value>
+  </data>
+  <data name="RemovingItems" xml:space="preserve">
+    <value>Usuwanie rekordu</value>
+  </data>
+  <data name="SelectWordFile" xml:space="preserve">
+    <value>Wybierz plik worda</value>
+  </data>
+  <data name="UpdatingItem" xml:space="preserve">
+    <value>Aktualizowanie </value>
+  </data>
+  <data name="OperationNumber" xml:space="preserve">
+    <value>Numer operacji</value>
+  </data>
+  <data name="Details" xml:space="preserve">
+    <value>Szczegóły</value>
+  </data>
+  <data name="FixtureNumber" xml:space="preserve">
+    <value>Numer oprzyrządowania</value>
+  </data>
+</root>

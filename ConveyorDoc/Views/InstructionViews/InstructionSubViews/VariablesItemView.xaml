@@ -1,0 +1,62 @@
+﻿<UserControl
+    x:Class="ConveyorDoc.Views.InstructionViews.InstructionSubViews.VariablesItemView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:ConveyorDoc.Views.InstructionViews.InstructionSubViews"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:prism="http://prismlibrary.com/"
+    xmlns:properties="clr-namespace:ConveyorDoc.Resources.Properties;assembly=ConveyorDoc.Resources"
+    xmlns:ui="http://schemas.modernwpf.com/2019"
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    mc:Ignorable="d"
+    prism:ViewModelLocator.AutoWireViewModel="True">
+    
+    
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="100" />
+        </Grid.ColumnDefinitions>
+        
+        <!--ContentView-->
+        <ScrollViewer>
+            <ItemsControl ItemsSource="{Binding SelectedWord.Variables}"
+                      Margin="{DynamicResource SmallMargin}">
+
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <ui:SimpleStackPanel Spacing="5"
+                                         Orientation="Vertical"/>
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <TextBox ui:ControlHelper.CornerRadius="{DynamicResource SmallCornerRadius}"
+                             ui:ControlHelper.Header="{Binding Name}"
+                             Text="{Binding Value, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </ScrollViewer>
+
+        
+        
+        <!--ContentToolBar-->
+        <ui:SimpleStackPanel Grid.Column="1"
+                             Margin="{DynamicResource SmallMargin}"
+                             Spacing="{DynamicResource SmallSpacing}">
+
+            <ui:AppBarButton Icon="Download" Label="{x:Static properties:Resources.Load}" 
+                             HorizontalAlignment="Center"
+                             Command="{Binding LoadInstructionCommands.LoadVariablesCommand}"
+                             CommandParameter="{Binding SelectedWord}"/>
+
+
+        </ui:SimpleStackPanel>
+
+
+    </Grid>
+</UserControl>

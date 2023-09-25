@@ -1,0 +1,9 @@
+Uwagi:
+
+1. Sprawdzić czy numer rewizji modułu zgadza się z numerem rewizji zawartym w przewodniku.
+2. Detal zamocować zgodnie ze schematem zawartym w instrukcji.
+3. Zamocować wszystkie narzędzia.
+4. Ustawić pozycje G54 Z0:
+	a. Pozycja nieustawiona
+5. Ustawienie pozycji G54 C0:
+	a. Pozycja nieustawiona
