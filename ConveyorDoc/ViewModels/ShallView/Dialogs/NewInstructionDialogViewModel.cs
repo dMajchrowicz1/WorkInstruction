@@ -1,5 +1,6 @@
 ﻿using ConveyorDoc.Core;
 using ConveyorDoc.Descriptions.Interfaces;
+using ConveyorDoc.Model.Settings;
 using ToastNotifications;
 
 namespace ConveyorDoc.ViewModels.ShallView.Dialogs

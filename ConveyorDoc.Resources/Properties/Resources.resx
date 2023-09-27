@@ -574,7 +574,7 @@
     <value>Loading Fixture filters</value>
   </data>
   <data name="CrudAddInfo" xml:space="preserve">
-    <value>added successfully to database</value>
+    <value>Added successfully to database</value>
   </data>
   <data name="Updated" xml:space="preserve">
     <value>Updated</value>
@@ -607,7 +607,7 @@
     <value>Drawing Templates</value>
   </data>
   <data name="EnterDrawingTemplatesDirecotry" xml:space="preserve">
-    <value>Enter drawing templates direcotry</value>
+    <value>Enter drawing templates directory</value>
   </data>
   <data name="SelectLanguageAndRestartApp" xml:space="preserve">
     <value>Select language and restart app</value>
@@ -625,7 +625,7 @@
     <value>App theme</value>
   </data>
   <data name="SettingsView_SelectWhichAppThemToDisplay" xml:space="preserve">
-    <value>Select which app them to display</value>
+    <value>Select which app theme to display</value>
   </data>
   <data name="InstructionContent_Date" xml:space="preserve">
     <value>Date</value>
@@ -644,5 +644,17 @@
   </data>
   <data name="RemoveItem" xml:space="preserve">
     <value>Remove Item</value>
+  </data>
+  <data name="ChangingWindowSize" xml:space="preserve">
+    <value>Changing window size</value>
+  </data>
+  <data name="FixtureCommandBar_Workspace" xml:space="preserve">
+    <value>Workspace</value>
+  </data>
+  <data name="SettingsView_DetailedTools" xml:space="preserve">
+    <value>Detailed tools</value>
+  </data>
+  <data name="SettingsView_EnableToGenerateDetaildToolList" xml:space="preserve">
+    <value>Enable to generate detailed tool list</value>
   </data>
 </root>

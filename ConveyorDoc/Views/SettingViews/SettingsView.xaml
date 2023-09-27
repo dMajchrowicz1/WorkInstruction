@@ -110,13 +110,13 @@
                                 HorizontalAlignment="Right"
                                 Margin="{StaticResource SmallLeftRightMargin}"
                                 ui:ControlHelper.Header="{x:Static properties:Resources.Width}"
-                                Text="{Binding Settings.GeneralSettings.WindowsWidth}"
+                                Text="{Binding Settings.GeneralSettings.WindowsWidth, UpdateSourceTrigger=PropertyChanged}"
                                 DockPanel.Dock="Right"/>
                             <TextBox
                                 Margin="{StaticResource SmallLeftRightMargin}"
                                 HorizontalAlignment="Right"
                                 ui:ControlHelper.Header="{x:Static properties:Resources.Height}"
-                                Text="{Binding Settings.GeneralSettings.WindowsHeight}"
+                                Text="{Binding Settings.GeneralSettings.WindowsHeight, UpdateSourceTrigger=PropertyChanged}"
                                 DockPanel.Dock="Right"/>
 
                         </DockPanel>
@@ -180,7 +180,7 @@
                             <TextBox
                                     x:Name="_FixtureDataPath"
                                     Margin="{StaticResource SmallMargin}"
-                                    Text="{Binding Settings.DirectoriesSettings.FixturesWorkspaceDir}"
+                                    Text="{Binding Settings.DirectoriesSettings.FixturesWorkspaceDir, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
                                     DockPanel.Dock="Right"/>
 
                         </DockPanel>
@@ -228,8 +228,8 @@
                         <DockPanel Margin="{StaticResource SmallMargin}">
                             <ui:FontIcon DockPanel.Dock="Left" Glyph="&#xE8A4;" Margin="{StaticResource SmallMargin}" />
                             <ui:SimpleStackPanel VerticalAlignment="Center" Orientation="Vertical">
-                                <TextBlock Style="{StaticResource BaseTextBlockStyle}" Text="Detailed tools" />
-                                <TextBlock Style="{StaticResource CaptionTextBlock}" Text="Enable to generate detaild tool list" />
+                                <TextBlock Style="{StaticResource BaseTextBlockStyle}" Text="{x:Static properties:Resources.SettingsView_DetailedTools}" />
+                                <TextBlock Style="{StaticResource CaptionTextBlock}" Text="{x:Static properties:Resources.SettingsView_EnableToGenerateDetaildToolList}" />
                             </ui:SimpleStackPanel>
                             <ui:ToggleSwitch 
                                 IsOn="{Binding Settings.InstructionSettings.GenerateDetailedTools}"

@@ -1,4 +1,5 @@
 ﻿using ConveyorDoc.Core;
+using ConveyorDoc.Core.Extension;
 using ConveyorDoc.Descriptions.Interfaces;
 using ConveyorDoc.Descriptions.Model;
 using ConveyorDoc.Descriptions.Views.Dialogs;
@@ -67,9 +68,7 @@ namespace ConveyorDoc.Descriptions.ViewModels.Commands
             {
                 Application.Current.Dispatcher.InvokeAsync(() =>
                 {
-
-                    _viewModelBase.Descriptions.Clear();
-                    _viewModelBase.Descriptions.AddRange(data as IEnumerable<DescriptionRecord>);
+                    _viewModelBase.Descriptions.Replace(data as IEnumerable<DescriptionRecord>);
                     _viewModelBase.DescriptionCollection.Refresh();
                 });
             });
@@ -78,7 +77,7 @@ namespace ConveyorDoc.Descriptions.ViewModels.Commands
 
         private void ExecuteDeleteDescriptionCommand(DescriptionRecord parameter)
         {
-            _windowsDialogService.ShowContentDialog(typeof(RemoveDoubleCheckDialog), callback =>
+            _windowsDialogService.ShowContentDialog(typeof(RemoveDescriptionDoubleCheckDialog), callback =>
             {
                 if (callback.Result == ButtonResult.OK)
                 {
@@ -88,9 +87,14 @@ namespace ConveyorDoc.Descriptions.ViewModels.Commands
                     }
                     , ConveyorDoc.Resources.Properties.Resources.DeletingRecord, result =>
                     {
+                      
+
                         if (result == TaskStatus.RanToCompletion)
                         {
-                            _viewModelBase.Descriptions.Remove(parameter);
+                            Application.Current?.Dispatcher.InvokeAsync(() =>
+                            {
+                                _viewModelBase.Descriptions.Remove(parameter);
+                            });                            
                         }
                     });
                 }
@@ -130,7 +134,10 @@ namespace ConveyorDoc.Descriptions.ViewModels.Commands
                     {
                         if (callback == TaskStatus.RanToCompletion)
                         {
-                            _viewModelBase.Descriptions.Add(item);
+
+                            Application.Current.Dispatcher.Invoke(() => 
+                            { _viewModelBase.Descriptions.Add(item); });
+                            
                         }
 
                     });

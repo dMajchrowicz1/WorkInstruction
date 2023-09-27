@@ -93,22 +93,27 @@ namespace ConveyorDoc.Business.Model
         }
 
 
-
         public void AddWord(string ncProgramPath)
         {
-            _wordInstructions.Add(new Word(this, new NcProgram(ncProgramPath)));
+            var word = new Word(this, new NcProgram(ncProgramPath));
+            _wordInstructions.Add(word);
         }
 
         public void AddWord(NcProgram [] programs)
         {
-            programs.ForEach(program => _wordInstructions.Add(new Word(this,program)));
+
+            foreach (var program in programs)
+            {
+                var word = new Word(this, program);
+                _wordInstructions.Add(word);
+            }
         }
 
-        public void GenerateWords(string savePath, bool standardHeader =true)
+        public void GenerateWords(string savePath, bool detailedTools = false)
         {
             foreach (var item in WordInstructions)
             {
-                item.SaveInstruction(savePath,standardHeader);
+                item.SaveInstruction(savePath,detailedTools);
             }
         }
 

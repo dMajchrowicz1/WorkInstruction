@@ -124,14 +124,15 @@ namespace ConveyorDoc.ViewModels.Commands
 
         }
 
-        private void ExecuteNewInstructionCommand()
+        private async void ExecuteNewInstructionCommand()
         {
             if (_viewModelBase.CurrentInstruction != null)
             {
-                _dialogService.ShowContentDialog(typeof(AskForSave), result =>
+                await _dialogService.ShowContentDialog(typeof(AskForSave), result =>
                 {
                     if (result.Result == ButtonResult.Yes)
                         SaveFile();
+
                 });
             }
             NewFile();

@@ -205,7 +205,7 @@
     <value>Filtry</value>
   </data>
   <data name="FixtureDatabase" xml:space="preserve">
-    <value>Baza danych osprzętu!</value>
+    <value>Baza danych oprzyrządowania!</value>
   </data>
   <data name="Fixtures" xml:space="preserve">
     <value>Oprzyrządowanie</value>
@@ -557,5 +557,104 @@
   </data>
   <data name="FixtureNumber" xml:space="preserve">
     <value>Numer oprzyrządowania</value>
+  </data>
+  <data name="Appearance" xml:space="preserve">
+    <value>Wygląd</value>
+  </data>
+  <data name="CreateDate" xml:space="preserve">
+    <value>Data dodania:</value>
+  </data>
+  <data name="CreatedBy" xml:space="preserve">
+    <value>Dodane przez:</value>
+  </data>
+  <data name="DrawingTemplates" xml:space="preserve">
+    <value>Zmienne rysunku</value>
+  </data>
+  <data name="EditFixture" xml:space="preserve">
+    <value>Edycja oprzyrządowania</value>
+  </data>
+  <data name="DeletingRecord" xml:space="preserve">
+    <value>Usuwanie rekordu</value>
+  </data>
+  <data name="BusyRecord" xml:space="preserve">
+    <value>Bieżący rekord jest zajęty przez innego użytkownika!</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Edytuj</value>
+  </data>
+  <data name="LoadingFixtureFilters" xml:space="preserve">
+    <value>Ładowanie filtrów oprzyrządowania!</value>
+  </data>
+  <data name="CrudAddInfo" xml:space="preserve">
+    <value>Pomyślnie dodano do bazy danych!</value>
+  </data>
+  <data name="Updated" xml:space="preserve">
+    <value>Zaktualizowane</value>
+  </data>
+  <data name="Removing" xml:space="preserve">
+    <value>Usuwanie</value>
+  </data>
+  <data name="RemovingWordFile" xml:space="preserve">
+    <value>Usuwanie pliku Word!</value>
+  </data>
+  <data name="DropingNcProgram" xml:space="preserve">
+    <value>Porzucanie programu NC!</value>
+  </data>
+  <data name="LoadingModulePrograms" xml:space="preserve">
+    <value>Ładowanie programów modułowych!</value>
+  </data>
+  <data name="FixturesWorkspace" xml:space="preserve">
+    <value>Przestrzeń robocza oprzyrządowania</value>
+  </data>
+  <data name="EnterFixturesWorkspaceDirectory" xml:space="preserve">
+    <value>Wejdź do katalogu przestrzeni roboczej oprzyrządowania!</value>
+  </data>
+  <data name="EnterDrawingTemplatesDirecotry" xml:space="preserve">
+    <value>Wejdź do katalogu szablonów rysunków!</value>
+  </data>
+  <data name="SelectLanguageAndRestartApp" xml:space="preserve">
+    <value>Wybierz język i uruchom ponownie aplikację!</value>
+  </data>
+  <data name="SettingsView_WindowSize" xml:space="preserve">
+    <value>Rozmiar okna</value>
+  </data>
+  <data name="SettingsView_EnterValuesToChangeWindowSize" xml:space="preserve">
+    <value>Wprowadź wartości, aby zmienić rozmiar okna!</value>
+  </data>
+  <data name="SettingsView_AppTheme" xml:space="preserve">
+    <value>Motyw aplikacji</value>
+  </data>
+  <data name="SettingsView_SelectWhichAppThemToDisplay" xml:space="preserve">
+    <value>Wybierz aplikację, którą chcesz wyświetlić!</value>
+  </data>
+  <data name="InstructionContent_Date" xml:space="preserve">
+    <value>Data</value>
+  </data>
+  <data name="LoadingMaterials" xml:space="preserve">
+    <value>Ładowanie materiałów!</value>
+  </data>
+  <data name="LoadingModuleTypes" xml:space="preserve">
+    <value>Ładowanie typów modułów!</value>
+  </data>
+  <data name="DrawingVariables" xml:space="preserve">
+    <value>Rysowanie zmiennych!</value>
+  </data>
+  <data name="AreYouSureYouWantRemoveThisItem" xml:space="preserve">
+    <value>Czy na pewno chcesz usunąć ten element?</value>
+  </data>
+  <data name="RemoveItem" xml:space="preserve">
+    <value>Usuń pozycję</value>
+  </data>
+  <data name="ChangingWindowSize" xml:space="preserve">
+    <value>Zmiana rozmiaru okna!</value>
+  </data>
+  <data name="FixtureCommandBar_Workspace" xml:space="preserve">
+    <value>Przestrzeń robocza</value>
+  </data>
+  <data name="SettingsView_DetailedTools" xml:space="preserve">
+    <value>Szczegółowe narzędzia!</value>
+  </data>
+  <data name="SettingsView_EnableToGenerateDetaildToolList" xml:space="preserve">
+    <value>Włącz, aby wygenerować szczegółową listę narzędzi!</value>
   </data>
 </root>

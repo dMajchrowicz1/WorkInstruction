@@ -55,7 +55,7 @@
             </ui:NavigationViewItem>
 
 
-            <ui:NavigationViewItem Content="{x:Static resx:Resources.Save}" Icon="Save">
+            <ui:NavigationViewItem Content="{x:Static resx:Resources.Save}" Icon="Save" >
                 <i:Interaction.Triggers>
                     <i:EventTrigger EventName="MouseLeftButtonDown">
                         <prism:InvokeCommandAction Command="{Binding Commands.SaveWorkInstructionCommand}" />

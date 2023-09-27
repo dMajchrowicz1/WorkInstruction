@@ -54,7 +54,7 @@
         CommandParameter="{Binding ViewModelBase.SelectedFixture}"
         IsEnabled="{Binding ViewModelBase.SelectedFixture, Converter={StaticResource NullToBool}}"
         Icon="PreviewLink" 
-        Label="Workspace"/>
+        Label="{x:Static properties:Resources.FixtureCommandBar_Workspace}"/>
 
     <ui:AppBarButton 
         Command="{Binding OpenDrawingCommand}"

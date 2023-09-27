@@ -58,7 +58,7 @@ namespace ConveyorDoc.Business.Model
 
 
         /// <summary>
-        /// Full template name with extension
+        /// Full word name with extension
         /// </summary>
         public string FullName
         {
@@ -68,7 +68,7 @@ namespace ConveyorDoc.Business.Model
 
 
         /// <summary>
-        /// Template name without extension
+        /// Word name without extension
         /// </summary>
         public string Name
         {
@@ -216,7 +216,7 @@ namespace ConveyorDoc.Business.Model
                     result = GetToolsByList(queryHandler, FanucToolFinder(), NcProgram.Machine);
                     break;
                 default:
-                    throw new NotImplementedException("Cannot find tools");
+                    throw new Exception("Cannot find tools");
 
             }
 

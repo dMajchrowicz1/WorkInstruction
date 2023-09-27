@@ -32,14 +32,13 @@ namespace ConveyorDoc.Core
 
 
             SaveFileDialog saveFileDialog = new SaveFileDialog();
-            saveFileDialog.Reset();
             saveFileDialog.Title = Resources.Properties.Resources.SaveInstruction;
             saveFileDialog.FileName = filename;
             saveFileDialog.Filter = GeneralConstants.ALL_DIALOG_FILTER;
             saveFileDialog.ValidateNames = false;
             saveFileDialog.CheckFileExists = false;
             saveFileDialog.CheckPathExists = true;
-            saveFileDialog.RestoreDirectory = false;
+            saveFileDialog.RestoreDirectory = true;
             saveFileDialog.InitialDirectory = initialDirecotry;
             saveFileDialog.FileOk += (sender, e) =>
             {
@@ -61,8 +60,11 @@ namespace ConveyorDoc.Core
             winForms.FolderBrowserDialog folderBrowseDialog = new winForms.FolderBrowserDialog();
             folderBrowseDialog.Reset();
             folderBrowseDialog.UseDescriptionForTitle = true;
-            folderBrowseDialog.Description = "Select Folder";           
+            folderBrowseDialog.Description = "Select Folder"; 
+            folderBrowseDialog.SelectedPath = initialDirecotry;
             folderBrowseDialog.InitialDirectory = initialDirecotry;
+
+
 
             var result = folderBrowseDialog.ShowDialog();
             if (result == winForms.DialogResult.OK)
@@ -81,9 +83,8 @@ namespace ConveyorDoc.Core
 
             IDialogParameters dialogParameters = new DialogParameters();
             OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.Reset();
             openFileDialog.Title = title;
-            openFileDialog.RestoreDirectory = false;
+            openFileDialog.RestoreDirectory = true;
             openFileDialog.InitialDirectory = initialDirectory;
             openFileDialog.Multiselect = multiSelection;
             openFileDialog.Filter = filter;

@@ -10,6 +10,6 @@ namespace ConveyorDoc.Business.Constants
     {
         public const string WORD_PREFIX = "IN";
 
-        public const string WORD_EXTENSION = "docx";
+        public const string WORD_EXTENSION = ".docx";
     }
 }

@@ -12,7 +12,6 @@ using Prism.Ioc;
 using Prism.Modularity;
 using Prism.Mvvm;
 using Prism.Regions;
-using RemoveDoubleCheckDialog = ConveyorDoc.Resources.Reusable.RemoveDoubleCheckDialog;
 
 namespace ConveyorDoc.Fixtures
 {
@@ -33,9 +32,6 @@ namespace ConveyorDoc.Fixtures
 
             containerRegistry.RegisterForNavigation<FixturesView>();
 
-
-
-            ViewModelLocationProvider.Register<RemoveDoubleCheckDialog, RemoveDoubleCheckDialogViewModel>();
 
         }
     }

@@ -4,19 +4,19 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:ConveyorDoc.Views.Reusable"
+    xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:properties="clr-namespace:ConveyorDoc.Resources.Properties;assembly=ConveyorDoc.Resources"
-    xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
     xmlns:ui="http://schemas.modernwpf.com/2019"
     mc:Ignorable="d">
 
     <UserControl.Resources>
 
-        <ui:FontIcon Glyph="&#xE787;" x:Key="CalendarIcon"/>
+        <ui:FontIcon x:Key="CalendarIcon" Glyph="&#xE787;" />
 
     </UserControl.Resources>
-       
-    
+
+
     <Grid>
         <ui:SimpleStackPanel
             Margin="{DynamicResource SmallTopBottomMargin}"
@@ -25,7 +25,7 @@
             <TextBox
                 ui:ControlHelper.Header="{x:Static properties:Resources.DecanterModule}"
                 ui:ValidationHelper.IsTemplateValidationAdornerSite="True"
-                Text="{Binding DialogInstruction.ModuleNumber}" />
+                Text="{Binding DialogInstruction.ModuleNumber, UpdateSourceTrigger=PropertyChanged}" />
             <TextBox
                 Width="{DynamicResource MediumWidth}"
                 HorizontalAlignment="Left"
@@ -37,39 +37,42 @@
                 HorizontalAlignment="Left"
                 ui:ControlHelper.Header="{x:Static properties:Resources.ModuleRevision}"
                 ui:ValidationHelper.IsTemplateValidationAdornerSite="True"
-                Text="{Binding DialogInstruction.ModuleRev}" />
+                Text="{Binding DialogInstruction.ModuleRev, UpdateSourceTrigger=PropertyChanged}" />
             <ComboBox
-                ui:ControlHelper.Header="{x:Static properties:Resources.NewInstructionDialog_ModuleType}"
                 MinWidth="200"
+                ui:ControlHelper.Header="{x:Static properties:Resources.NewInstructionDialog_ModuleType}"
                 ui:ValidationHelper.IsTemplateValidationAdornerSite="True"
                 ItemsSource="{Binding ModuleTypesContainer.ModuleTypes}"
-                SelectedItem="{Binding DialogInstruction.ModuleType}" />
+                SelectedItem="{Binding DialogInstruction.ModuleType, UpdateSourceTrigger=PropertyChanged}" />
             <ComboBox
                 Width="{DynamicResource MediumWidth}"
                 ui:ControlHelper.Header="{x:Static properties:Resources.Material}"
                 ui:ValidationHelper.IsTemplateValidationAdornerSite="True"
                 IsEditable="True"
                 ItemsSource="{Binding MaterialContainer.Materials}"
-                SelectedItem="{Binding DialogInstruction.Material}" />
+                Text="{Binding DialogInstruction.Material, UpdateSourceTrigger=PropertyChanged}" />
             <TextBox
                 ui:ControlHelper.Header="{x:Static properties:Resources.Blank}"
                 ui:ValidationHelper.IsTemplateValidationAdornerSite="True"
-                Text="{Binding DialogInstruction.BlankNumber}" />
+                Text="{Binding DialogInstruction.BlankNumber, UpdateSourceTrigger=PropertyChanged}" />
 
 
-            <mah:DateTimePicker 
-                SelectedDateTime="{Binding DialogInstruction.Date}" 
-                SelectedDateFormat="Short"               
-                ui:ControlHelper.Header="{x:Static properties:Resources.InstructionContent_Date}"
-                Height="50"
-                mah:DatePickerHelper.DropDownButtonContent="{StaticResource CalendarIcon}"
-                mah:TextBoxHelper.ButtonWidth="40" />
+                <mah:DateTimePicker
+                    x:Name="DataPicker"
+                    Height="50"
+                    mah:DatePickerHelper.DropDownButtonContent="{StaticResource CalendarIcon}"
+                    mah:TextBoxHelper.ButtonWidth="40"
+                    IsClockVisible="True"
+                    mah:TextBoxHelper.Watermark="{x:Static properties:Resources.InstructionContent_Date}"
+                    IsTodayHighlighted="True"
+                    SelectedDateFormat="Short"                  
+                    SelectedDateTime="{Binding DialogInstruction.Date}"/>
 
 
             <TextBox
                 ui:ControlHelper.Header="{x:Static properties:Resources.Programmer}"
                 ui:ValidationHelper.IsTemplateValidationAdornerSite="True"
-                Text="{Binding DialogInstruction.ProgrammerName}" />
+                Text="{Binding DialogInstruction.ProgrammerName, UpdateSourceTrigger=PropertyChanged}" />
         </ui:SimpleStackPanel>
 
     </Grid>

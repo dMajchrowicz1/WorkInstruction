@@ -22,7 +22,6 @@
 
 
 
-
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="80" />
@@ -75,7 +74,7 @@
             Margin="{DynamicResource SmallLeftRightMargin}"
             AllowDrop="False"
             Height="400"
-            AlternatingRowBackground="{DynamicResource SystemControlBackgroundChromeBlackLowBrush}"
+            AlternatingRowBackground="{DynamicResource DataGridAccentLowBrush}"
             AutoGenerateColumns="False"
             Background="Transparent"
             BorderBrush="{DynamicResource SystemControlBackgroundChromeMediumBrush}"
@@ -101,7 +100,7 @@
                 <DataGridTemplateColumn Header="{x:Static resx:Resources.PDF}" Width="50">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <Button Command="{Binding ElementName=_ToolDataGrid, Path=DataContext.ReusableCommands.OpenPDFCommand}"
+                            <Button Command="{Binding ElementName=_ToolDataGrid, Path=DataContext.ApplicationCommands.OpenPDFCommand}"
                                     CommandParameter="{Binding PDF}"
                                     Background="Transparent" HorizontalAlignment="Stretch">
                                 <Button.Content>
@@ -146,7 +145,7 @@
             <DataGrid.RowStyle>
                 <Style TargetType="{x:Type DataGridRow}">
                     <Setter Property="Visibility" Value="{Binding Visibility}"/>
-                    <Setter Property="Background" Value="{DynamicResource DataGridAccentLowBrush}"/>
+                    <Setter Property="Background" Value="{StaticResource SystemChromeLowColorBrush}"/>
                 </Style>
             </DataGrid.RowStyle>
         </DataGrid>

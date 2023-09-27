@@ -52,8 +52,7 @@
                 Text="{Binding Filter.Machine, UpdateSourceTrigger=PropertyChanged}" />
 
             <ComboBox
-                MinWidth="100"
-                
+                MinWidth="100"               
                 Height="55"
                 VerticalAlignment="Top"
                 IsEditable="True"
@@ -125,11 +124,13 @@
                     Header="{x:Static properties:Resources.Type}"
                     Binding="{Binding ItemType}"
                     IsReadOnly="True"/>
+                
                 <DataGridTextColumn
                     Width="100"
                     Header="{x:Static properties:Resources.Machine}"
                     Binding="{Binding Machine}"
                     IsReadOnly="True"/>
+                
                 <DataGridTextColumn
                     Width="100"
                     Binding="{Binding Size}"
@@ -137,6 +138,11 @@
                     IsReadOnly="True"/>
 
             </DataGrid.Columns>
+            <DataGrid.RowStyle>
+                <Style TargetType="{x:Type DataGridRow}">
+                    <Setter Property="Background" Value="{StaticResource SystemChromeLowColorBrush}"/>
+                </Style>
+            </DataGrid.RowStyle>
         </DataGrid>
 
 

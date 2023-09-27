@@ -30,6 +30,7 @@ namespace ConveyorDoc.Settings.ViewModels
         public SettingsViewModel(AppSettings appSettings, 
             IWindowsDialogService windowsDialogService, 
             IApplicationCommands appCommands,
+            IAppTask appTask,
             Notifier notifier)
         {
 
@@ -63,7 +64,11 @@ namespace ConveyorDoc.Settings.ViewModels
 
             ChangeWindowSizeCommand = new DelegateCommand(() =>
             {
-                Settings.GeneralSettings.ChangeWindowSize();
+                appTask.RunOnUIThread(() =>
+                {
+                    Settings.GeneralSettings.ChangeWindowSize();
+                }, ConveyorDoc.Resources.Properties.Resources.ChangingWindowSize);
+                
             });
 
             ChangeLanguageCommand = new DelegateCommand(() =>

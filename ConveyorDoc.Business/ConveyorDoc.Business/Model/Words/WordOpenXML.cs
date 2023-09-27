@@ -52,7 +52,7 @@ namespace ConveyorDoc.Service
         /// <summary>
         /// Finds all variables in main table
         /// </summary>
-        /// <returns>List of found variables</returns>
+        /// <returns>Variables</returns>
         public IEnumerable<Variable> FindVariables()
         {
             var result = Enumerable.Empty<Variable>();
@@ -478,9 +478,6 @@ namespace ConveyorDoc.Service
 
             return specialRun.ToList();
         }
-
-
-
 
 
         #endregion

@@ -35,7 +35,7 @@ namespace ConveyorDoc.ViewModels.InstructionViewModels.InstructionSubItemViewMod
         public event Action<IDialogResult> RequestClose;
 
 
-        public ObservableCollection<string> Offsetes { get; private set; }
+        public ObservableCollection<string> Offsets { get; private set; }
 
         public ObservableCollection<string> Types { get; private set; }
 
@@ -88,7 +88,7 @@ namespace ConveyorDoc.ViewModels.InstructionViewModels.InstructionSubItemViewMod
         {
             Machines = new ObservableCollection<string>(_queryResult.Select(x => x.Machine).Distinct());
 
-            Offsetes = new ObservableCollection<string>(_queryResult.Select(x => x.Offset).Distinct());
+            Offsets = new ObservableCollection<string>(_queryResult.Select(x => x.Offset).Distinct());
 
             Types = new ObservableCollection<string>(_queryResult.Select(x => x.Type).Distinct());
         }

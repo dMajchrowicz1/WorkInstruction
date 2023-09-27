@@ -3,6 +3,7 @@ using ConveyorDoc.Core;
 using ConveyorDoc.Descriptions.Interfaces;
 using ConveyorDoc.Interfaces;
 using ConveyorDoc.Model;
+using ConveyorDoc.Model.Settings;
 using ConveyorDoc.Notification;
 using Prism.Mvvm;
 using Prism.Services.Dialogs;
@@ -40,6 +41,7 @@ namespace ConveyorDoc.ViewModels.ShallView.Dialogs
 
         public IModuleTypesContainer ModuleTypesContainer { get; }
 
+
         public InstructionDialogBase(
             string title, string primaryButtonText, Notifier notifier, 
             IMaterialContainer materialContainer, IModuleTypesContainer moduleTypesContainer) 
@@ -55,6 +57,7 @@ namespace ConveyorDoc.ViewModels.ShallView.Dialogs
             MaterialContainer = materialContainer;
 
             ModuleTypesContainer = moduleTypesContainer;
+
         }
 
         public void OnDialogOpened(IDialogParameters parameters)

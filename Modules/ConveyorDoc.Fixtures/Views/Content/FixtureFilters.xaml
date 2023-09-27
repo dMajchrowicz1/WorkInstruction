@@ -18,7 +18,7 @@
         <TextBlock
             HorizontalAlignment="Center"
             Style="{DynamicResource BaseTextBlockStyle}"
-            Text="Filters" />
+            Text="{x:Static properties:Resources.Filters}" />
 
         <TextBox
             MinWidth="160"

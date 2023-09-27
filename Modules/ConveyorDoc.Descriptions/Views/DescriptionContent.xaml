@@ -56,24 +56,25 @@
             <DataGrid.Columns>
                 <DataGridTextColumn
                     Width="250"
-                    Binding="{Binding ModuleType}"
+                    Binding="{Binding ModuleType, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
                     Header="{x:Static properties:Resources.ModuleType}" />
                 <DataGridTextColumn
                     Width="130"
-                    Binding="{Binding Machine}"
+                    Binding="{Binding Machine, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
                     Header="{x:Static properties:Resources.Machine}" />
                 <DataGridTextColumn
                     Width="130"
-                    Binding="{Binding Size}"
+                    Binding="{Binding Size, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
                     Header="{x:Static properties:Resources.Size}" />
                 <DataGridTextColumn
                     Width="130"
-                    Binding="{Binding OperationNumber}"
+                    Binding="{Binding OperationNumber, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
                     Header="{x:Static properties:Resources.Operation}" />
             </DataGrid.Columns>
             <DataGrid.RowStyle>
                 <Style TargetType="{x:Type DataGridRow}">
                     <Setter Property="Visibility" Value="{Binding Visibility}" />
+                    <Setter Property="Background" Value="{StaticResource SystemChromeLowColorBrush}"/>
                     <Setter Property="ContextMenu">
                         <Setter.Value>
                             <ContextMenu>

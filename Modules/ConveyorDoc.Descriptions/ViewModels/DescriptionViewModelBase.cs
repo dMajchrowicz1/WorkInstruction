@@ -31,21 +31,21 @@ namespace ConveyorDoc.Descriptions.ViewModels
         }
      
 
-        private ObservableCollection<string> _sizes;
+        private ObservableCollection<string> _sizes = new ObservableCollection<string>();
         public ObservableCollection<string> Sizes
         {
             get { return _sizes; }
             set { SetProperty(ref _sizes, value); }
         }
 
-        private ObservableCollection<string> _machines;
+        private ObservableCollection<string> _machines =  new ObservableCollection<string>();
         public ObservableCollection<string> Machines
         {
             get { return _machines; }
             set { SetProperty(ref _machines, value); }
         }
 
-        private ObservableCollection<string> _moduleTypes;
+        private ObservableCollection<string> _moduleTypes =  new ObservableCollection<string>();
         public ObservableCollection<string> ModuleTypes
         {
             get { return _moduleTypes; }
@@ -58,14 +58,14 @@ namespace ConveyorDoc.Descriptions.ViewModels
         {
             DescriptionCollection = CollectionViewSource.GetDefaultView(_descriptions);
 
-            //Descriptions.CollectionChanged += Descriptions_CollectionChanged;
+            Descriptions.CollectionChanged += Descriptions_CollectionChanged;
         }
 
-        //private void Descriptions_CollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
-        //{
-        //    Machines.Replace(Descriptions.Select(x => x.Machine).Distinct());
-        //    Sizes.Replace(Descriptions.Select(x => x.Size).Distinct());
-        //    ModuleTypes.Replace(Descriptions.Select(x => x.ModuleType).Distinct());
-        //}
+        private void Descriptions_CollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
+        {
+            Machines.Replace(Descriptions.Select(x => x.Machine).Distinct());
+            Sizes.Replace(Descriptions.Select(x => x.Size).Distinct());
+            ModuleTypes.Replace(Descriptions.Select(x => x.ModuleType).Distinct());
+        }
     }
 }

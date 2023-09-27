@@ -1,4 +1,5 @@
-﻿using ModernWpf;
+﻿using ConveyorDoc.Business.Constants;
+using ModernWpf;
 using Newtonsoft.Json;
 using Prism.Mvvm;
 using System;
@@ -67,12 +68,13 @@ namespace ConveyorDoc.Model.Settings
 
         public GeneralSettings()
         {
-
             Languages.Add(new CultureInfo("en-UK"));
             Languages.Add(new CultureInfo("pl-PL"));
 
-
-
+            foreach (var language in Languages)
+            {
+                language.DateTimeFormat.ShortDatePattern = GeneralConstants.DATE_TIME_FORMAT;
+            }
         }
 
         public void InitSettings()
@@ -89,8 +91,14 @@ namespace ConveyorDoc.Model.Settings
 
         public void ChangeWindowSize()
         {
-            Application.Current.MainWindow.Width = WindowsWidth;
-            Application.Current.MainWindow.Height = WindowsHeight;
+            if (WindowsHeight >= 800 && WindowsWidth >= 1200)
+            {
+                Application.Current.MainWindow.Width = WindowsWidth;
+                Application.Current.MainWindow.Height = WindowsHeight;
+            }
+            else
+                throw new Exception("Min windows width: 1200 and height: 800. Cannot change");
+
         }
 
         public void ChangeLanguage()

@@ -8,24 +8,21 @@ using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Markup;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace ConveyorDoc.Views.Reusable
+namespace ConveyorDoc.Descriptions.Views.Dialogs
 {
     /// <summary>
-    /// Interaction logic for InstructionContent.xaml
+    /// Interaction logic for RemoveItemDialog.xaml
     /// </summary>
-    public partial class InstructionContent : UserControl
+    public partial class RemoveDescriptionDoubleCheckDialog : UserControl
     {
-        public InstructionContent()
+        public RemoveDescriptionDoubleCheckDialog()
         {
             InitializeComponent();
-
-            DataPicker.Language = XmlLanguage.GetLanguage(System.Globalization.CultureInfo.CurrentCulture.IetfLanguageTag);
         }
     }
 }

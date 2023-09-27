@@ -1,7 +1,8 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>net6.0-windows</TargetFramework>
-    <UseWPF>true</UseWPF>
+	  <UseWPF>true</UseWPF>
+	  <PlatformTarget>x86</PlatformTarget>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Dapper" Version="2.0.151" />
@@ -17,7 +18,7 @@
     <Compile Update="Views\Dialogs\AddDescriptionDialog.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Views\Dialogs\RemoveDoubleCheckDialog.xaml.cs">
+    <Compile Update="Views\Dialogs\RemoveDescriptionDoubleCheckDialog.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>

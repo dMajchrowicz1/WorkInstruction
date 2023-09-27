@@ -126,6 +126,7 @@
                 <DataGrid.RowStyle>
                     <Style TargetType="{x:Type DataGridRow}">
                         <Setter Property="Visibility" Value="{Binding Visibility}"/>
+                        <Setter Property="Background" Value="{StaticResource SystemChromeLowColorBrush}"/>
                         <Setter Property="ContextMenu">
                             <Setter.Value>
                                 <ContextMenu>

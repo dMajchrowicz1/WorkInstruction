@@ -18,6 +18,7 @@ using ConveyorDoc.Business.Model;
 using ConveyorDoc.Business.Queries;
 using Resx = ConveyorDoc.Resources.Properties.Resources;
 using ConveyorDoc.Business.Constants;
+using ConveyorDoc.Model.Settings;
 
 namespace ConveyorDoc.ViewModels
 {
@@ -28,6 +29,8 @@ namespace ConveyorDoc.ViewModels
         private IRegionManager _regionManager;
         private IGetToolQuery _getToolQuery;
         private InstructionViewModelBase _viewModelBase;
+        private AppSettings _settings;
+
 
 
         private DelegateCommand _addInstructionCommand;
@@ -68,14 +71,16 @@ namespace ConveyorDoc.ViewModels
             , IAppTask appTask
             , IGetToolQuery getToolQuery
             , IRegionManager regionManager
-            , InstructionViewModelBase viewModelBase)
+            , InstructionViewModelBase viewModelBase, AppSettings settings)
         {
             _windowsDialogService = windowsDialogService;
             _appTask = appTask;
             _regionManager = regionManager;
             _viewModelBase = viewModelBase;
             _getToolQuery = getToolQuery;
+            _settings = settings;
         }
+
 
 
         void ExecuteChangeInstructionDataCommand()
@@ -110,7 +115,9 @@ namespace ConveyorDoc.ViewModels
             {
                 if (result.Result == Prism.Services.Dialogs.ButtonResult.OK)
                 {
-                    _viewModelBase.CurrentInstruction.AddWord(result.Parameters.GetValue<string>("parameter"));
+                    var programPath = result.Parameters.GetValue<string>("parameter");
+
+                    _viewModelBase.CurrentInstruction.AddWord(programPath);
                 }
 
             },Environment.GetFolderPath(Environment.SpecialFolder.Desktop));
@@ -176,7 +183,7 @@ namespace ConveyorDoc.ViewModels
 
                     _appTask.Run(() =>
                     {
-                        _viewModelBase.CurrentInstruction.GenerateWords(dir);
+                        _viewModelBase.CurrentInstruction.GenerateWords(dir,_settings.InstructionSettings.GenerateDetailedTools);
 
                     }, Resx.TaskGenerating);
                 }
@@ -207,8 +214,7 @@ namespace ConveyorDoc.ViewModels
             _regionManager.RequestNavigate(RegionNames.InstructionItemRegion, view, navigationParameter);
         }
 
-
-        private void ClearRegion()
+        void ClearRegion()
         {
             var region = _regionManager.Regions[RegionNames.InstructionItemRegion];
 

@@ -26,7 +26,7 @@
     <Compile Update="Views\Reusable\FixtureRecordView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Views\Dialogs\RemoveDoubleCheckDialog.xaml.cs">
+    <Compile Update="Views\Dialogs\RemoveFixtureDoubleCheckDialog.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>

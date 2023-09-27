@@ -187,6 +187,15 @@ namespace ConveyorDoc.Resources.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Changing window size.
+        /// </summary>
+        public static string ChangingWindowSize {
+            get {
+                return ResourceManager.GetString("ChangingWindowSize", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Cimco is already connected.
         /// </summary>
         public static string CimcoConnectionInfo {
@@ -304,7 +313,7 @@ namespace ConveyorDoc.Resources.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to added successfully to database.
+        ///   Looks up a localized string similar to Added successfully to database.
         /// </summary>
         public static string CrudAddInfo {
             get {
@@ -583,7 +592,7 @@ namespace ConveyorDoc.Resources.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Enter drawing templates direcotry.
+        ///   Looks up a localized string similar to Enter drawing templates directory.
         /// </summary>
         public static string EnterDrawingTemplatesDirecotry {
             get {
@@ -633,6 +642,15 @@ namespace ConveyorDoc.Resources.Properties {
         public static string Filters {
             get {
                 return ResourceManager.GetString("Filters", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Workspace.
+        /// </summary>
+        public static string FixtureCommandBar_Workspace {
+            get {
+                return ResourceManager.GetString("FixtureCommandBar_Workspace", resourceCulture);
             }
         }
         
@@ -1438,6 +1456,24 @@ namespace ConveyorDoc.Resources.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Detailed tools.
+        /// </summary>
+        public static string SettingsView_DetailedTools {
+            get {
+                return ResourceManager.GetString("SettingsView_DetailedTools", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enable to generate detailed tool list.
+        /// </summary>
+        public static string SettingsView_EnableToGenerateDetaildToolList {
+            get {
+                return ResourceManager.GetString("SettingsView_EnableToGenerateDetaildToolList", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Enter values to change window size.
         /// </summary>
         public static string SettingsView_EnterValuesToChangeWindowSize {
@@ -1447,7 +1483,7 @@ namespace ConveyorDoc.Resources.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Select which app them to display.
+        ///   Looks up a localized string similar to Select which app theme to display.
         /// </summary>
         public static string SettingsView_SelectWhichAppThemToDisplay {
             get {

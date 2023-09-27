@@ -75,7 +75,7 @@ namespace ConveyorDoc.Business.Model
 
 
         /// <summary>
-        /// Based on dxf plot PDF for preview
+        /// PDF Preview based on autocad plot
         /// </summary>
         /// <param name="templateTxt">DXF path</param>
         public void PlotPreview(string templateTxt)

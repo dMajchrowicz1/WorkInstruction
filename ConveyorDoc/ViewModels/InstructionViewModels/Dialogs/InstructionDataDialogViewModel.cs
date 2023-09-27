@@ -1,6 +1,7 @@
 ﻿using ConveyorDoc.Core;
 using ConveyorDoc.Descriptions.Interfaces;
 using ConveyorDoc.Interfaces;
+using ConveyorDoc.Model.Settings;
 using ConveyorDoc.ViewModels.ShallView.Dialogs;
 using Prism.Mvvm;
 using Prism.Services.Dialogs;

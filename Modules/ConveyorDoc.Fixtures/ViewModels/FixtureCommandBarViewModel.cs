@@ -94,11 +94,14 @@ namespace ConveyorDoc.Fixtures.ViewModels
                     {
                         if (callback == TaskStatus.RanToCompletion)
                         {
-                            ViewModelBase.Fixtures.Add(item);
+                            Application.Current.Dispatcher.InvokeAsync(() =>
+                            {
+                                ViewModelBase.Fixtures.Add(item);
+                            }); 
                         }
 
                     });
-                }
+                } 
             });
 
 
@@ -106,7 +109,7 @@ namespace ConveyorDoc.Fixtures.ViewModels
 
         private void ExecuteDeleteFixtureCommand(FixtureRecord obj)
         {
-            _dialogService.ShowContentDialog(typeof(ConveyorDoc.Resources.Reusable.RemoveDoubleCheckDialog), result =>
+            _dialogService.ShowContentDialog(typeof(RemoveFixtureDoubleCheckDialog), result =>
             {
                 if(result.Result == ButtonResult.OK)
                 {
@@ -115,7 +118,11 @@ namespace ConveyorDoc.Fixtures.ViewModels
                     {
                         if (result == TaskStatus.RanToCompletion)
                         {
-                            ViewModelBase.Fixtures.Remove(obj);
+                            Application.Current.Dispatcher.InvokeAsync(() =>
+                            {
+                                ViewModelBase.Fixtures.Remove(obj);
+                            });
+                            
                         }
                     });
                 }

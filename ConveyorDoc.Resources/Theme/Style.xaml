@@ -113,7 +113,7 @@
     <SolidColorBrush x:Key="SystemListLowColorBrush" Color="{DynamicResource SystemListLowColor}" />
     <SolidColorBrush x:Key="SystemListMediumColorBrush" Color="{DynamicResource SystemListMediumColor}" />
     <SolidColorBrush x:Key="SystemControlWindowBrush" Color="{DynamicResource SystemAltHighColor}" />
-    <SolidColorBrush x:Key="DataGridAccentLowBrush" Color="{m:DynamicColor SystemAccentColorLight1}" />
+    <SolidColorBrush x:Key="DataGridAccentLowBrush"  Color="{DynamicResource SystemAccentColorLight1}" Opacity="0.3" />
     <SolidColorBrush x:Key="AccentBrush" Color="{m:DynamicColor SystemAccentColor}" />
 
 
