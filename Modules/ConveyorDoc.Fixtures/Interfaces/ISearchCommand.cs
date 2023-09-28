@@ -10,6 +10,7 @@ namespace ConveyorDoc.Fixtures.Interfaces
 {
     public interface ISearchCommand
     {
-        public DelegateCommand<FixtureRecord> FolderBrowseCommand { get; }
+        public DelegateCommand<FixtureRecord> FileSelectDialogCommand { get; }
+
     }
 }

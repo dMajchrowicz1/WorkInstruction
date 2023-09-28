@@ -150,7 +150,7 @@
             <Button
                     Margin="{DynamicResource SmallLeftRightMargin}"
                     VerticalAlignment="Bottom"
-                    Command="{Binding SearchCommand.FolderBrowseCommand}"
+                    Command="{Binding SearchCommand.FileSelectDialogCommand}"
                     CommandParameter="{Binding ViewModelBase.SelectedFixture}"
                     Content="{x:Static properties:Resources.Search}"
                     Style="{DynamicResource AccentButtonStyle}" />

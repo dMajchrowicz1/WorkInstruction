@@ -18,9 +18,9 @@ namespace ConveyorDoc.Fixtures.ViewModels.Commands
 
         private IAppDirectories _appDirectories;
 
-        private DelegateCommand<FixtureRecord> _folderBrowseCommand;
-        public DelegateCommand<FixtureRecord> FolderBrowseCommand =>
-            _folderBrowseCommand ?? (_folderBrowseCommand = new DelegateCommand<FixtureRecord>(ExecuteFolderBrowseCommand));
+        private DelegateCommand<FixtureRecord> _fileSelectDialogCommand;
+        public DelegateCommand<FixtureRecord> FileSelectDialogCommand =>
+            _fileSelectDialogCommand ?? (_fileSelectDialogCommand = new DelegateCommand<FixtureRecord>(ExecuteFileSelectDialogCommand));
 
 
         public SearchCommand(IWindowsDialogService windowsDialogService,IAppDirectories appDirectories)
@@ -31,9 +31,9 @@ namespace ConveyorDoc.Fixtures.ViewModels.Commands
         }
 
 
-        void ExecuteFolderBrowseCommand(FixtureRecord parameter)
+        void ExecuteFileSelectDialogCommand(FixtureRecord parameter)
         {
-            _windowsDialogService.ShowFolderBrowseDialog(callback =>
+            _windowsDialogService.ShowOpenFileDialog(ConveyorDoc.Resources.Properties.Resources.SelectFixtureDrawing,Constants.PDF_DIALOG_FILTER,callback =>
             {
                 if (callback.Result == Prism.Services.Dialogs.ButtonResult.OK)
                 {
