@@ -1,4 +1,5 @@
-﻿using ConveyorDoc.Core;
+﻿using ConveyorDoc.Business.Model;
+using ConveyorDoc.Core;
 using ConveyorDoc.Interfaces.Services;
 using ConveyorDoc.Notification;
 using ConveyorDoc.ViewModels.InstructionViewModels;
@@ -30,23 +31,19 @@ namespace ConveyorDoc.ViewModels.ShallView
             set { SetProperty(ref _currentlyRunningTasks, value); }
         }
 
+        public InstructionViewModelBase ViewModelBase { get; }
+
         public StatusBarViewModel(IAppTaskManager appTask,IActiveTasks tasks, IToastMessage toastMessage, InstructionViewModelBase viewModelBase)
         {
             _toastMessage = toastMessage;
             _tasks = tasks;
-
-            
+            ViewModelBase = viewModelBase;
+           
             appTask.TaskStatusChanged = new EventHandler<TaskFeedbackArgs>(TaskCompleted_Changed);
-            viewModelBase.PropertyChanged += ViewModelBase_PropertyChanged;
+
+
         }
 
-        private void ViewModelBase_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
-        {
-            if (sender is InstructionViewModelBase viewModelBase)
-            {
-                InstructionPath = viewModelBase.CurrentInstruction.SavePath;
-            }
-        }
 
         private void TaskCompleted_Changed(object sender, TaskFeedbackArgs e)
         {          

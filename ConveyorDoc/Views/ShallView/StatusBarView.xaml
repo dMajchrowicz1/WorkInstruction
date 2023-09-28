@@ -32,7 +32,7 @@
 
 
     <StatusBarItem Grid.Column="0">
-        <TextBlock Text="{Binding InstructionPath, UpdateSourceTrigger=PropertyChanged}" Margin="{StaticResource SmallLeftRightMargin}" />
+        <TextBlock Text="{Binding ViewModelBase.CurrentInstruction.SavePath, UpdateSourceTrigger=PropertyChanged}" Margin="{StaticResource SmallLeftRightMargin}" />
     </StatusBarItem>
 
 

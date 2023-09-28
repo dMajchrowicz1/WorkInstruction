@@ -10,11 +10,13 @@ namespace ConveyorDoc.ViewModels.InstructionViewModels
 {
     public class InstructionViewModelBase : BindableBase
     {
+       
         private Instruction _currentInstruction;
         public Instruction CurrentInstruction
         {
             get { return _currentInstruction; }
             set { SetProperty(ref _currentInstruction, value); }
         }
+
     }
 }
