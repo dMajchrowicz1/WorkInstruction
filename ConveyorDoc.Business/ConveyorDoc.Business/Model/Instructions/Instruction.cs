@@ -85,6 +85,13 @@ namespace ConveyorDoc.Business.Model
             set {  SetProperty(ref _date, value); }
         }
 
+        private string _savePath;
+        public string SavePath
+        {
+            get { return _savePath; }
+            set { SetProperty(ref _savePath, value); }
+        }
+
         private ObservableCollection<Word> _wordInstructions = new ObservableCollection<Word>();
         public ObservableCollection<Word> WordInstructions
         {
@@ -119,6 +126,8 @@ namespace ConveyorDoc.Business.Model
 
         public void Save(string savePath)
         {
+            SavePath = savePath;
+
             //Save all object's as json file with objectReference Id
             File.WriteAllText(savePath, JsonConvert.SerializeObject(this, Formatting.Indented,
                 new JsonSerializerSettings { PreserveReferencesHandling = PreserveReferencesHandling.Objects }));

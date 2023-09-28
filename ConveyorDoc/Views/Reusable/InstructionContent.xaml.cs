@@ -24,8 +24,6 @@ namespace ConveyorDoc.Views.Reusable
         public InstructionContent()
         {
             InitializeComponent();
-
-            DataPicker.Language = XmlLanguage.GetLanguage(System.Globalization.CultureInfo.CurrentCulture.IetfLanguageTag);
         }
     }
 }

@@ -4,6 +4,7 @@ using Prism.Regions;
 using System.Windows;
 using ConveyorDoc.Interfaces;
 using ConveyorDoc.Interfaces.Commands;
+using ConveyorDoc.ViewModels.InstructionViewModels;
 
 namespace ConveyorDoc.ViewModels
 {
@@ -15,6 +16,7 @@ namespace ConveyorDoc.ViewModels
 
         public IMainWindowCommands Commands { get; }
 
+
         public MainWindowViewModel(
             IRegionManager regionManager, 
             IAppActivationService appActivationService,
@@ -24,7 +26,6 @@ namespace ConveyorDoc.ViewModels
             _regionManager = regionManager;
             _appActivationService = appActivationService;
             Commands = commands;
-
 
             Initialize();
 

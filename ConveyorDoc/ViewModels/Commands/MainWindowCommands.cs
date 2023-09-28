@@ -25,9 +25,8 @@ namespace ConveyorDoc.ViewModels.Commands
 
         private IRegionManager _regionManager;
         private IWindowsDialogService _dialogService;
-        private IAppActivationService _appActivationService;
         private InstructionViewModelBase _viewModelBase;
-        private Notifier _notifier;
+        private IToastMessage _toast;
 
 
         private DelegateCommand<object> _navigateCommand;
@@ -50,14 +49,12 @@ namespace ConveyorDoc.ViewModels.Commands
 
         public MainWindowCommands(IRegionManager regionManager,
             IWindowsDialogService dialogService,
-            IAppActivationService appActivationService,
             InstructionViewModelBase viewModelbase,
-            Notifier notifier)
+            IToastMessage toast)
         {
             _dialogService = dialogService;
             _regionManager = regionManager;
-            _notifier = notifier;
-            _appActivationService = appActivationService;
+            _toast = toast;
             _viewModelBase = viewModelbase;
         }
 
@@ -77,6 +74,7 @@ namespace ConveyorDoc.ViewModels.Commands
 
         private void SaveFile()
         {
+
             _dialogService.ShowSaveFileDialog(result =>
             {
                 if (result.Result == ButtonResult.OK)
@@ -84,7 +82,7 @@ namespace ConveyorDoc.ViewModels.Commands
                     _viewModelBase.CurrentInstruction.Save(result.Parameters.GetValue<string>("parameter"));
                 }
               
-            },Environment.GetFolderPath(Environment.SpecialFolder.Desktop)
+            },_viewModelBase.CurrentInstruction.SavePath ?? Environment.GetFolderPath(Environment.SpecialFolder.Desktop)
             , _viewModelBase.CurrentInstruction.ModuleNumber + InstructionConstants.INSTRUCTION_EXTENSION);
 
         }
@@ -156,7 +154,7 @@ namespace ConveyorDoc.ViewModels.Commands
             if (_viewModelBase.CurrentInstruction != null)
                 SaveFile();
             else
-                _notifier.ShowInformation(Resources.Properties.Resources.SaveInfo);
+                _toast.ShowInfo(Resources.Properties.Resources.SaveInfo);
             
         }
     }

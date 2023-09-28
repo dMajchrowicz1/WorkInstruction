@@ -8,12 +8,11 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:properties="clr-namespace:ConveyorDoc.Resources.Properties;assembly=ConveyorDoc.Resources"
     xmlns:ui="http://schemas.modernwpf.com/2019"
+    xmlns:culture="clr-namespace:System.Globalization;assembly=netstandard"
     mc:Ignorable="d">
 
     <UserControl.Resources>
-
         <ui:FontIcon x:Key="CalendarIcon" Glyph="&#xE787;" />
-
     </UserControl.Resources>
 
 
@@ -62,10 +61,11 @@
                     Height="50"
                     mah:DatePickerHelper.DropDownButtonContent="{StaticResource CalendarIcon}"
                     mah:TextBoxHelper.ButtonWidth="40"
-                    IsClockVisible="True"
                     mah:TextBoxHelper.Watermark="{x:Static properties:Resources.InstructionContent_Date}"
-                    IsTodayHighlighted="True"
-                    SelectedDateFormat="Short"                  
+                    IsTodayHighlighted="False"
+                    Culture="{x:Static culture:CultureInfo.CurrentUICulture}"
+                    SelectedDateFormat="Short"
+                    SecondsItemStringFormat=""
                     SelectedDateTime="{Binding DialogInstruction.Date}"/>
 
 

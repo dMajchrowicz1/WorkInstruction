@@ -187,7 +187,7 @@ namespace ConveyorDoc.ViewModels
 
                     }, Resx.TaskGenerating);
                 }
-            },Environment.GetFolderPath(Environment.SpecialFolder.Desktop));
+            },_viewModelBase.CurrentInstruction.SavePath ?? Environment.GetFolderPath(Environment.SpecialFolder.Desktop));
         }
 
         void ExecuteRemoveInstructionCommand(object parameter)

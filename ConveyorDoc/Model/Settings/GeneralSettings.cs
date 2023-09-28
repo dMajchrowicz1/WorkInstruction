@@ -68,13 +68,7 @@ namespace ConveyorDoc.Model.Settings
 
         public GeneralSettings()
         {
-            Languages.Add(new CultureInfo("en-UK"));
-            Languages.Add(new CultureInfo("pl-PL"));
-
-            foreach (var language in Languages)
-            {
-                language.DateTimeFormat.ShortDatePattern = GeneralConstants.DATE_TIME_FORMAT;
-            }
+            InitLanguages();
         }
 
         public void InitSettings()
@@ -108,6 +102,17 @@ namespace ConveyorDoc.Model.Settings
 
             Thread.CurrentThread.CurrentCulture = culture;
             Thread.CurrentThread.CurrentUICulture = culture;
+        }
+
+        private void InitLanguages()
+        {
+            Languages.Add(new CultureInfo("en-UK"));
+            Languages.Add(new CultureInfo("pl-PL"));
+
+            foreach (var language in Languages)
+            {
+                language.DateTimeFormat.DateSeparator = ".";
+            }
         }
     }
 }

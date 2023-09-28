@@ -3,8 +3,8 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:Converters="clr-namespace:ConveyorDoc.Resources.Converters"
     xmlns:core="clr-namespace:System;assembly=mscorlib"
-    xmlns:m="clr-namespace:ModernWpf.Markup;assembly=ModernWpf"
     xmlns:custom="clr-namespace:ConveyorDoc.Resources.Custom"
+    xmlns:m="clr-namespace:ModernWpf.Markup;assembly=ModernWpf"
     xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
     xmlns:ui="http://schemas.modernwpf.com/2019">
 
@@ -21,9 +21,9 @@
     <Converters:EnumToBoolConverter x:Key="EnumToBool" />
     <Converters:ObjectMembersToListConverter x:Key="ObjectPropertiesToList" />
     <Converters:NullToBoolConverter x:Key="NullToBool" />
-    <Converters:BoolToRowDetailsConverter x:Key="BoolToRowDetails"/>
-    <Converters:IntToBoolConverter x:Key="IntToBool"/>
-    <Converters:NullToVisibilityConverter x:Key="NullToVisibility"/>
+    <Converters:BoolToRowDetailsConverter x:Key="BoolToRowDetails" />
+    <Converters:IntToBoolConverter x:Key="IntToBool" />
+    <Converters:NullToVisibilityConverter x:Key="NullToVisibility" />
 
 
 
@@ -82,10 +82,10 @@
     <Color x:Key="SystemFillColorSolidAttentionBackground">#2E2E2E</Color>
     <Color x:Key="SystemFillColorSolidNeutralBackground">#2E2E2E</Color>
     <Color x:Key="SystemForegroundColor">#FF000000</Color>
-    
 
-    
-    
+
+
+
 
     <!--  Brushes  -->
     <SolidColorBrush x:Key="SystemBaseLowColorBrush" Color="{DynamicResource SystemBaseLowColor}" />
@@ -113,7 +113,10 @@
     <SolidColorBrush x:Key="SystemListLowColorBrush" Color="{DynamicResource SystemListLowColor}" />
     <SolidColorBrush x:Key="SystemListMediumColorBrush" Color="{DynamicResource SystemListMediumColor}" />
     <SolidColorBrush x:Key="SystemControlWindowBrush" Color="{DynamicResource SystemAltHighColor}" />
-    <SolidColorBrush x:Key="DataGridAccentLowBrush"  Color="{DynamicResource SystemAccentColorLight1}" Opacity="0.3" />
+    <SolidColorBrush
+        x:Key="DataGridAccentLowBrush"
+        Opacity="0.3"
+        Color="{DynamicResource SystemAccentColorLight1}" />
     <SolidColorBrush x:Key="AccentBrush" Color="{m:DynamicColor SystemAccentColor}" />
 
 
@@ -130,72 +133,82 @@
     <SolidColorBrush x:Key="SystemFillColorNeutralBackgroundBrush" Color="{StaticResource SystemFillColorNeutralBackground}" />
     <SolidColorBrush x:Key="SystemFillColorSolidAttentionBackgroundBrush" Color="{StaticResource SystemFillColorSolidAttentionBackground}" />
     <SolidColorBrush x:Key="SystemFillColorSolidNeutralBackgroundBrush" Color="{StaticResource SystemFillColorSolidNeutralBackground}" />
-    <SolidColorBrush x:Key="SystemForegroundBrush" Color="{StaticResource SystemForegroundColor}"/>
+    <SolidColorBrush x:Key="SystemForegroundBrush" Color="{StaticResource SystemForegroundColor}" />
 
 
-    <!--Icons-->
-    <Canvas
-        x:Key="DialogInformationIcon"
-        Width="24"
-        Height="24">
-        <Path Data="F1M18,18H0V0H18Z" />
-        <Path Data="F1M8.5,17a8,8,0,1,1,8-8A8.009,8.009,0,0,1,8.5,17Z" Fill="{StaticResource SystemFillColorAttentionBrush}" />
-        <Path Data="F1M8,8H9v5H8Zm.5-3.25a.75.75,0,1,0,.75.75A.75.75,0,0,0,8.5,4.75Z" Fill="{StaticResource SystemForegroundBrush}" />
-    </Canvas>
+    <!--  Icons  -->
 
-
-    <Canvas
-        x:Key="DialogSuccessIcon"
-        Width="24"
-        Height="24">
-        <Path Data="F1M16,16H0V0H16Z" />
-        <Path Data="F1M14,7.5A6.5,6.5,0,1,1,7.5,1,6.508,6.508,0,0,1,14,7.5Z" Fill="{DynamicResource SystemFillColorSuccessBrush}" />
-        <Path Data="F1M11.354,5.854l-4.5,4.5H6.146l-2.5-2.5.708-.708L6.5,9.293l4.146-4.147Z" Fill="{StaticResource SystemForegroundBrush}" />
-    </Canvas>
-
-
-    <Canvas
-        x:Key="DialogErrorIcon"
-        Width="24"
-        Height="24">
-        <Path Data="F1M0,0H18V18H0Z" />
-        <Path Data="F1M8.5,1a8,8,0,1,1-8,8A8.009,8.009,0,0,1,8.5,1Z" Fill="{StaticResource SystemFillColorCriticalBrush}" />
-        <Path Data="F1M9,11H8V5H9Zm-.5,1.75a.75.75,0,1,0,.75.75A.75.75,0,0,0,8.5,12.75Z" Fill="{StaticResource SystemForegroundBrush}" />
-    </Canvas>
-
-
-    <Canvas
-        x:Key="DialogWarningIcon"
-        Width="20"
-        Height="20">
-        <Path Data="F1M18,18H0V0H18Z" />
-        <Path Data="F1M16.708,16H2.292L1.5,14.633,8.708,1.2h1.584L17.5,14.633Z" Fill="{StaticResource SystemFillColorCautionBrush}" />
-        <Path Data="F1M10,11H9V5h1Zm-.5,1.75a.75.75,0,1,0,.75.75A.75.75,0,0,0,9.5,12.75Z" Fill="{StaticResource SystemForegroundBrush}" />
-    </Canvas>
-
-
-    <Style x:Key="BadgeWarningIcon" TargetType="{x:Type mah:Badged}">
-        <Setter Property="BadgeBackground"  Value="{StaticResource SystemFillColorCautionBrush}"/>
-        <Setter Property="BadgeForeground" Value="{StaticResource SystemForegroundBrush}"/>
-        <Setter Property="Badge" Value="!"/>
-        <Setter Property="BadgeFontSize" Value="10"/>
-        <Setter Property="BadgePlacementMode" Value="TopLeft"/>
+    <Style x:Key="InfoViewBox" TargetType="{x:Type Control}">
+        <Setter Property="Width" Value="40" />
+        <Setter Property="Height" Value="40" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate>
+                    <Viewbox Width="{TemplateBinding Width}" Height="{TemplateBinding Height}">
+                        <Canvas Width="24" Height="24">
+                            <Path Data="F1M18,18H0V0H18Z" />
+                            <Path Data="F1M8.5,17a8,8,0,1,1,8-8A8.009,8.009,0,0,1,8.5,17Z" Fill="{StaticResource SystemFillColorAttentionBrush}" />
+                            <Path Data="F1M8,8H9v5H8Zm.5-3.25a.75.75,0,1,0,.75.75A.75.75,0,0,0,8.5,4.75Z" Fill="{StaticResource SystemForegroundBrush}" />
+                        </Canvas>
+                    </Viewbox>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
     </Style>
 
-    <Style x:Key="BadgeErrorIcon" TargetType="{x:Type mah:Badged}">
-        <Setter Property="BadgeBackground"  Value="{StaticResource SystemFillColorCriticalBrush}"/>
-        <Setter Property="BadgeForeground" Value="{StaticResource SystemForegroundBrush}"/>
-        <Setter Property="Badge" Value="X"/>
-        <Setter Property="BadgeFontSize" Value="10"/>
-        <Setter Property="BadgePlacementMode" Value="Left"/>
+
+    <Style x:Key="WarningViewBox" TargetType="{x:Type Control}">
+        <Setter Property="Width" Value="40" />
+        <Setter Property="Height" Value="40" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate>
+                    <Viewbox Width="{TemplateBinding Width}" Height="{TemplateBinding Height}">
+                        <Canvas Width="24" Height="24">
+                            <Path Data="F1M18,18H0V0H18Z" />
+                            <Path Data="F1M16.708,16H2.292L1.5,14.633,8.708,1.2h1.584L17.5,14.633Z" Fill="{StaticResource SystemFillColorCautionBrush}" />
+                            <Path Data="F1M10,11H9V5h1Zm-.5,1.75a.75.75,0,1,0,.75.75A.75.75,0,0,0,9.5,12.75Z" Fill="{StaticResource SystemForegroundBrush}" />
+                        </Canvas>
+                    </Viewbox>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
     </Style>
 
-    <Style x:Key="BadgeInfoIcon" TargetType="{x:Type mah:Badged}">
-        <Setter Property="BadgeBackground"  Value="{StaticResource SystemFillColorAttentionBrush}"/>
-        <Setter Property="BadgeForeground" Value="{StaticResource SystemForegroundBrush}"/>
-        <Setter Property="Badge" Value="i"/>
-        <Setter Property="BadgeFontSize" Value="10"/>
-        <Setter Property="BadgePlacementMode" Value="Left"/>
+    <Style x:Key="ErrorViewBox" TargetType="{x:Type Control}">
+        <Setter Property="Width" Value="40" />
+        <Setter Property="Height" Value="40" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate>
+                    <Viewbox Width="{TemplateBinding Width}" Height="{TemplateBinding Height}">
+                        <Canvas Width="24" Height="24">
+                            <Path Data="F1M0,0H18V18H0Z" />
+                            <Path Data="F1M8.5,1a8,8,0,1,1-8,8A8.009,8.009,0,0,1,8.5,1Z" Fill="{StaticResource SystemFillColorCriticalBrush}" />
+                            <Path Data="F1M9,11H8V5H9Zm-.5,1.75a.75.75,0,1,0,.75.75A.75.75,0,0,0,8.5,12.75Z" Fill="{StaticResource SystemForegroundBrush}" />
+                        </Canvas>
+                    </Viewbox>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="SuccessViewBox" TargetType="{x:Type Control}">
+        <Setter Property="Width" Value="40" />
+        <Setter Property="Height" Value="40" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate>
+                    <Viewbox Width="{TemplateBinding Width}" Height="{TemplateBinding Height}">
+                        <Canvas Width="24" Height="24">
+                            <Path Data="F1M16,16H0V0H16Z" />
+                            <Path Data="F1M14,7.5A6.5,6.5,0,1,1,7.5,1,6.508,6.508,0,0,1,14,7.5Z" Fill="{DynamicResource SystemFillColorSuccessBrush}" />
+                            <Path Data="F1M11.354,5.854l-4.5,4.5H6.146l-2.5-2.5.708-.708L6.5,9.293l4.146-4.147Z" Fill="{StaticResource SystemForegroundBrush}" />
+                        </Canvas>
+                    </Viewbox>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
     </Style>
 
 
@@ -343,27 +356,27 @@
     </Style>
 
 
-    <Style TargetType="ui:ListViewItem" x:Key="ItemContainerStyle">
+    <Style x:Key="ItemContainerStyle" TargetType="ui:ListViewItem">
         <Setter Property="HorizontalContentAlignment" Value="Stretch" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="ui:ListViewItem">
 
                     <ContentPresenter
-                                    x:Name="ContentPresenter"
-                                    ContentTemplate="{TemplateBinding ContentTemplate}"
-                                    Content="{TemplateBinding Content}"
-                                    HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                    VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
-                                    ContentTemplateSelector="{TemplateBinding ContentTemplateSelector}"/>
+                        x:Name="ContentPresenter"
+                        HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                        VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                        Content="{TemplateBinding Content}"
+                        ContentTemplate="{TemplateBinding ContentTemplate}"
+                        ContentTemplateSelector="{TemplateBinding ContentTemplateSelector}" />
 
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
     </Style>
 
-    
-    
+
+
     <Style x:Key="DropDownButtonStyle" TargetType="{x:Type ui:DropDownButton}">
         <Setter Property="Background" Value="{DynamicResource SystemControlBackgroundAltMediumLowBrush}" />
         <Setter Property="CornerRadius" Value="{DynamicResource MediumCornerRadius}" />
@@ -379,15 +392,15 @@
         <Setter Property="Foreground" Value="{DynamicResource NavigationViewItemForeground}" />
         <Setter Property="Background" Value="{DynamicResource NavigationViewItemBackground}" />
         <Setter Property="BorderBrush" Value="{DynamicResource NavigationViewItemBorderBrush}" />
-        <Setter Property="FontSize" Value="12"/>
+        <Setter Property="FontSize" Value="12" />
         <Setter Property="BorderThickness" Value="{DynamicResource NavigationViewItemBorderThickness}" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type custom:ToggleSwitchCustom}">
                     <Grid
-                            x:Name="LayoutRoot"
-                            MinHeight="{DynamicResource NavigationViewItemOnLeftMinHeight}"
-                            Background="{TemplateBinding Background}">
+                        x:Name="LayoutRoot"
+                        MinHeight="{DynamicResource NavigationViewItemOnLeftMinHeight}"
+                        Background="{TemplateBinding Background}">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="Auto" />
                             <ColumnDefinition Width="Auto" />
@@ -395,35 +408,35 @@
                         </Grid.ColumnDefinitions>
 
                         <Rectangle
-                                x:Name="SelectionIndicator"
-                                Margin="0,0,10,0"
-                                Width="2"
-                                Height="20"
-                                HorizontalAlignment="Left"
-                                VerticalAlignment="Center"
-                                Fill="{StaticResource AccentBrush}"
-                                Opacity="0"
-                                RadiusX="{Binding CornerRadius, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource TopLeftCornerRadiusDoubleValueConverter}}"
-                                RadiusY="{Binding CornerRadius, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource BottomRightCornerRadiusDoubleValueConverter}}" />
+                            x:Name="SelectionIndicator"
+                            Width="2"
+                            Height="20"
+                            Margin="0,0,10,0"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Center"
+                            Fill="{StaticResource AccentBrush}"
+                            Opacity="0"
+                            RadiusX="{Binding CornerRadius, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource TopLeftCornerRadiusDoubleValueConverter}}"
+                            RadiusY="{Binding CornerRadius, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource BottomRightCornerRadiusDoubleValueConverter}}" />
 
                         <Image
-                                x:Name="Icon"
-                                Grid.Column="1"
-                                Source="{Binding Icon, RelativeSource={RelativeSource TemplatedParent}}"
-                                Width="20"
-                                Height="20"/>
+                            x:Name="Icon"
+                            Grid.Column="1"
+                            Width="20"
+                            Height="20"
+                            Source="{Binding Icon, RelativeSource={RelativeSource TemplatedParent}}" />
 
 
                         <TextBlock
-                                x:Name="Text"
-                                Grid.Column="2"
-                                HorizontalAlignment="Left"
-                                VerticalAlignment="Center"
-                                FontSize="{TemplateBinding FontSize}"
-                                Foreground="{TemplateBinding Foreground}"
-                                Style="{StaticResource CaptionTextBlock}"
-                                Text="{TemplateBinding Content}"
-                                Margin="2,0"/>
+                            x:Name="Text"
+                            Grid.Column="2"
+                            Margin="2,0"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Center"
+                            FontSize="{TemplateBinding FontSize}"
+                            Foreground="{TemplateBinding Foreground}"
+                            Style="{StaticResource CaptionTextBlock}"
+                            Text="{TemplateBinding Content}" />
 
                     </Grid>
 

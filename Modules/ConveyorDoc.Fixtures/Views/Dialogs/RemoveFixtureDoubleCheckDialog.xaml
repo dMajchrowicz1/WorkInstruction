@@ -15,13 +15,7 @@
 
     <ui:SimpleStackPanel Orientation="Horizontal" Spacing="10">
 
-        <Viewbox Width="30">
-            <Canvas Width="20" Height="20">
-                <Path Data="F1M18,18H0V0H18Z" />
-                <Path Data="F1M16.708,16H2.292L1.5,14.633,8.708,1.2h1.584L17.5,14.633Z" Fill="{StaticResource SystemFillColorCautionBrush}" />
-                <Path Data="F1M10,11H9V5h1Zm-.5,1.75a.75.75,0,1,0,.75.75A.75.75,0,0,0,9.5,12.75Z" Fill="{StaticResource SystemForegroundBrush}" />
-            </Canvas>
-        </Viewbox>
+        <Control Style="{StaticResource WarningViewBox}"/>
 
 
         <TextBlock

@@ -1,6 +1,7 @@
 ﻿using ConveyorDoc.Core;
 using ConveyorDoc.Interfaces.Services;
 using ConveyorDoc.Notification;
+using ConveyorDoc.ViewModels.InstructionViewModels;
 using Prism.Mvvm;
 using System;
 using System.Threading.Tasks;
@@ -15,7 +16,7 @@ namespace ConveyorDoc.ViewModels.ShallView
         private readonly IActiveTasks _tasks;
         
 
-        private string _instructionPath;
+        private string _instructionPath = string.Empty;
         public string InstructionPath
         {
             get { return _instructionPath; }
@@ -29,12 +30,22 @@ namespace ConveyorDoc.ViewModels.ShallView
             set { SetProperty(ref _currentlyRunningTasks, value); }
         }
 
-        public StatusBarViewModel(IAppTaskManager appTask,IActiveTasks tasks, IToastMessage toastMessage)
+        public StatusBarViewModel(IAppTaskManager appTask,IActiveTasks tasks, IToastMessage toastMessage, InstructionViewModelBase viewModelBase)
         {
             _toastMessage = toastMessage;
             _tasks = tasks;
 
+            
             appTask.TaskStatusChanged = new EventHandler<TaskFeedbackArgs>(TaskCompleted_Changed);
+            viewModelBase.PropertyChanged += ViewModelBase_PropertyChanged;
+        }
+
+        private void ViewModelBase_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
+        {
+            if (sender is InstructionViewModelBase viewModelBase)
+            {
+                InstructionPath = viewModelBase.CurrentInstruction.SavePath;
+            }
         }
 
         private void TaskCompleted_Changed(object sender, TaskFeedbackArgs e)

@@ -32,15 +32,13 @@
 
 
     <StatusBarItem Grid.Column="0">
-        <TextBlock Text="{Binding InstructionPath}" />
+        <TextBlock Text="{Binding InstructionPath, UpdateSourceTrigger=PropertyChanged}" Margin="{StaticResource SmallLeftRightMargin}" />
     </StatusBarItem>
 
 
 
     <StatusBarItem Grid.Column="2" Margin="{DynamicResource SmallLeftRightMargin}" 
                    Visibility="{Binding CurrentlyRunningTasks , Converter={StaticResource IntToBool}}">
-
-
 
 
 

@@ -61,7 +61,6 @@ namespace ConveyorDoc.Core
             folderBrowseDialog.Reset();
             folderBrowseDialog.UseDescriptionForTitle = true;
             folderBrowseDialog.Description = "Select Folder"; 
-            folderBrowseDialog.SelectedPath = initialDirecotry;
             folderBrowseDialog.InitialDirectory = initialDirecotry;
 
 

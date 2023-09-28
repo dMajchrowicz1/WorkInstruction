@@ -26,6 +26,7 @@ namespace ConveyorDoc.Core
             ICimcoConnectionFactory cimcoConnectionFactory,
             IToolsConnectionFactory toolsConnectionFacotry,
             IMaterialContainer materialContainer,
+            IModuleTypesContainer moduleTypesContainer,
             InstructionViewModelBase viewModelBase, 
             Notifier notifier,
             AppSettings settings)
