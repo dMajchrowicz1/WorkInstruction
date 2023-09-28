@@ -49,10 +49,10 @@ namespace ConveyorDoc.Fixtures.Repository
                 {
                     ItemNumber = entity.ItemNumber,
                     Size = entity.Size,
+                    CreateDate = entity.CreateDate,
                     ItemType = entity.ItemType,
                     Machine = entity.Machine,
-                    CreatedBy = entity.CreatedBy,
-                    CreateDate = entity.CreateDate,
+                    CreatedBy = entity.CreatedBy,                    
                     Details = entity.Details,
                     PDF = entity.PDF,
                     Id = entity.Id,
