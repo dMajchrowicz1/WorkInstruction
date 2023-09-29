@@ -56,6 +56,11 @@ G1 X390 W-8.66
 - **Description** (Information for operator how to setup up machine)
 - **Drawings** (Setup up drawings)
 
+![Alt Text](https://github.com/dMajchrowicz1/WorkInstruction/blob/main/docs/Documentation_structure.png)
 
+
+## Demo
+
+![Alt Text](https://github.com/dMajchrowicz1/WorkInstruction/blob/main/docs/demo.gif)
 
 
