@@ -18,7 +18,7 @@ namespace ConveyorDoc.Core
 
         public EventHandler<TaskFeedbackArgs> TaskStatusChanged { get; set; }
 
-        public void Run(Action action, string taskTitle, Action<TaskStatus> onCompleted = null)
+        public void RunAsync(Action action, string taskTitle, Action<TaskStatus> onCompleted = null)
         {
             Task task = null;
 
@@ -68,7 +68,7 @@ namespace ConveyorDoc.Core
             }
         }
 
-        public void Run(Func<object> action, string taskTitle, Action<TaskStatus, object> onCompleted = null)
+        public void RunAsync(Func<object> action, string taskTitle, Action<TaskStatus, object> onCompleted = null)
         {
             Task<object> task = null;
 
@@ -122,7 +122,7 @@ namespace ConveyorDoc.Core
             }
         }
 
-        public void RunOnUIThread(Action action, string taskTitle, Action<TaskStatus> onCompleted = null)
+        public void RunOnUIAsync(Action action, string taskTitle, Action<TaskStatus> onCompleted = null)
         {
 
             TaskStatusChanged?.Invoke(this, new TaskFeedbackArgs(taskTitle, string.Empty, TaskStatus.Created));
@@ -170,11 +170,6 @@ namespace ConveyorDoc.Core
 
         }
            
-
-        public int GetCurrentlyRunningTasksCount()
-        {
-            return ActiveTasks.Count;
-        }
 
         private void OnTaskFinished(TaskStatus status, string error, string taskTitle)
         {

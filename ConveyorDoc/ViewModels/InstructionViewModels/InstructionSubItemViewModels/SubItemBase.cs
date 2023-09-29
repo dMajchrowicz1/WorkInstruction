@@ -48,7 +48,7 @@ namespace ConveyorDoc.ViewModels.InstructionViewModels.InstructionSubItemViewMod
         //NavigationAware methods
         public void OnNavigatedTo(NavigationContext navigationContext)
         {
-            SelectedWord = navigationContext.Parameters.GetValue<Word>("Instruction");
+            SelectedWord = navigationContext.Parameters.GetValue<Word>("word");
         }
 
         public bool IsNavigationTarget(NavigationContext navigationContext)

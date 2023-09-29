@@ -64,7 +64,7 @@ namespace ConveyorDoc.Settings.ViewModels
 
             ChangeWindowSizeCommand = new DelegateCommand(() =>
             {
-                appTask.RunOnUIThread(() =>
+                appTask.RunOnUIAsync(() =>
                 {
                     Settings.GeneralSettings.ChangeWindowSize();
                 }, ConveyorDoc.Resources.Properties.Resources.ChangingWindowSize);

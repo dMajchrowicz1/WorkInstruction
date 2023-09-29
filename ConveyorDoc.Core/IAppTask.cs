@@ -8,11 +8,11 @@ namespace ConveyorDoc.Core
 {
     public interface IAppTask
     {
-        void Run(Action action, string taskTitle, Action<TaskStatus> onCompleted = null);
+        void RunAsync(Action action, string taskTitle, Action<TaskStatus> onCompleted = null);
 
-        void Run(Func<object> action, string taskTitle, Action<TaskStatus, object> onCompleted = null);
+        void RunAsync(Func<object> action, string taskTitle, Action<TaskStatus, object> onCompleted = null);
 
-        void RunOnUIThread(Action action, string taskTitle, Action<TaskStatus> onCompleted = null);
+        void RunOnUIAsync(Action action, string taskTitle, Action<TaskStatus> onCompleted = null);
 
 
     }

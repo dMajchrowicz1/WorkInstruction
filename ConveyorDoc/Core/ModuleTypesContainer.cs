@@ -23,7 +23,7 @@ namespace ConveyorDoc.Core
 
         public ModuleTypesContainer(IGetAllModuleTypes query, IAppTask appTask)
         {
-            appTask.Run(() => 
+            appTask.RunAsync(() => 
             {
                 return query.GetAllModuleTypes();
 

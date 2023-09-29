@@ -86,7 +86,7 @@ namespace ConveyorDoc.Fixtures.ViewModels
 
                     FixtureRecord item = dialogResult.Parameters.GetValue<FixtureRecord>("entity");
 
-                    _appTask.Run(() =>
+                    _appTask.RunAsync(() =>
                     {
                         _fixtureRepository.Insert(item);
 
@@ -113,7 +113,7 @@ namespace ConveyorDoc.Fixtures.ViewModels
             {
                 if(result.Result == ButtonResult.OK)
                 {
-                    _appTask.Run(() => { _fixtureRepository.Delete(obj); }
+                    _appTask.RunAsync(() => { _fixtureRepository.Delete(obj); }
                     , ConveyorDoc.Resources.Properties.Resources.DeletingRecord, result =>
                     {
                         if (result == TaskStatus.RanToCompletion)
@@ -134,7 +134,7 @@ namespace ConveyorDoc.Fixtures.ViewModels
         private void ExecuteRefreshFxituresCommand()
         {
 
-            _appTask.Run(() => 
+            _appTask.RunAsync(() => 
             { 
                 return _fixtureRepository.GetAll(); 
             }
@@ -170,7 +170,7 @@ namespace ConveyorDoc.Fixtures.ViewModels
             obj.ModificationDate = DateTime.Now.ToString("MM.dd.yyyy HH:mm:ss");
 
 
-            _appTask.Run(() =>
+            _appTask.RunAsync(() =>
             {
                 _fixtureRepository.Update(obj);
 

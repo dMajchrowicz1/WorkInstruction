@@ -116,6 +116,14 @@ namespace ConveyorDoc.Business.Model
             }
         }
 
+        public void RemoveWord(Word word)
+        {
+            if (_wordInstructions.Contains(word))
+            { _wordInstructions.Remove(word); }
+            else
+                throw new ArgumentException("Invalid word file");
+        }
+
         public void GenerateWords(string savePath, bool detailedTools = false)
         {
             foreach (var item in WordInstructions)
@@ -136,7 +144,7 @@ namespace ConveyorDoc.Business.Model
         public static Instruction Load(string filePath)
         {
             var result = JsonConvert.DeserializeObject<Instruction>(File.ReadAllText(filePath),
-                        new JsonSerializerSettings { PreserveReferencesHandling = PreserveReferencesHandling.Objects });
+                new JsonSerializerSettings { PreserveReferencesHandling = PreserveReferencesHandling.Objects });
 
 
             return result;

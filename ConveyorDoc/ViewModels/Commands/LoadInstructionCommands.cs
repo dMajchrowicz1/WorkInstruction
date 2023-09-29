@@ -49,7 +49,7 @@ namespace ConveyorDoc.ViewModels.Commands
             if (parameter is Word word && word is not null)
             {
 
-                _appTask.RunOnUIThread(() =>
+                _appTask.RunOnUIAsync(() =>
                 {
                     word.FindProgramTools(_getToolQuery);
 
@@ -64,7 +64,7 @@ namespace ConveyorDoc.ViewModels.Commands
             if (parameter is Word word && word is not null)
             {
 
-                _appTask.RunOnUIThread(() =>
+                _appTask.RunOnUIAsync(() =>
                 {
                     word.GetDefaultDescription();
                 }
@@ -77,7 +77,7 @@ namespace ConveyorDoc.ViewModels.Commands
         {
             if (parameter is Word word && word is not null)
             {
-                _appTask.RunOnUIThread(() =>
+                _appTask.RunOnUIAsync(() =>
                 {
                     word.ReadVariables();
                 },

@@ -19,6 +19,7 @@ using ConveyorDoc.Business.Queries;
 using Resx = ConveyorDoc.Resources.Properties.Resources;
 using ConveyorDoc.Business.Constants;
 using ConveyorDoc.Model.Settings;
+using ConveyorDoc.Business.Extension;
 
 namespace ConveyorDoc.ViewModels
 {
@@ -93,7 +94,7 @@ namespace ConveyorDoc.ViewModels
 
         void ExecuteLoadAllCommand(object parameter)
         {
-            _appTask.RunOnUIThread(() =>
+            _appTask.RunOnUIAsync(() =>
             {
                 if (parameter != null && parameter is Word word)
                 {
@@ -136,7 +137,7 @@ namespace ConveyorDoc.ViewModels
         void ExecuteDropInstructionCommand(DragEventArgs parameter)
         {
 
-            _appTask.RunOnUIThread(() =>
+            _appTask.RunOnUIAsync(() =>
             {
                 if (parameter.Data is DataObject data)
                 {
@@ -166,7 +167,7 @@ namespace ConveyorDoc.ViewModels
 
             _windowsDialogService.ShowContentDialog(typeof(SelectCimcoProgramDialog), callback =>
             {
-                if (callback.Result == Prism.Services.Dialogs.ButtonResult.OK)
+                if (callback.Result == ButtonResult.OK)
                 {
                     _viewModelBase.CurrentInstruction.AddWord(callback.Parameters.GetValue<IEnumerable<NcProgram>>("programs").ToArray());
                 }
@@ -181,7 +182,7 @@ namespace ConveyorDoc.ViewModels
                 {
                     var dir = callback.Parameters.GetValue<string>("parameter");
 
-                    _appTask.Run(() =>
+                    _appTask.RunAsync(() =>
                     {
                         _viewModelBase.CurrentInstruction.GenerateWords(dir,_settings.InstructionSettings.GenerateDetailedTools);
 
@@ -193,23 +194,26 @@ namespace ConveyorDoc.ViewModels
         void ExecuteRemoveInstructionCommand(object parameter)
         {
 
-            _appTask.RunOnUIThread(() =>
+            _appTask.RunOnUIAsync(() =>
             {
                 if (parameter is Word word && word is not null)
                 {
-                    _viewModelBase.CurrentInstruction.WordInstructions.Remove(word);
                     ClearRegion();
+                    _viewModelBase.CurrentInstruction.RemoveWord(word);
+                    
                 }
                 else
                     throw new Exception(Resx.SelectWordFile);
 
             }, $@"{Resx.RemovingWordFile}");
+
+
         }
 
-        void Navigate(string view, Word instruction)
+        void Navigate(string view, Word wordInstruction)
         {
             var navigationParameter = new NavigationParameters();
-            navigationParameter.Add("Instruction", instruction);
+            navigationParameter.Add("word", wordInstruction);
 
             _regionManager.RequestNavigate(RegionNames.InstructionItemRegion, view, navigationParameter);
         }

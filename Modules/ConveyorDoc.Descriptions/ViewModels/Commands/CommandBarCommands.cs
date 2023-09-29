@@ -60,7 +60,7 @@ namespace ConveyorDoc.Descriptions.ViewModels.Commands
         private void ExecuteRefreshListCommand()
         {
 
-            _appTask.Run(() =>
+            _appTask.RunAsync(() =>
             {
                 return _descriptionRepository.GetAll();
 
@@ -81,7 +81,7 @@ namespace ConveyorDoc.Descriptions.ViewModels.Commands
             {
                 if (callback.Result == ButtonResult.OK)
                 {
-                    _appTask.Run(() =>
+                    _appTask.RunAsync(() =>
                     {
                         _descriptionRepository.Delete(parameter);
                     }
@@ -106,7 +106,7 @@ namespace ConveyorDoc.Descriptions.ViewModels.Commands
 
         private void ExecuteUpdateDescriptionCommand(DescriptionRecord parameter)
         {
-            _appTask.Run(() =>
+            _appTask.RunAsync(() =>
             {
                 _descriptionRepository.Update(parameter);
 
@@ -126,7 +126,7 @@ namespace ConveyorDoc.Descriptions.ViewModels.Commands
 
                     DescriptionRecord item = dialogResult.Parameters.GetValue<DescriptionRecord>("entity");
 
-                    _appTask.Run(() =>
+                    _appTask.RunAsync(() =>
                     {
                         _descriptionRepository.Insert(item);
 

@@ -6,6 +6,7 @@ using ConveyorDoc.Business.Extensions;
 using ConveyorDoc.Business.Queries;
 using ConveyorDoc.Business.UseCase;
 using ConveyorDoc.Service;
+using Newtonsoft.Json;
 using Prism.Mvvm;
 using System;
 using System.Collections.Generic;
@@ -106,7 +107,7 @@ namespace ConveyorDoc.Business.Model
             set { SetProperty(ref _drawings, value); }
         }
 
-
+        
         public Instruction Parent
         {
             get { return _parent; }

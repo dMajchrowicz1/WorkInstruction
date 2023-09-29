@@ -22,7 +22,7 @@ namespace ConveyorDoc.Core
         public MaterialContainer(IGetAllMaterialsQuery query, IAppTask appTask)
         {
 
-            appTask.Run(() =>
+            appTask.RunAsync(() =>
             {
                 _materials = new ObservableCollection<string>(query.GetMaterials());
             }, ConveyorDoc.Resources.Properties.Resources.LoadingMaterials);           

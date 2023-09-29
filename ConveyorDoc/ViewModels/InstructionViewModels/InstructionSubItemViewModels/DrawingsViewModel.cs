@@ -43,7 +43,7 @@ namespace ConveyorDoc.ViewModels.InstructionViewModels.InstructionSubItemViewMod
 
         void ExecutePdfPreviewCommand(Drawing parameter)
         {
-            _appTask.Run(() => { parameter.PlotPreview(); }, Resx.LoadingPdfPreview);
+            _appTask.RunAsync(() => { parameter.PlotPreview(); }, Resx.LoadingPdfPreview);
         }
 
         private void ExecuteFilePickerCommand()
