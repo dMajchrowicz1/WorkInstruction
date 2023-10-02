@@ -250,6 +250,15 @@ namespace ConveyorDoc.Resources.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Connecting cimco database.
+        /// </summary>
+        public static string ConnectingCimco {
+            get {
+                return ResourceManager.GetString("ConnectingCimco", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Connecting Cimco database.
         /// </summary>
         public static string ConnectingCimcoDatabase {
@@ -259,11 +268,29 @@ namespace ConveyorDoc.Resources.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Connecting decanter database.
+        /// </summary>
+        public static string ConnectingDecanter {
+            get {
+                return ResourceManager.GetString("ConnectingDecanter", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Connecting to databases.
         /// </summary>
         public static string ConnectingToDatabases {
             get {
                 return ResourceManager.GetString("ConnectingToDatabases", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Connection tools database.
+        /// </summary>
+        public static string ConnectionTools {
+            get {
+                return ResourceManager.GetString("ConnectionTools", resourceCulture);
             }
         }
         

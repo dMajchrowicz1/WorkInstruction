@@ -38,7 +38,7 @@
 
 
     <StatusBarItem Grid.Column="2" Margin="{DynamicResource SmallLeftRightMargin}" 
-                   Visibility="{Binding CurrentlyRunningTasks , Converter={StaticResource IntToBool}}">
+                   Visibility="{Binding CurrentlyRunningTasks, UpdateSourceTrigger=PropertyChanged,Mode=TwoWay, Converter={StaticResource IntToBool}}">
 
 
 
@@ -46,7 +46,7 @@
 
             <mah:Badged BadgeBackground="{StaticResource SystemControlBackgroundAccentBrush}" 
                         BadgeForeground="{StaticResource SystemControlForegroundAltHighBrush}" 
-                        Badge="{Binding CurrentlyRunningTasks}"
+                        Badge="{Binding CurrentlyRunningTasks, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
                         BadgePlacementMode="Left" BadgeFontSize="10"/>
 
             <TextBlock Margin="{DynamicResource SmallLeftRightMargin}" 

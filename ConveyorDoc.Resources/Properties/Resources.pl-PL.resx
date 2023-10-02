@@ -666,4 +666,13 @@
   <data name="ReloadFixtures" xml:space="preserve">
     <value>Ładowanie oprzyrządowania</value>
   </data>
+  <data name="ConnectingDecanter" xml:space="preserve">
+    <value>Łączenie z bazą danych dekantera</value>
+  </data>
+  <data name="ConnectingCimco" xml:space="preserve">
+    <value>Łączenie z bazą danych cimco</value>
+  </data>
+  <data name="ConnectionTools" xml:space="preserve">
+    <value>Łączenie z bazą danych narzędzi </value>
+  </data>
 </root>

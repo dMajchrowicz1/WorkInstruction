@@ -666,4 +666,13 @@
   <data name="ReloadFixtures" xml:space="preserve">
     <value>Reload fixtures</value>
   </data>
+  <data name="ConnectingDecanter" xml:space="preserve">
+    <value>Connecting decanter database</value>
+  </data>
+  <data name="ConnectingCimco" xml:space="preserve">
+    <value>Connecting cimco database</value>
+  </data>
+  <data name="ConnectionTools" xml:space="preserve">
+    <value>Connection tools database</value>
+  </data>
 </root>

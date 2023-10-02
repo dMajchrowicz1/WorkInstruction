@@ -81,20 +81,34 @@ namespace ConveyorDoc.Core
 
         private void OpenConnectionSources()
         {
+            //Opening connection to decanter db 
             _appTask.RunAsync(() =>
             {
                 _decanterConncetionFactory.GetOpenConnection();
-                _cimcoConnectionFactory.GetOpenConnection();
-                _toolConnectionFactory.GetOpenConnection();
-
-            }, ConveyorDoc.Resources.Properties.Resources.ConnectingToDatabases, status=>
+                               
+            }, ConveyorDoc.Resources.Properties.Resources.ConnectingDecanter, callbackStatus=>
             {
-                if(status == System.Threading.Tasks.TaskStatus.RanToCompletion)
+                if(callbackStatus == System.Threading.Tasks.TaskStatus.RanToCompletion)
                 {
+                    //When status is ok, loading data from database
                     _container.Init();
+
+                    //Tools connection has to wait until first oleDbConnection finish
+                    //Can only open one connection at time
+                    _appTask.RunAsync(() =>
+                    {
+                        _toolConnectionFactory.GetOpenConnection();
+
+                    }, ConveyorDoc.Resources.Properties.Resources.ConnectionTools);
                 }
             });
 
+            //Opening connection to cimco db 
+            _appTask.RunAsync(() =>
+            {
+                _cimcoConnectionFactory.GetOpenConnection();
+
+            }, ConveyorDoc.Resources.Properties.Resources.ConnectingCimco);
         }
 
     }
