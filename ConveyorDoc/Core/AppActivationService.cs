@@ -19,14 +19,16 @@ namespace ConveyorDoc.Core
         private readonly ICimcoConnectionFactory _cimcoConnectionFactory;
         private readonly IDecanterConncetionFactory _decanterConncetionFactory;
         private readonly IToolsConnectionFactory _toolConnectionFactory;
+        private readonly IAppTask _appTask;
+        private readonly IDataContainer _container;
 
 
         public AppActivationService(
             IDecanterConncetionFactory decanterConncetionFactory,
             ICimcoConnectionFactory cimcoConnectionFactory,
             IToolsConnectionFactory toolsConnectionFacotry,
-            IMaterialContainer materialContainer,
-            IModuleTypesContainer moduleTypesContainer,
+            IAppTask appTask,
+            IDataContainer container,
             InstructionViewModelBase viewModelBase, 
             Notifier notifier,
             AppSettings settings)
@@ -37,6 +39,9 @@ namespace ConveyorDoc.Core
             _cimcoConnectionFactory = cimcoConnectionFactory;
             _toolConnectionFactory = toolsConnectionFacotry;
             _settings = settings;
+            _appTask = appTask;
+            _container = container;
+
 
         }
 
@@ -76,11 +81,21 @@ namespace ConveyorDoc.Core
 
         private void OpenConnectionSources()
         {
-            _decanterConncetionFactory.GetOpenConnection();
-            _cimcoConnectionFactory.GetOpenConnection();
-            _toolConnectionFactory.GetOpenConnection(); 
-        }
+            _appTask.RunAsync(() =>
+            {
+                _decanterConncetionFactory.GetOpenConnection();
+                _cimcoConnectionFactory.GetOpenConnection();
+                _toolConnectionFactory.GetOpenConnection();
 
+            }, ConveyorDoc.Resources.Properties.Resources.ConnectingToDatabases, status=>
+            {
+                if(status == System.Threading.Tasks.TaskStatus.RanToCompletion)
+                {
+                    _container.Init();
+                }
+            });
+
+        }
 
     }
 }

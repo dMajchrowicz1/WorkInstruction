@@ -259,6 +259,15 @@ namespace ConveyorDoc.Resources.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Connecting to databases.
+        /// </summary>
+        public static string ConnectingToDatabases {
+            get {
+                return ResourceManager.GetString("ConnectingToDatabases", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Conveyor.
         /// </summary>
         public static string Conveyor {

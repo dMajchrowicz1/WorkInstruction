@@ -657,4 +657,7 @@
   <data name="SettingsView_EnableToGenerateDetaildToolList" xml:space="preserve">
     <value>Enable to generate detailed tool list</value>
   </data>
+  <data name="ConnectingToDatabases" xml:space="preserve">
+    <value>Connecting to databases</value>
+  </data>
 </root>

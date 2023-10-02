@@ -21,6 +21,8 @@ namespace ConveyorDoc.Descriptions.ViewModels.Commands
 
         private readonly IWindowsDialogService _windowsDialogService;
 
+        private readonly IToastMessage _toast;
+
         private readonly DescriptionViewModelBase _viewModelBase;
 
 
@@ -45,6 +47,7 @@ namespace ConveyorDoc.Descriptions.ViewModels.Commands
         public CommandBarCommands(IAppTask appTask, 
             IDescriptionRepository descriptionRepository, 
             IWindowsDialogService windowsDialogService,
+            IToastMessage toast,
             DescriptionViewModelBase viewModelBase)
         {
             _descriptionRepository = descriptionRepository; 
@@ -54,6 +57,8 @@ namespace ConveyorDoc.Descriptions.ViewModels.Commands
             _viewModelBase = viewModelBase;
 
             _windowsDialogService = windowsDialogService;
+
+            _toast = toast;
         }
 
 

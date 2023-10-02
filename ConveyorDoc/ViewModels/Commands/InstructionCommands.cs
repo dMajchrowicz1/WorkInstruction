@@ -28,6 +28,7 @@ namespace ConveyorDoc.ViewModels
         private IWindowsDialogService _windowsDialogService;
         private IAppTask _appTask;
         private IRegionManager _regionManager;
+        private IToastMessage _toast;
         private IGetToolQuery _getToolQuery;
         private InstructionViewModelBase _viewModelBase;
         private AppSettings _settings;
@@ -72,6 +73,7 @@ namespace ConveyorDoc.ViewModels
             , IAppTask appTask
             , IGetToolQuery getToolQuery
             , IRegionManager regionManager
+            , IToastMessage toast
             , InstructionViewModelBase viewModelBase, AppSettings settings)
         {
             _windowsDialogService = windowsDialogService;
@@ -80,6 +82,7 @@ namespace ConveyorDoc.ViewModels
             _viewModelBase = viewModelBase;
             _getToolQuery = getToolQuery;
             _settings = settings;
+            _toast = toast;
         }
 
 
@@ -193,20 +196,13 @@ namespace ConveyorDoc.ViewModels
 
         void ExecuteRemoveInstructionCommand(object parameter)
         {
-
-            _appTask.RunOnUIAsync(() =>
-            {
-                if (parameter is Word word && word is not null)
-                {
-                    ClearRegion();
-                    _viewModelBase.CurrentInstruction.RemoveWord(word);
-                    
-                }
-                else
-                    throw new Exception(Resx.SelectWordFile);
-
-            }, $@"{Resx.RemovingWordFile}");
-
+            if (parameter is Word word && word is not null)
+            {              
+                _viewModelBase.CurrentInstruction.RemoveWord(word);
+                ClearRegion();
+            }
+            else
+                _toast.ShowError(Resx.SelectWordFile);
 
         }
 

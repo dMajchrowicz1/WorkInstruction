@@ -39,11 +39,12 @@ namespace ConveyorDoc.ViewModels
 
         private void Initialize()
         {
-            //Activate app services
-            _appActivationService.Activate();
 
             //Navigate to instruction view on open 
             _regionManager.RegisterViewWithRegion("ContentRegion", "InstructionView");
+
+            //Activate app services
+            _appActivationService.Activate();
         }
 
 

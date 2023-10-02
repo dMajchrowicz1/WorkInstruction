@@ -13,15 +13,19 @@ namespace ConveyorDoc.Services.QueryHandlers
 {
     public class DecanterDatabaseQueryHandlers : IGetAllFixturesQuery, IGetAllMaterialsQuery, IGetAllDescriptionsQuery, IGetAllModuleTypes
     {
-        private readonly IDbConnection _connection;
+        private readonly IDecanterConncetionFactory _connectionFactory;
 
-        public DecanterDatabaseQueryHandlers(IDecanterConncetionFactory conncetionFactory)
+        private  IDbConnection _connection;
+
+        public DecanterDatabaseQueryHandlers(IDecanterConncetionFactory connectionFactory)
         {
-            _connection = conncetionFactory.GetOpenConnection();
+            _connectionFactory = connectionFactory;
         }
 
         public IEnumerable<DescriptionDto> GetAllDescriptions()
         {
+            CheckConnection();
+
             var result = Enumerable.Empty<DescriptionDto>();
 
             result = _connection.Query<DescriptionDto>("SELECT * FROM Descriptions");
@@ -31,6 +35,8 @@ namespace ConveyorDoc.Services.QueryHandlers
 
         public IEnumerable<FixtureDto> GetAllFixtures()
         {
+            CheckConnection();
+
             var result = Enumerable.Empty<FixtureDto>();
 
             result = _connection.Query<FixtureDto>("SELECT * FROM Fixtures");
@@ -40,6 +46,8 @@ namespace ConveyorDoc.Services.QueryHandlers
        
         public IEnumerable<string> GetMaterials()
         {
+            CheckConnection();
+
             var result = Enumerable.Empty<string>();
 
             result = _connection.Query<string>("SELECT Material FROM Materials");
@@ -49,11 +57,21 @@ namespace ConveyorDoc.Services.QueryHandlers
             
         public IEnumerable<string> GetAllModuleTypes()
         {
+            CheckConnection();
+
             var result = Enumerable.Empty<string>();
 
             result = _connection.Query<string>("SELECT ModuleType FROM ModuleTypes");
 
             return result;
+        }
+
+        private void CheckConnection()
+        {
+            if (_connection == null) 
+            {
+                _connection = _connectionFactory.GetOpenConnection();
+            }
         }
 
     }

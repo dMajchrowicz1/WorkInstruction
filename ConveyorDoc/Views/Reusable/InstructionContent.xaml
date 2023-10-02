@@ -41,14 +41,14 @@
                 MinWidth="200"
                 ui:ControlHelper.Header="{x:Static properties:Resources.NewInstructionDialog_ModuleType}"
                 ui:ValidationHelper.IsTemplateValidationAdornerSite="True"
-                ItemsSource="{Binding ModuleTypesContainer.ModuleTypes}"
+                ItemsSource="{Binding Data.ModuleTypes}"
                 SelectedItem="{Binding DialogInstruction.ModuleType, UpdateSourceTrigger=PropertyChanged}" />
             <ComboBox
                 Width="{DynamicResource MediumWidth}"
                 ui:ControlHelper.Header="{x:Static properties:Resources.Material}"
                 ui:ValidationHelper.IsTemplateValidationAdornerSite="True"
                 IsEditable="True"
-                ItemsSource="{Binding MaterialContainer.Materials}"
+                ItemsSource="{Binding Data.Materials}"
                 Text="{Binding DialogInstruction.Material, UpdateSourceTrigger=PropertyChanged}" />
             <TextBox
                 ui:ControlHelper.Header="{x:Static properties:Resources.Blank}"

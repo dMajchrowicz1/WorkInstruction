@@ -32,7 +32,7 @@
                 Width="150"
                 ui:ControlHelper.Header="{x:Static properties:Resources.FixtureNumber}"
                 ui:ControlHelper.CornerRadius="{DynamicResource SmallCornerRadius}"
-                Text="{Binding Filter.ItemNumber}"/>
+                Text="{Binding Filter.ItemNumber, UpdateSourceTrigger=PropertyChanged}"/>
 
             <ComboBox
                 Width="200"
