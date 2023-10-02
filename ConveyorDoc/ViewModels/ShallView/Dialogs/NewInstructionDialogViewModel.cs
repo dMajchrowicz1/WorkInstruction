@@ -9,10 +9,10 @@ namespace ConveyorDoc.ViewModels.ShallView.Dialogs
     {
 
 
-        public NewInstructionDialogViewModel(Notifier notifier, IMaterialContainer materialContainer, IModuleTypesContainer ModuleTypesContainer) 
+        public NewInstructionDialogViewModel(Notifier notifier, IDataContainer data) 
             : base($"{Resources.Properties.Resources.Create} {Resources.Properties.Resources.Instruction}",
                   Resources.Properties.Resources.Create, 
-                  notifier,materialContainer,ModuleTypesContainer) { }
+                  notifier,data) { }
              
 
     }

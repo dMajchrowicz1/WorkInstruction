@@ -13,16 +13,20 @@ namespace ConveyorDoc.Services.QueryHandlers
 {
     public class CimcoDatabaseQueryHandlers : IGetModuleProgramsQuery
     {
-        private readonly IDbConnection _connection;
+        private IDbConnection _connection;
+
+        private readonly ICimcoConnectionFactory _connectionFactory;
 
         public CimcoDatabaseQueryHandlers(ICimcoConnectionFactory connectionFactory)
         {
-            _connection = connectionFactory.GetOpenConnection();
+            _connectionFactory = connectionFactory;
         }
 
 
         public IEnumerable<NcProgram> GetModulePrograms(string moduleNumber)
         {
+            CheckConnection();
+
             var result = Enumerable.Empty<NcProgram>();
 
             string query = @$"SELECT 
@@ -59,6 +63,14 @@ namespace ConveyorDoc.Services.QueryHandlers
             result = _connection.Query<NcProgram>(query);
        
             return result;
+        }
+
+        private void CheckConnection()
+        {
+            if (_connection == null)
+            {
+                _connection = _connectionFactory.GetOpenConnection();
+            }
         }
     }
 }

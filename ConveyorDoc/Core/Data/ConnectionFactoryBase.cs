@@ -13,6 +13,8 @@ namespace ConveyorDoc.Core.Data
         private readonly string _connectionString;
         private IDbConnection _connection;
 
+        
+
         public ConnectionFactoryBase(string connectionString)
         {
             _connectionString = connectionString;

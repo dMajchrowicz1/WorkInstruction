@@ -37,14 +37,13 @@ namespace ConveyorDoc.ViewModels.ShallView.Dialogs
 
         public event Action<IDialogResult> RequestClose;
 
-        public IMaterialContainer MaterialContainer { get; }
+        public IDataContainer Data { get; }
 
-        public IModuleTypesContainer ModuleTypesContainer { get; }
 
 
         public InstructionDialogBase(
             string title, string primaryButtonText, Notifier notifier, 
-            IMaterialContainer materialContainer, IModuleTypesContainer moduleTypesContainer) 
+            IDataContainer data) 
         {
             _title = title;
 
@@ -54,9 +53,7 @@ namespace ConveyorDoc.ViewModels.ShallView.Dialogs
 
             _dialogInstruction = new Instruction();
 
-            MaterialContainer = materialContainer;
-
-            ModuleTypesContainer = moduleTypesContainer;
+            Data = data;
 
         }
 

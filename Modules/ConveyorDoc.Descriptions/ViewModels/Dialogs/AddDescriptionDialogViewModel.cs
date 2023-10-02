@@ -28,17 +28,17 @@ namespace ConveyorDoc.Descriptions.ViewModels.Dialogs
 
         public event Action<IDialogResult> RequestClose;
 
-        public IModuleTypesContainer Modules { get; }
+        public IDataContainer Data { get; }
 
         public DescriptionViewModelBase ViewModelBase { get; }
 
 
-        public AddDescriptionDialogViewModel(DescriptionViewModelBase viewModelBase, IModuleTypesContainer modules)
+        public AddDescriptionDialogViewModel(DescriptionViewModelBase viewModelBase, IDataContainer data)
         {
             
             ViewModelBase = viewModelBase;
 
-            Modules = modules;
+            Data = data;
 
         }
 

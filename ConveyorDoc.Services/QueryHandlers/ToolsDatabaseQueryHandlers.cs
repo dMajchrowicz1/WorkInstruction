@@ -13,12 +13,14 @@ namespace ConveyorDoc.Services.QueryHandlers
 {
     public class ToolsDatabaseQueryHandlers : IGetAllToolsQuery, IGetToolQuery
     {
-        private readonly IDbConnection _connection;
+        private IDbConnection _connection;
+
+        private IToolsConnectionFactory _connectionFactory;
 
 
-        public ToolsDatabaseQueryHandlers(IToolsConnectionFactory toolsConnection)
+        public ToolsDatabaseQueryHandlers(IToolsConnectionFactory connectionFactory)
         {
-            _connection = toolsConnection.GetOpenConnection();
+            _connectionFactory = connectionFactory;
 
             //Mapping config of multilevel tool entity
             AutoMapper.Configuration.AddIdentifier(typeof(ToolDto), "ItemId");
@@ -28,6 +30,8 @@ namespace ConveyorDoc.Services.QueryHandlers
 
         public ToolDto GetTool(string offset, string machine)
         {
+            CheckConnection();
+
             string query = @$"SELECT 
                                      tool.[ItemId]
                                     ,tool.[Position]
@@ -55,6 +59,8 @@ namespace ConveyorDoc.Services.QueryHandlers
 
         public IEnumerable<ToolDto> GetAllTools()
         {
+            CheckConnection();
+
             var result = Enumerable.Empty<ToolDto>();
 
             string query = @$"SELECT 
@@ -82,6 +88,14 @@ namespace ConveyorDoc.Services.QueryHandlers
             result = AutoMapper.MapDynamic<ToolDto>(tools);
 
             return result;
+        }
+
+        private void CheckConnection()
+        {
+            if (_connection == null) 
+            {
+                _connection = _connectionFactory.GetOpenConnection();
+            }
         }
     }
 }

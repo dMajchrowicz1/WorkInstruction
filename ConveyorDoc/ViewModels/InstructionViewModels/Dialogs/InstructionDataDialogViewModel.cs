@@ -17,11 +17,11 @@ namespace ConveyorDoc.ViewModels.InstructionViewModels.Dialogs
     public class InstructionDataDialogViewModel : InstructionDialogBase
     {
 
-        public InstructionDataDialogViewModel(Notifier notifier, IMaterialContainer materialContainer, IModuleTypesContainer moduleTypeContainer) 
+        public InstructionDataDialogViewModel(Notifier notifier, IDataContainer data) 
             : base(Resources.Properties.Resources.InstructionData, 
                   Resources.Properties.Resources.Save, 
                   notifier,
-                  materialContainer, moduleTypeContainer)
+                  data)
         {
             
         }

@@ -1,14 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace ConveyorDoc.Core
 {
-    public interface IModuleTypesContainer
+    public interface IDataContainer
     {
-        ObservableCollection<string> ModuleTypes { get; }
+        IEnumerable<string> Materials { get; }
+
+        IEnumerable<string> ModuleTypes { get; }
+
+        void Init();
     }
 }

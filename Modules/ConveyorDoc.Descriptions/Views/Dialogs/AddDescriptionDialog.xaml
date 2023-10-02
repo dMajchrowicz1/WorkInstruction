@@ -22,7 +22,7 @@
                 HorizontalAlignment="Left"
                 IsEditable="True"
                 ui:ControlHelper.Header="{x:Static properties:Resources.NewInstructionDialog_ModuleType}"
-                ItemsSource="{Binding Modules.ModuleTypes }"
+                ItemsSource="{Binding Data.ModuleTypes }"
                 Text="{Binding Description.ModuleType}" />
             <TextBox
                 Width="{DynamicResource SmallWidth}"

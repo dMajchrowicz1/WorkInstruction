@@ -95,8 +95,7 @@ namespace ConveyorDoc
             containerRegistry.RegisterSingleton<ILoadInstructionCommand, LoadInstructionCommands>();
             containerRegistry.RegisterSingleton<IInstructionCommands , InstructionCommands>();
             containerRegistry.RegisterSingleton<IMainWindowCommands, MainWindowCommands>();
-            containerRegistry.RegisterSingleton<IMaterialContainer, MaterialContainer>();
-            containerRegistry.RegisterSingleton<IModuleTypesContainer, ModuleTypesContainer>();
+            containerRegistry.RegisterSingleton<IDataContainer, DataContainer>();
             
 
 
@@ -105,8 +104,7 @@ namespace ConveyorDoc
 
 
             //Register app settings as singleton and loads user settings
-            containerRegistry.RegisterInstance<AppSettings>(AppSettings.Load());
-
+            containerRegistry.RegisterInstance(AppSettings.Load());
             containerRegistry.RegisterInstance<IAppDirectories>(Container.Resolve<AppSettings>().DirectoriesSettings);
 
 
@@ -116,7 +114,6 @@ namespace ConveyorDoc
                 new DecanterConnectionFactory(ConfigurationManager.ConnectionStrings["DecanterDb"].ConnectionString));
             containerRegistry.RegisterInstance<ICimcoConnectionFactory>(
                 new CimcoConnectionFactory(ConfigurationManager.ConnectionStrings["CimcoDb"].ConnectionString));
-
             containerRegistry.RegisterInstance<IToolsConnectionFactory>(
                  new ToolsConnectionFactory(ConfigurationManager.ConnectionStrings["ToolListDb"].ConnectionString));
 
