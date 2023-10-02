@@ -9,7 +9,7 @@ namespace ConveyorDoc.Interfaces.Services
 {
     public interface IAppTaskManager
     {
-        EventHandler<TaskFeedbackArgs> TaskStatusChanged { get; set; }
+         EventHandler<TaskFeedbackArgs> TaskStatusChanged { get; set; }
 
         
 

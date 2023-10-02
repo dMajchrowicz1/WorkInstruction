@@ -138,7 +138,7 @@ namespace ConveyorDoc.Fixtures.ViewModels
             { 
                 return _fixtureRepository.GetAll(); 
             }
-            , Resources.Properties.Resources.ReloadDatabase, (status, data) =>
+            , ConveyorDoc.Resources.Properties.Resources.ReloadFixtures, (status, data) =>
             {
                 Application.Current.Dispatcher.InvokeAsync(() =>
                 {
@@ -167,7 +167,7 @@ namespace ConveyorDoc.Fixtures.ViewModels
         private void ExecuteEditFixtureCommand(FixtureRecord obj)
         {
             obj.ModifiedBy = Environment.UserName;
-            obj.ModificationDate = DateTime.Now.ToString("MM.dd.yyyy HH:mm:ss");
+            obj.ModificationDate = DateTime.Now.ToString(Constants.DATA_TIME_FORMAT);
 
 
             _appTask.RunAsync(() =>

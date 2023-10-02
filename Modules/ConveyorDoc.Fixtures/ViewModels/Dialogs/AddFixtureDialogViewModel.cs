@@ -30,16 +30,16 @@ namespace ConveyorDoc.Fixtures.ViewModels.Dialogs
 
         public FixtureViewModelBase ViewModelBase { get; }
 
-        public ISearchCommand SearchCommand { get; }
+        public IPDFCommands PDFCommands { get; }
 
-        public AddFixtureDialogViewModel(FixtureViewModelBase viewModelBase, ISearchCommand searchCommand)
+        public AddFixtureDialogViewModel(FixtureViewModelBase viewModelBase, IPDFCommands pdfCommands)
         {
             ViewModelBase = viewModelBase;
 
             //Settings fixture data
             Fixture.CreatedBy = Environment.UserName;
-            Fixture.CreateDate = DateTime.Now.ToString("MM.dd.yyyy HH:mm:ss");
-            SearchCommand = searchCommand;
+            Fixture.CreateDate = DateTime.Now.ToString(Constants.DATA_TIME_FORMAT);
+            this.PDFCommands = pdfCommands;
 
         }
 

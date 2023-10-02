@@ -67,7 +67,7 @@
             <Button
                     Margin="{DynamicResource SmallLeftRightMargin}"
                     VerticalAlignment="Bottom"
-                    Command="{Binding SearchCommand.FolderBrowseCommand}"
+                    Command="{Binding PDFCommands.PdfDrawingSelectCommand}"
                     CommandParameter="{Binding Fixture}"
                     Content="{x:Static properties:Resources.Search}"
                     Style="{DynamicResource AccentButtonStyle}" />

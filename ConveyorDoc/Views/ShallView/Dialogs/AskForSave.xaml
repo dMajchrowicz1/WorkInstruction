@@ -18,10 +18,7 @@
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
 
-        <Image
-            Width="30"
-            Height="30"
-            Source="/Assets/icons-warning-100.png" />
+        <Control Style="{StaticResource WarningViewBox}"/>
 
         <StackPanel
             Grid.Column="1"

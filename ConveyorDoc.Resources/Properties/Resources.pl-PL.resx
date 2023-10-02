@@ -657,4 +657,13 @@
   <data name="SettingsView_EnableToGenerateDetaildToolList" xml:space="preserve">
     <value>Włącz, aby wygenerować szczegółową listę narzędzi!</value>
   </data>
+  <data name="ConnectingToDatabases" xml:space="preserve">
+    <value>Łączenie z bazami danych!</value>
+  </data>
+  <data name="ReloadDescriptions" xml:space="preserve">
+    <value>Ławdowanie opisów</value>
+  </data>
+  <data name="ReloadFixtures" xml:space="preserve">
+    <value>Ładowanie oprzyrządowania</value>
+  </data>
 </root>

@@ -48,7 +48,7 @@
                         Width="{DynamicResource MediumWidth}"
                         HorizontalAlignment="Left"
                         ui:ControlHelper.Header="{x:Static properties:Resources.FixtureNumber}"
-                        Text="{Binding ViewModelBase.SelectedFixture.ItemNumber}" />
+                        Text="{Binding ViewModelBase.SelectedFixture.ItemNumber, UpdateSourceTrigger=PropertyChanged}" />
 
                     <ComboBox
                         Width="{DynamicResource MediumWidth}"
@@ -56,21 +56,21 @@
                         ui:ControlHelper.Header="{x:Static properties:Resources.Type}"
                         IsEditable="True"
                         ItemsSource="{Binding ViewModelBase.Types}"
-                        Text="{Binding ViewModelBase.SelectedFixture.ItemType}" />
+                        Text="{Binding ViewModelBase.SelectedFixture.ItemType, UpdateSourceTrigger=PropertyChanged}" />
                     <ComboBox
                         Width="{DynamicResource MediumWidth}"
                         HorizontalAlignment="Left"
                         ui:ControlHelper.Header="{x:Static properties:Resources.Size}"
                         IsEditable="True"
                         ItemsSource="{Binding ViewModelBase.Sizes}"
-                        Text="{Binding ViewModelBase.SelectedFixture.Size}" />
+                        Text="{Binding ViewModelBase.SelectedFixture.Size, UpdateSourceTrigger=PropertyChanged}" />
                     <ComboBox
                         Width="{DynamicResource MediumWidth}"
                         HorizontalAlignment="Left"
                         ui:ControlHelper.Header="{x:Static properties:Resources.Machine}"
                         IsEditable="True"
                         ItemsSource="{Binding ViewModelBase.Machines}"
-                        Text="{Binding ViewModelBase.SelectedFixture.Machine}" />
+                        Text="{Binding ViewModelBase.SelectedFixture.Machine, UpdateSourceTrigger=PropertyChanged}" />
 
                     <TextBox
                         Width="{DynamicResource MediumWidth}"
@@ -79,7 +79,7 @@
                         ui:ControlHelper.Header="{x:Static properties:Resources.Details}"
                         AcceptsReturn="True"
                         AcceptsTab="True"
-                        Text="{Binding ViewModelBase.SelectedFixture.Details}"
+                        Text="{Binding ViewModelBase.SelectedFixture.Details, UpdateSourceTrigger=PropertyChanged}"
                         TextWrapping="Wrap" />
 
                 </ui:SimpleStackPanel>
@@ -150,7 +150,7 @@
             <Button
                     Margin="{DynamicResource SmallLeftRightMargin}"
                     VerticalAlignment="Bottom"
-                    Command="{Binding SearchCommand.FileSelectDialogCommand}"
+                    Command="{Binding PDFCommands.PdfDrawingSelectCommand}"
                     CommandParameter="{Binding ViewModelBase.SelectedFixture}"
                     Content="{x:Static properties:Resources.Search}"
                     Style="{DynamicResource AccentButtonStyle}" />

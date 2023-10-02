@@ -1231,6 +1231,24 @@ namespace ConveyorDoc.Resources.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Reload descriptions.
+        /// </summary>
+        public static string ReloadDescriptions {
+            get {
+                return ResourceManager.GetString("ReloadDescriptions", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Reload fixtures.
+        /// </summary>
+        public static string ReloadFixtures {
+            get {
+                return ResourceManager.GetString("ReloadFixtures", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Reloading tools.
         /// </summary>
         public static string ReloadingTools {

@@ -8,9 +8,8 @@ using System.Threading.Tasks;
 
 namespace ConveyorDoc.Fixtures.Interfaces
 {
-    public interface ISearchCommand
+    public interface IPDFCommands
     {
-        public DelegateCommand<FixtureRecord> FileSelectDialogCommand { get; }
-
+        DelegateCommand<FixtureRecord> PdfDrawingSelectCommand { get; }
     }
 }

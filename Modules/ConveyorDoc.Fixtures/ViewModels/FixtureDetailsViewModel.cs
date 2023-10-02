@@ -20,6 +20,7 @@ namespace ConveyorDoc.Fixtures.ViewModels
     {
 
 
+
         private FixtureViewModelBase _viewModelBase;
         public FixtureViewModelBase ViewModelBase
         {
@@ -28,14 +29,15 @@ namespace ConveyorDoc.Fixtures.ViewModels
         }
 
 
-        public ISearchCommand SearchCommand { get; }
+        public IPDFCommands PDFCommands { get; }
+
 
         public FixtureDetailsViewModel(FixtureViewModelBase viewModelBase, 
-            ISearchCommand searchCommand)
+            IPDFCommands pdfCOmmands)
         {
             _viewModelBase = viewModelBase;
 
-            SearchCommand = searchCommand;
+            PDFCommands = pdfCOmmands;
 
         }
 

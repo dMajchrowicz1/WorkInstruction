@@ -89,7 +89,6 @@ namespace ConveyorDoc
             containerRegistry.RegisterSingleton<AppTaskManager>();
             containerRegistry.RegisterSingleton<IAppTaskManager, AppTaskManager>();
             containerRegistry.RegisterSingleton<IAppTask, AppTaskManager>();
-            containerRegistry.RegisterSingleton<IActiveTasks, AppTaskManager>();
             containerRegistry.Register<IWindowsDialogService, WindowsDialogService>();
             containerRegistry.RegisterSingleton<IApplicationCommands, ApplicationCommands>();
             containerRegistry.RegisterSingleton<ILoadInstructionCommand, LoadInstructionCommands>();

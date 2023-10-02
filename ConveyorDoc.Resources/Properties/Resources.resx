@@ -660,4 +660,10 @@
   <data name="ConnectingToDatabases" xml:space="preserve">
     <value>Connecting to databases</value>
   </data>
+  <data name="ReloadDescriptions" xml:space="preserve">
+    <value>Reload descriptions</value>
+  </data>
+  <data name="ReloadFixtures" xml:space="preserve">
+    <value>Reload fixtures</value>
+  </data>
 </root>

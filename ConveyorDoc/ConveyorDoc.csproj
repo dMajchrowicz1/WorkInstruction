@@ -18,13 +18,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Remove="Assets\appLogo96.png" />
-    <None Remove="Assets\ConveyorModule.png" />
     <None Remove="Assets\Fixtures\pipeline_drawing_large.png" />
-    <None Remove="Assets\icons-warning-100.png" />
-    <None Remove="Assets\Message\icons8-about-48.png" />
-    <None Remove="Assets\Message\icons8-cancel-48.png" />
-    <None Remove="Assets\Message\icons8-medium-risk-48.png" />
-    <None Remove="Assets\Message\icons8-ok-48.png" />
     <None Remove="Assets\NcProgram\app_nc_process_doc_large.png" />
     <None Remove="Assets\Tools\nc_probe.png" />
     <None Remove="Assets\Tools\nc_tool_backspot_20.png" />
@@ -84,25 +78,7 @@
     <Resource Include="Assets\appLogo96.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Assets\ConveyorModule.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Resource>
     <Resource Include="Assets\Fixtures\pipeline_drawing_large.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Assets\icons-warning-100.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Assets\Message\icons8-about-48.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Assets\Message\icons8-cancel-48.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Assets\Message\icons8-medium-risk-48.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Assets\Message\icons8-ok-48.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Assets\NcProgram\app_nc_process_doc_large.png">

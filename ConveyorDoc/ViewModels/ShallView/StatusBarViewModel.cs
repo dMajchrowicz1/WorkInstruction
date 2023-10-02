@@ -13,9 +13,7 @@ namespace ConveyorDoc.ViewModels.ShallView
     public class StatusBarViewModel : BindableBase
     {
         private readonly IToastMessage _toastMessage;
-
-        private readonly IActiveTasks _tasks;
-        
+      
 
         private string _instructionPath = string.Empty;
         public string InstructionPath
@@ -33,42 +31,39 @@ namespace ConveyorDoc.ViewModels.ShallView
 
         public InstructionViewModelBase ViewModelBase { get; }
 
-        public StatusBarViewModel(IAppTaskManager appTask,IActiveTasks tasks, IToastMessage toastMessage, InstructionViewModelBase viewModelBase)
+        public StatusBarViewModel(IAppTaskManager appTask, IToastMessage toastMessage, InstructionViewModelBase viewModelBase)
         {
             _toastMessage = toastMessage;
-            _tasks = tasks;
             ViewModelBase = viewModelBase;
-           
-            appTask.TaskStatusChanged = new EventHandler<TaskFeedbackArgs>(TaskCompleted_Changed);
 
+            appTask.TaskStatusChanged  = new EventHandler<TaskFeedbackArgs>(TaskStatus_Changed);
 
         }
 
 
-        private void TaskCompleted_Changed(object sender, TaskFeedbackArgs e)
-        {          
-            if (sender is AppTaskManager manager)
+        private void TaskStatus_Changed(object sender, TaskFeedbackArgs e)
+        {
+            switch (e.TaskStatus)
             {
-                switch (e.TaskStatus)
-                {
-                    case TaskStatus.Created:
-                        break;
-                    case TaskStatus.RanToCompletion:
-                        App.Current.Dispatcher.InvokeAsync(() => {
-                            _toastMessage.ShowSucces($"{e.TaskTitle}. {Resources.Properties.Resources.Completed}");
-                        });
-                        break;
-                    case TaskStatus.Canceled:
-                        App.Current.Dispatcher.InvokeAsync(() => { _toastMessage.ShowWarning(e.TaskError); });
-                        break;
-                    case TaskStatus.Faulted:
-                        App.Current.Dispatcher.InvokeAsync(() => { _toastMessage.ShowError(e.TaskError); });
-                        break;
-                }
+                case TaskStatus.Running:
+                    CurrentlyRunningTasks = e.CurrentlyRunningTask;
+                    break;
+                case TaskStatus.RanToCompletion:
+                    App.Current.Dispatcher.InvokeAsync(() => {
+                        _toastMessage.ShowSucces($"{e.TaskTitle}. {Resources.Properties.Resources.Completed}");
+                    });
+                    CurrentlyRunningTasks = e.CurrentlyRunningTask;
+                    break;
+                case TaskStatus.Canceled:
+                    App.Current.Dispatcher.InvokeAsync(() => { _toastMessage.ShowWarning(e.TaskError); });
+                    CurrentlyRunningTasks = e.CurrentlyRunningTask;
+                    break;
+                case TaskStatus.Faulted:
+                    App.Current.Dispatcher.InvokeAsync(() => { _toastMessage.ShowError(e.TaskError); });
+                    CurrentlyRunningTasks = e.CurrentlyRunningTask;
+                    break;
             }
 
-
-            CurrentlyRunningTasks = _tasks.ActiveTasks.Count;
 
         }
 

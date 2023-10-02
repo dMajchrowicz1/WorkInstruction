@@ -23,16 +23,11 @@ namespace ConveyorDoc.Fixtures
 
         public void RegisterTypes(IContainerRegistry containerRegistry)
         {
-
             containerRegistry.RegisterSingleton<IFixtureRepository, FixtureRepository>();
-            containerRegistry.RegisterSingleton<ISearchCommand,SearchCommand>();
-            containerRegistry.RegisterSingleton<FixtureViewModelBase>();
-
-            
+            containerRegistry.RegisterSingleton<IPDFCommands,PDFCommands>();
+            containerRegistry.RegisterSingleton<FixtureViewModelBase>();          
 
             containerRegistry.RegisterForNavigation<FixturesView>();
-
-
         }
     }
 }

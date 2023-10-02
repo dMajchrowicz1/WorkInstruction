@@ -69,7 +69,7 @@ namespace ConveyorDoc.Descriptions.ViewModels.Commands
             {
                 return _descriptionRepository.GetAll();
 
-            }, Resources.Properties.Resources.ReloadDatabase,(status,data) =>
+            }, ConveyorDoc.Resources.Properties.Resources.ReloadDescriptions,(status,data) =>
             {
                 Application.Current.Dispatcher.InvokeAsync(() =>
                 {
