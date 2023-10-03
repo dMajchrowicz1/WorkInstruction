@@ -675,4 +675,13 @@
   <data name="ConnectionTools" xml:space="preserve">
     <value>Connection tools database</value>
   </data>
+  <data name="BackgroundOperations" xml:space="preserve">
+    <value>Background operations</value>
+  </data>
+  <data name="OpeningPDF" xml:space="preserve">
+    <value>Opening PDF</value>
+  </data>
+  <data name="OpeningFixtureWorkspace" xml:space="preserve">
+    <value>Opening fixture workspace</value>
+  </data>
 </root>

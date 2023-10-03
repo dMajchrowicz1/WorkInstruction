@@ -196,13 +196,18 @@ namespace ConveyorDoc.ViewModels
 
         void ExecuteRemoveInstructionCommand(object parameter)
         {
-            if (parameter is Word word && word is not null)
-            {              
-                _viewModelBase.CurrentInstruction.RemoveWord(word);
-                ClearRegion();
-            }
-            else
-                _toast.ShowError(Resx.SelectWordFile);
+
+            _appTask.RunOnUIAsync(() =>
+            {
+                if (parameter is Word word && word is not null)
+                {
+                    ClearRegion();
+                    _viewModelBase.CurrentInstruction.RemoveWord(word);                    
+                }
+                else
+                    throw new Exception(Resx.SelectWordFile);
+            }, Resx.RemovingWordFile);
+
 
         }
 

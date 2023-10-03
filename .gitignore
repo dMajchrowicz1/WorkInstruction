@@ -97,6 +97,7 @@ StyleCopReport.xml
 *.pidb
 *.svclog
 *.scc
+*.vdproj
 
 # Chutzpah Test files
 _Chutzpah*
@@ -364,4 +365,3 @@ FodyWeavers.xsd
 
 
 #Igonre directories
-/ConveyorDoc.Setup

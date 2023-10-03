@@ -675,4 +675,13 @@
   <data name="ConnectionTools" xml:space="preserve">
     <value>Łączenie z bazą danych narzędzi </value>
   </data>
+  <data name="BackgroundOperations" xml:space="preserve">
+    <value>Operacje w tle!</value>
+  </data>
+  <data name="OpeningPDF" xml:space="preserve">
+    <value>Otwieranie pliku PDF</value>
+  </data>
+  <data name="OpeningFixtureWorkspace" xml:space="preserve">
+    <value>Otwieranie miejsca pracy oprzyrządowania</value>
+  </data>
 </root>

@@ -27,10 +27,18 @@ namespace ConveyorDoc.ViewModels
             _appActivationService = appActivationService;
             Commands = commands;
 
-            Initialize();
+            
+
+            Application.Current.MainWindow.Loaded += MainWindow_Loaded;
 
             Application.Current.Exit += Current_Exit;
         }
+
+        private void MainWindow_Loaded(object sender, RoutedEventArgs e)
+        {
+            Initialize();
+        }
+
 
         private void Current_Exit(object sender, ExitEventArgs e)
         {

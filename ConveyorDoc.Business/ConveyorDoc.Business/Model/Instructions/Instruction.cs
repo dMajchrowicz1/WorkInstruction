@@ -118,10 +118,7 @@ namespace ConveyorDoc.Business.Model
 
         public void RemoveWord(Word word)
         {
-            if (_wordInstructions.Contains(word))
-            { _wordInstructions.Remove(word); }
-            else
-                throw new ArgumentException("Invalid word file");
+            _wordInstructions.Remove(word);
         }
 
         public void GenerateWords(string savePath, bool detailedTools = false)

@@ -49,17 +49,15 @@ namespace ConveyorDoc.ViewModels.ShallView
                     CurrentlyRunningTasks = e.CurrentlyRunningTask;
                     break;
                 case TaskStatus.RanToCompletion:
-                    App.Current.Dispatcher.InvokeAsync(() => {
-                        _toastMessage.ShowSucces($"{e.TaskTitle}. {Resources.Properties.Resources.Completed}");
-                    });
+                    _toastMessage.ShowSucces($"{e.TaskTitle}. {Resources.Properties.Resources.Completed}");
                     CurrentlyRunningTasks = e.CurrentlyRunningTask;
                     break;
                 case TaskStatus.Canceled:
-                    App.Current.Dispatcher.InvokeAsync(() => { _toastMessage.ShowWarning(e.TaskError); });
+                     _toastMessage.ShowWarning(e.TaskError); 
                     CurrentlyRunningTasks = e.CurrentlyRunningTask;
                     break;
                 case TaskStatus.Faulted:
-                    App.Current.Dispatcher.InvokeAsync(() => { _toastMessage.ShowError(e.TaskError); });
+                     _toastMessage.ShowError(e.TaskError);
                     CurrentlyRunningTasks = e.CurrentlyRunningTask;
                     break;
             }

@@ -64,18 +64,12 @@ namespace ConveyorDoc.Fixtures.Model
 
         public void OpenPdf()
         {
-            if (PDF != null)
-            {
-                Process.Start("explorer", PDF);
-            }
+            Process.Start("explorer", PDF);
         }
 
         public void OpenWorkspace()
         {
-            if(PDF != null && Directory.Exists(Path.GetDirectoryName(PDF)))
-            {
-                Process.Start("explorer", Path.GetDirectoryName(PDF));
-            }
+            Process.Start("explorer", Path.GetDirectoryName(PDF));
         }
 
         public override bool Contains(object obj)

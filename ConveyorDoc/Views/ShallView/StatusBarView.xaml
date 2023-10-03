@@ -6,6 +6,7 @@
     xmlns:local="clr-namespace:ConveyorDoc.Views.ShallView"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:prism="http://prismlibrary.com/"
+    xmlns:properties="clr-namespace:ConveyorDoc.Resources.Properties;assembly=ConveyorDoc.Resources"
     xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
     xmlns:ui="http://schemas.modernwpf.com/2019"
     prism:ViewModelLocator.AutoWireViewModel="True"
@@ -38,7 +39,7 @@
 
 
     <StatusBarItem Grid.Column="2" Margin="{DynamicResource SmallLeftRightMargin}" 
-                   Visibility="{Binding CurrentlyRunningTasks, UpdateSourceTrigger=PropertyChanged,Mode=TwoWay, Converter={StaticResource IntToBool}}">
+                   Visibility="{Binding CurrentlyRunningTasks, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource IntToBool}}">
 
 
 
@@ -46,11 +47,11 @@
 
             <mah:Badged BadgeBackground="{StaticResource SystemControlBackgroundAccentBrush}" 
                         BadgeForeground="{StaticResource SystemControlForegroundAltHighBrush}" 
-                        Badge="{Binding CurrentlyRunningTasks, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                        Badge="{Binding CurrentlyRunningTasks, UpdateSourceTrigger=PropertyChanged}"
                         BadgePlacementMode="Left" BadgeFontSize="10"/>
 
             <TextBlock Margin="{DynamicResource SmallLeftRightMargin}" 
-                       Text="Background operations" Style="{DynamicResource CaptionTextBlock}"/>
+                       Text="{x:Static properties:Resources.BackgroundOperations}" Style="{DynamicResource CaptionTextBlock}"/>
 
 
             <ui:ProgressBar

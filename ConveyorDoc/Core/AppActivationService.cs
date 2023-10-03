@@ -92,15 +92,16 @@ namespace ConveyorDoc.Core
                 {
                     //When status is ok, loading data from database
                     _container.Init();
-
-                    //Tools connection has to wait until first oleDbConnection finish
-                    //Can only open one connection at time
-                    _appTask.RunAsync(() =>
-                    {
-                        _toolConnectionFactory.GetOpenConnection();
-
-                    }, ConveyorDoc.Resources.Properties.Resources.ConnectionTools);
                 }
+
+
+                //Tools connection has to wait until first oleDbConnection finish
+                //Can only open one connection at time
+                _appTask.RunAsync(() =>
+                {
+                    _toolConnectionFactory.GetOpenConnection();
+
+                }, ConveyorDoc.Resources.Properties.Resources.ConnectionTools);
             });
 
             //Opening connection to cimco db 

@@ -11,107 +11,106 @@ using System.Windows;
 namespace ConveyorDoc.Core
 {
 
-    public class AppTaskManager : IAppTask , IAppTaskManager
+    public class AppTaskManager : IAppTask, IAppTaskManager
     {
 
         private List<string> _activeTasks { get; } = new List<string>();
 
-        public EventHandler<TaskFeedbackArgs> TaskStatusChanged {get; set;}
+        public EventHandler<TaskFeedbackArgs> TaskStatusChanged { get; set; }
 
 
 
         public void RunAsync(Action action, string taskTitle, Action<TaskStatus> onCompleted = null)
         {
             Task task = null;
-            TaskStatus status = TaskStatus.Created;
-            
-            
+
+
             if (_activeTasks.Contains(taskTitle))
             {
                 TaskStatusChanged?.Invoke
-                    (this, new TaskFeedbackArgs(taskTitle, Resources.Properties.Resources.AppTaskErrorMultipleTask, 
-                    status = TaskStatus.Canceled, _activeTasks.Count));
-            }
-            else
-            {
-                _activeTasks.Add(taskTitle);
-                task = new Task(action);
-                task.Start();
-                TaskStatusChanged?.Invoke(this, new TaskFeedbackArgs(taskTitle, string.Empty, status = TaskStatus.Running, _activeTasks.Count));
-                
-
-
-                // For error handling.
-                task.ContinueWith(t =>
-                {
-                    _activeTasks.Remove(taskTitle);
-                    TaskStatusChanged?.Invoke(this, new TaskFeedbackArgs(taskTitle, t.Exception.Message, status = TaskStatus.Faulted, _activeTasks.Count));
-                   
-                }, TaskContinuationOptions.OnlyOnFaulted);
-
-                // If it succeeded.
-                task.ContinueWith(t =>
-                {
-                    _activeTasks.Remove(taskTitle);
-                    TaskStatusChanged?.Invoke(this, new TaskFeedbackArgs(taskTitle, string.Empty, status = TaskStatus.RanToCompletion, _activeTasks.Count));                  
-
-                }, TaskContinuationOptions.OnlyOnRanToCompletion);
-
-                //Completed
-                task.Await(()=>
-                {                    
-
-                    onCompleted?.Invoke(status);
-
-                    task.Dispose();                    
-                });
-                
-            }
-        }
-
-        public void RunAsync(Func<object> action, string taskTitle, Action<TaskStatus, object> onCompleted = null)
-        {
-            
-            Task<object> task = null;
-            TaskStatus status = TaskStatus.Created;
-
-
-            if (_activeTasks.Contains(taskTitle))
-            {
-                TaskStatusChanged?.Invoke(this, new TaskFeedbackArgs(taskTitle, 
-                    Resources.Properties.Resources.AppTaskErrorMultipleTask, 
+                    (this, new TaskFeedbackArgs(taskTitle, Resources.Properties.Resources.AppTaskErrorMultipleTask,
                     TaskStatus.Canceled, _activeTasks.Count));
             }
             else
             {
                 _activeTasks.Add(taskTitle);
-                task = new Task<object>(action);               
-                TaskStatusChanged?.Invoke(this, new TaskFeedbackArgs(taskTitle, string.Empty,status = TaskStatus.Running,_activeTasks.Count));
+                task = new Task(action);
+                TaskStatusChanged?.Invoke(this, new TaskFeedbackArgs(taskTitle, string.Empty, TaskStatus.Running, _activeTasks.Count));
+
                 task.Start();
-
-
-                // For error handling.
-                task.ContinueWith(t =>
-                {
-                    _activeTasks.Remove(taskTitle);
-                    TaskStatusChanged?.Invoke(this, new TaskFeedbackArgs(taskTitle, t.Exception.Message,status = TaskStatus.Faulted, _activeTasks.Count));
-                    
-                }, TaskContinuationOptions.OnlyOnFaulted);
-
-                // If it succeeded.
-                task.ContinueWith(t =>
-                {
-                    _activeTasks.Remove(taskTitle);
-                    TaskStatusChanged?.Invoke(this, new TaskFeedbackArgs(taskTitle, string.Empty, status = TaskStatus.RanToCompletion,_activeTasks.Count));
-                    
-                }, TaskContinuationOptions.OnlyOnRanToCompletion);
-
+                
 
                 //Completed
                 task.Await(() =>
                 {
+                    _activeTasks.Remove(taskTitle);
+
+                    TaskStatusChanged?.Invoke(this, new TaskFeedbackArgs(taskTitle,
+                        string.Empty, task.Status, _activeTasks.Count));
+
+
+                    onCompleted?.Invoke(task.Status);
                    
-                    onCompleted?.Invoke(status, task.Result);
+
+                    task.Dispose();
+                }, error =>
+                {
+                    _activeTasks.Remove(taskTitle);
+
+                    TaskStatusChanged?.Invoke(this, new TaskFeedbackArgs(taskTitle,
+                            error.Message, TaskStatus.Faulted, _activeTasks.Count));
+
+                    onCompleted?.Invoke(TaskStatus.Faulted);
+
+                    task.Dispose();
+                });
+
+            }
+        }
+
+        public  void RunAsync(Func<object> action, string taskTitle, Action<TaskStatus, object> onCompleted = null)
+        {
+
+            Task<object> task = null;
+
+
+
+            if (_activeTasks.Contains(taskTitle))
+            {
+                TaskStatusChanged?.Invoke(this, new TaskFeedbackArgs(taskTitle,
+                    Resources.Properties.Resources.AppTaskErrorMultipleTask,
+                    TaskStatus.Canceled, _activeTasks.Count));
+            }
+            else
+            {
+                _activeTasks.Add(taskTitle);
+                task = new Task<object>(action);
+                task.Start();
+                TaskStatusChanged?.Invoke(this, new TaskFeedbackArgs(taskTitle, string.Empty, TaskStatus.Running, _activeTasks.Count));
+
+                
+
+                //Completed
+                task.Await(() =>
+                {
+                    _activeTasks.Remove(taskTitle);
+
+                    TaskStatusChanged?.Invoke(this, new TaskFeedbackArgs(taskTitle,
+                        string.Empty, task.Status, _activeTasks.Count));
+
+
+                    onCompleted?.Invoke(task.Status,task.Result);
+
+
+                    task.Dispose();
+                }, error =>
+                {
+                    _activeTasks.Remove(taskTitle);
+
+                    TaskStatusChanged?.Invoke(this, new TaskFeedbackArgs(taskTitle,
+                            error.Message, TaskStatus.Faulted, _activeTasks.Count));
+
+                    onCompleted?.Invoke(TaskStatus.Faulted, null);
 
                     task.Dispose();
                 });
@@ -121,55 +120,52 @@ namespace ConveyorDoc.Core
 
         public void RunOnUIAsync(Action action, string taskTitle, Action<TaskStatus> onCompleted = null)
         {
-            
-            TaskStatus status = TaskStatus.Created;
-
 
             if (_activeTasks.Contains(taskTitle))
             {
-                TaskStatusChanged?.Invoke(this, new TaskFeedbackArgs(taskTitle, Resources.Properties.Resources.AppTaskErrorMultipleTask,status = TaskStatus.Canceled, _activeTasks.Count));
+
+                TaskStatusChanged?.Invoke(this, new TaskFeedbackArgs(taskTitle
+                    , Resources.Properties.Resources.AppTaskErrorMultipleTask, TaskStatus.Canceled, _activeTasks.Count));
             }
             else
             {
                 _activeTasks.Add(taskTitle);
-                TaskStatusChanged?.Invoke(this, new TaskFeedbackArgs(taskTitle, string.Empty,status = TaskStatus.Running, _activeTasks.Count));
+                TaskStatusChanged?.Invoke(this, new TaskFeedbackArgs(taskTitle, string.Empty, TaskStatus.Running, _activeTasks.Count));
                 var operation = Application.Current.Dispatcher.InvokeAsync(action);
-                              
-
-                // For error handling.
-                operation.Task.ContinueWith(t =>                
-                {
-                    _activeTasks.Remove(taskTitle);
-                    TaskStatusChanged?.Invoke(this, new TaskFeedbackArgs(taskTitle, t.Exception.Message,status = TaskStatus.Faulted, _activeTasks.Count));                   
-                }
-                , TaskContinuationOptions.OnlyOnFaulted);
-
-                // If it succeeded.
-                operation.Task.ContinueWith(t =>
-                {
-                    _activeTasks.Remove(taskTitle);
-                    TaskStatusChanged?.Invoke(this, new TaskFeedbackArgs(taskTitle, string.Empty,status = TaskStatus.RanToCompletion, _activeTasks.Count));
-                   
-                }, TaskContinuationOptions.OnlyOnRanToCompletion);
 
 
-                //Invok completed task callback
+
+                //Completed
                 operation.Task.Await(() =>
                 {
-                   
-                    onCompleted?.Invoke(status);
+                    _activeTasks.Remove(taskTitle);
+
+                    TaskStatusChanged?.Invoke(this, new TaskFeedbackArgs(taskTitle,
+                    string.Empty, TaskStatus.RanToCompletion, _activeTasks.Count));
+
+
+                    onCompleted?.Invoke(TaskStatus.RanToCompletion);
+
 
                     operation.Task.Dispose();
 
-                });
-                
-            }
+                }, error =>
+                {
+                    _activeTasks.Remove(taskTitle);
 
+                    TaskStatusChanged?.Invoke(this, new TaskFeedbackArgs(taskTitle,
+                            error.Message, TaskStatus.Faulted, _activeTasks.Count));
+
+                    onCompleted?.Invoke(TaskStatus.Faulted);
+
+                    operation.Task.Dispose();
+                });
+
+            }           
 
 
         }
 
-         
     }
 
     public class TaskFeedbackArgs : EventArgs
@@ -186,10 +182,13 @@ namespace ConveyorDoc.Core
 
         public string TaskError { get; }
 
-        public TaskStatus TaskStatus { get; }   
+        public TaskStatus TaskStatus { get; }
 
         public int CurrentlyRunningTask { get; }
-       
+
     }
+
+
+
 
 }

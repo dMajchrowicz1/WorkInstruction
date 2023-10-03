@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using ToastNotifications;
 
 namespace ConveyorDoc.Core
@@ -19,22 +20,22 @@ namespace ConveyorDoc.Core
 
         public void ShowError(string message)
         {
-            _notifier.ShowError(message);
+            Application.Current.Dispatcher.InvokeAsync(() => _notifier.ShowError(message));
         }
 
         public void ShowInfo(string message)
         {
-            _notifier.ShowInformation(message);
+            Application.Current.Dispatcher.InvokeAsync(() => _notifier.ShowInformation(message));
         }
 
         public void ShowSucces(string message)
         {
-            _notifier.ShowSucces(message);
+            Application.Current.Dispatcher.InvokeAsync(() => _notifier.ShowSucces(message));
         }
 
         public void ShowWarning(string message)
         {
-            _notifier.ShowWarning(message);
+            Application.Current.Dispatcher.InvokeAsync(() => _notifier.ShowWarning(message));
         }
     }
 }

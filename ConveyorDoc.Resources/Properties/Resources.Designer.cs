@@ -151,6 +151,15 @@ namespace ConveyorDoc.Resources.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Background operations.
+        /// </summary>
+        public static string BackgroundOperations {
+            get {
+                return ResourceManager.GetString("BackgroundOperations", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Blank.
         /// </summary>
         public static string Blank {
@@ -1101,6 +1110,24 @@ namespace ConveyorDoc.Resources.Properties {
         public static string OpenFileNcProgram {
             get {
                 return ResourceManager.GetString("OpenFileNcProgram", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Opening fixture workspace.
+        /// </summary>
+        public static string OpeningFixtureWorkspace {
+            get {
+                return ResourceManager.GetString("OpeningFixtureWorkspace", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Opening PDF.
+        /// </summary>
+        public static string OpeningPDF {
+            get {
+                return ResourceManager.GetString("OpeningPDF", resourceCulture);
             }
         }
         

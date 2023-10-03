@@ -89,7 +89,7 @@ namespace ConveyorDoc.ViewModels.Commands
 
         private void NewFile()
         {
-            _dialogService.ShowContentDialog(typeof(NewInstructionDialog), result =>
+            _dialogService.ShowContentDialog(typeof(CreateInstructionDialog), result =>
             {
                 if (result.Result == ButtonResult.OK)
                 {
@@ -126,7 +126,7 @@ namespace ConveyorDoc.ViewModels.Commands
         {
             if (_viewModelBase.CurrentInstruction != null)
             {
-                await _dialogService.ShowContentDialog(typeof(AskForSave), result =>
+                await _dialogService.ShowContentDialog(typeof(SaveInstructionDialog), result =>
                 {
                     if (result.Result == ButtonResult.Yes)
                         SaveFile();
@@ -140,7 +140,7 @@ namespace ConveyorDoc.ViewModels.Commands
         {
             if (_viewModelBase.CurrentInstruction != null)
             {
-                await _dialogService.ShowContentDialog(typeof(AskForSave), result =>
+                await _dialogService.ShowContentDialog(typeof(SaveInstructionDialog), result =>
                 {
                     if (result.Result == ButtonResult.OK)
                         SaveFile();

@@ -5,11 +5,11 @@ using ToastNotifications;
 
 namespace ConveyorDoc.ViewModels.ShallView.Dialogs
 {
-    public class NewInstructionDialogViewModel : InstructionDialogBase
+    public class CreateInstructionDialogViewModel : InstructionDialogBase
     {
 
 
-        public NewInstructionDialogViewModel(Notifier notifier, IDataContainer data) 
+        public CreateInstructionDialogViewModel(Notifier notifier, IDataContainer data) 
             : base($"{Resources.Properties.Resources.Create} {Resources.Properties.Resources.Instruction}",
                   Resources.Properties.Resources.Create, 
                   notifier,data) { }

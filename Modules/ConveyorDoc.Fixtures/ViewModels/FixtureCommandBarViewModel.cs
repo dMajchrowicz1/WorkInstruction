@@ -150,18 +150,25 @@ namespace ConveyorDoc.Fixtures.ViewModels
 
         private void ExecuteOpenWorkspaceCommand(object obj)
         {
-            if (obj is FixtureRecord fix)
+            _appTask.RunAsync(() =>
             {
-                fix.OpenWorkspace();
-            }
+                if (obj is FixtureRecord fix)
+                {
+                    fix.OpenWorkspace();
+                }
+            }, ConveyorDoc.Resources.Properties.Resources.OpeningFixtureWorkspace);
         }
 
         private void ExecuteOpenDrawingCommand(object parameter)
         {
-            if (parameter is FixtureRecord record)
+            _appTask.RunAsync(() =>
             {
-                record.OpenPdf();
-            }
+                if (parameter is FixtureRecord record)
+                {
+                    record.OpenPdf();
+                }
+            }, ConveyorDoc.Resources.Properties.Resources.OpeningPDF);
+
         }
 
         private void ExecuteEditFixtureCommand(FixtureRecord obj)

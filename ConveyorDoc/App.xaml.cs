@@ -133,8 +133,8 @@ namespace ConveyorDoc
 
 
             //Dialogs
-            ViewModelLocationProvider.Register<NewInstructionDialog, NewInstructionDialogViewModel>();
-            ViewModelLocationProvider.Register<AskForSave, AskForSaveViewModel>();
+            ViewModelLocationProvider.Register<CreateInstructionDialog, CreateInstructionDialogViewModel>();
+            ViewModelLocationProvider.Register<SaveInstructionDialog, AskForSaveViewModel>();
             ViewModelLocationProvider.Register<InstructionDataDialog, InstructionDataDialogViewModel>();
 
             ViewModelLocationProvider.Register<SelectToolDialog, SelectToolDialogViewModel>();

@@ -56,10 +56,12 @@ namespace ConveyorDoc.ViewModels.Commands
 
         void ExecuteOpenPDFCommand(string parameter)
         {
-            if (parameter != null)
+            _appTask.RunAsync(() =>
             {
                 Process.Start("explorer", parameter);
-            }
+
+            }, ConveyorDoc.Resources.Properties.Resources.OpeningPDF);
+
         }
     }
 }

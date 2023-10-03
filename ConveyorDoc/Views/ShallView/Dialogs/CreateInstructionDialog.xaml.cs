@@ -16,13 +16,15 @@ using System.Windows.Shapes;
 namespace ConveyorDoc.Views.Dialogs
 {
     /// <summary>
-    /// Interaction logic for AskForSave.xaml
+    /// Interaction logic for NewProjectDialog.xaml
     /// </summary>
-    public partial class AskForSave : UserControl
+    public partial class CreateInstructionDialog : UserControl
     {
-        public AskForSave()
+        public CreateInstructionDialog()
         {
             InitializeComponent();
+
+
         }
     }
 }
